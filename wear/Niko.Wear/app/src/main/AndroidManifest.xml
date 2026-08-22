@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- مسئولیت: اعلام برنامهٔ companion برای Wear OS.
+     وابستگی‌ها و لایه: Android manifest → Wear adapter؛ بدون مجوز شبکه یا storage موازی.
+     نکات تغییر و قیود: برنامه فقط پیام‌های Companion را به Phone تحویل می‌دهد. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-feature android:name="android.hardware.type.watch" android:required="true" />
+    <application
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:allowBackup="false">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="com.google.android.wearable.action.WEARABLE_APP" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

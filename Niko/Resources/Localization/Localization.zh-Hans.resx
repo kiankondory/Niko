@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>尼可</value>
+  </data>
+  <data name="QuickLog.Smoked" xml:space="preserve">
+    <value>我抽了</value>
+  </data>
+  <data name="QuickLog.Resisted" xml:space="preserve">
+    <value>我忍住了</value>
+  </data>
+  <data name="QuickLog.Craving" xml:space="preserve">
+    <value>我想抽烟</value>
+  </data>
+  <data name="QuickLog.Success" xml:space="preserve">
+    <value>已记录</value>
+  </data>
+  <data name="QuickLog.Error" xml:space="preserve">
+    <value>出错了</value>
+  </data>
+  <data name="Sync.Pending" xml:space="preserve">
+    <value>等待同步</value>
+  </data>
+  <data name="Sync.InSync" xml:space="preserve">
+    <value>已同步</value>
+  </data>
+  <data name="Sync.Failed" xml:space="preserve">
+    <value>同步失败</value>
+  </data>
+  <data name="Dashboard.Title" xml:space="preserve">
+    <value>进度</value>
+  </data>
+  <data name="Dashboard.Smoked" xml:space="preserve">
+    <value>已吸烟</value>
+  </data>
+  <data name="Dashboard.Resisted" xml:space="preserve">
+    <value>已克制</value>
+  </data>
+  <data name="Dashboard.Cravings" xml:space="preserve">
+    <value>渴求</value>
+  </data>
+  <data name="Dashboard.CurrentStreak" xml:space="preserve">
+    <value>当前坚持</value>
+  </data>
+  <data name="Dashboard.Days" xml:space="preserve">
+    <value>{0} 天</value>
+  </data>
+  <data name="Dashboard.Milestone" xml:space="preserve">
+    <value>里程碑</value>
+  </data>
+  <data name="Dashboard.MilestoneNext" xml:space="preserve">
+    <value>下一个：{0} 天</value>
+  </data>
+  <data name="Dashboard.Savings" xml:space="preserve">
+    <value>大约节省</value>
+  </data>
+  <data name="Dashboard.SavingsUnavailable" xml:space="preserve">
+    <value>设置价格和每日用量以查看节省</value>
+  </data>
+  <data name="Dashboard.Empty" xml:space="preserve">
+    <value>还没有记录任何事件</value>
+  </data>
+  <data name="Dashboard.SavingsDisclaimer" xml:space="preserve">
+    <value>大致估算；非医疗建议</value>
+  </data>
+  <data name="Common.Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Tab.QuickLog" xml:space="preserve">
+    <value>快速记录</value>
+  </data>
+  <data name="Dashboard.Milestones" xml:space="preserve">
+    <value>里程碑</value>
+  </data>
+  <data name="Milestone.Completed" xml:space="preserve">
+    <value>已完成</value>
+  </data>
+  <data name="Milestone.Current" xml:space="preserve">
+    <value>当前</value>
+  </data>
+  <data name="Milestone.Upcoming" xml:space="preserve">
+    <value>即将到来</value>
+  </data>
+  <data name="Milestone.Days" xml:space="preserve">
+    <value>{0} 天</value>
+  </data>
+  <data name="CravingBattle.Title" xml:space="preserve">
+    <value>对抗渴求</value>
+  </data>
+  <data name="CravingBattle.Entry" xml:space="preserve">
+    <value>对抗渴求</value>
+  </data>
+  <data name="CravingBattle.SelectIntensity" xml:space="preserve">
+    <value>渴求有多强烈？</value>
+  </data>
+  <data name="CravingBattle.Intensity.Mild" xml:space="preserve">
+    <value>轻微</value>
+  </data>
+  <data name="CravingBattle.Intensity.Moderate" xml:space="preserve">
+    <value>中等</value>
+  </data>
+  <data name="CravingBattle.Intensity.Intense" xml:space="preserve">
+    <value>强烈</value>
+  </data>
+  <data name="CravingBattle.ChooseAction" xml:space="preserve">
+    <value>选择一件想尝试的事</value>
+  </data>
+  <data name="CravingBattle.Action.DeepBreathing" xml:space="preserve">
+    <value>慢慢呼吸</value>
+  </data>
+  <data name="CravingBattle.Action.Delay" xml:space="preserve">
+    <value>等几分钟</value>
+  </data>
+  <data name="CravingBattle.Action.DrinkWater" xml:space="preserve">
+    <value>喝一杯水</value>
+  </data>
+  <data name="CravingBattle.Action.Movement" xml:space="preserve">
+    <value>稍微活动身体</value>
+  </data>
+  <data name="CravingBattle.Action.SupportContact" xml:space="preserve">
+    <value>联系一个可信的人</value>
+  </data>
+  <data name="CravingBattle.Timer" xml:space="preserve">
+    <value>{0} 秒</value>
+  </data>
+  <data name="CravingBattle.Complete" xml:space="preserve">
+    <value>我做到了</value>
+  </data>
+  <data name="CravingBattle.ResistButton" xml:space="preserve">
+    <value>我克制住了</value>
+  </data>
+  <data name="CravingBattle.Completed" xml:space="preserve">
+    <value>做得好。你度过了这一刻。</value>
+  </data>
+  <data name="CravingBattle.Resisted" xml:space="preserve">
+    <value>你克制住了。这需要力量。</value>
+  </data>
+  <data name="CravingBattle.Exited" xml:space="preserve">
+    <value>没关系。你可以随时重新开始。</value>
+  </data>
+  <data name="CravingBattle.Exit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="CravingBattle.StartOver" xml:space="preserve">
+    <value>重新开始</value>
+  </data>
+  <data name="CravingBattle.InterventionGuide" xml:space="preserve">
+    <value>跟随直到计时结束，然后标记完成。</value>
+  </data>
+  <data name="Recovery.Title" xml:space="preserve">
+    <value>身体恢复</value>
+  </data>
+  <data name="Recovery.Progress" xml:space="preserve">
+    <value>大致进度</value>
+  </data>
+  <data name="Recovery.NextStage" xml:space="preserve">
+    <value>下一阶段：{0}</value>
+  </data>
+  <data name="Recovery.Disclaimer" xml:space="preserve">
+    <value>仅作大致参考；这不是医疗建议。</value>
+  </data>
+  <data name="Recovery.Unavailable" xml:space="preserve">
+    <value>添加你的戒烟日期以查看大致的恢复进度。</value>
+  </data>
+  <data name="Recovery.Stage0.Title" xml:space="preserve">
+    <value>开始阶段</value>
+  </data>
+  <data name="Recovery.Stage1.Title" xml:space="preserve">
+    <value>最初几天</value>
+  </data>
+  <data name="Recovery.Stage2.Title" xml:space="preserve">
+    <value>第一周</value>
+  </data>
+  <data name="Recovery.Stage3.Title" xml:space="preserve">
+    <value>两周</value>
+  </data>
+  <data name="Recovery.Stage4.Title" xml:space="preserve">
+    <value>一个月</value>
+  </data>
+  <data name="Recovery.Stage5.Title" xml:space="preserve">
+    <value>三个月</value>
+  </data>
+  <data name="Recovery.Stage6.Title" xml:space="preserve">
+    <value>半年</value>
+  </data>
+  <data name="Recovery.Stage7.Title" xml:space="preserve">
+    <value>一年及以上</value>
+  </data>
+  <data name="Recovery.Stage0.Description" xml:space="preserve">
+    <value>当身体开始脱离尼古丁时，可能开始适应。进度是大致的。</value>
+  </data>
+  <data name="Recovery.Stage1.Description" xml:space="preserve">
+    <value>在最初几天，身体可能继续适应。你的进度比任何单独时刻都重要。</value>
+  </data>
+  <data name="Recovery.Stage2.Description" xml:space="preserve">
+    <value>在第一周内，有些人可能会注意到感受的变化。这只是估计。</value>
+  </data>
+  <data name="Recovery.Stage3.Description" xml:space="preserve">
+    <value>大约两周时，身体可能继续适应。你的坚持才是真正的进步。</value>
+  </data>
+  <data name="Recovery.Stage4.Description" xml:space="preserve">
+    <value>大约一个月时，有些人可能觉得日常略有不同。这不是保证。</value>
+  </data>
+  <data name="Recovery.Stage5.Description" xml:space="preserve">
+    <value>三个月时，你可能注意到更长期的变化。恢复因人而异。</value>
+  </data>
+  <data name="Recovery.Stage6.Description" xml:space="preserve">
+    <value>半年时，许多人报告持续改善。这是估计，不是承诺。</value>
+  </data>
+  <data name="Recovery.Stage7.Description" xml:space="preserve">
+    <value>一年以后，身体已有时间适应。每个人的恢复都不同。</value>
+  </data>
+  <data name="Settings.Title" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Settings.Entry" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Settings.CigarettesPerDay" xml:space="preserve">
+    <value>每天吸烟数</value>
+  </data>
+  <data name="Settings.PricePerCigarette" xml:space="preserve">
+    <value>每支价格</value>
+  </data>
+  <data name="Settings.PricePerPack" xml:space="preserve">
+    <value>每包价格</value>
+  </data>
+  <data name="Settings.PackSize" xml:space="preserve">
+    <value>每包支数</value>
+  </data>
+  <data name="Settings.Currency" xml:space="preserve">
+    <value>货币</value>
+  </data>
+  <data name="Settings.QuitDate" xml:space="preserve">
+    <value>戒烟日期</value>
+  </data>
+  <data name="Settings.Save" xml:space="preserve">
+    <value>保存设置</value>
+  </data>
+  <data name="Settings.Saved" xml:space="preserve">
+    <value>设置已保存</value>
+  </data>
+  <data name="Settings.SavingsHint" xml:space="preserve">
+    <value>进度中显示的节省额是大致的，并基于这些设置。</value>
+  </data>
+  <data name="Settings.Error.InvalidCigarettesPerDay" xml:space="preserve">
+    <value>请输入每天吸烟的正数。</value>
+  </data>
+  <data name="Settings.Error.InvalidPrice" xml:space="preserve">
+    <value>请输入正的价格。</value>
+  </data>
+  <data name="Settings.Error.InvalidPackSize" xml:space="preserve">
+    <value>请输入正的包装支数。</value>
+  </data>
+  <data name="Settings.Error.MissingPrice" xml:space="preserve">
+    <value>请输入每支或每包的价格。</value>
+  </data>
+  <data name="Settings.Error.InvalidQuitDate" xml:space="preserve">
+    <value>请选择不在未来的戒烟日期。</value>
+  </data>
+  <data name="Settings.Error.InvalidCurrency" xml:space="preserve">
+    <value>请输入货币代码（例如 USD）。</value>
+  </data>
+  <data name="Notifications.Title" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="Notifications.Entry" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="Notifications.Enable" xml:space="preserve">
+    <value>允许支持性提醒</value>
+  </data>
+  <data name="Notifications.DailyEncouragement" xml:space="preserve">
+    <value>每日鼓励</value>
+  </data>
+  <data name="Notifications.MilestoneReached" xml:space="preserve">
+    <value>达成里程碑</value>
+  </data>
+  <data name="Notifications.CravingSupport" xml:space="preserve">
+    <value>渴求支持</value>
+  </data>
+  <data name="Notifications.SavingsProgress" xml:space="preserve">
+    <value>进度提醒</value>
+  </data>
+  <data name="Notifications.TimeOfDay" xml:space="preserve">
+    <value>一天中的时间</value>
+  </data>
+  <data name="Notifications.Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Notifications.Saved" xml:space="preserve">
+    <value>通知设置已保存</value>
+  </data>
+  <data name="Notifications.PermissionDenied" xml:space="preserve">
+    <value>此设备上的通知已关闭。您可以在设备设置中更改。</value>
+  </data>
+  <data name="Notifications.SensitiveHint" xml:space="preserve">
+    <value>提醒简短且支持性，不会在锁定屏幕上显示私人细节。</value>
+  </data>
+  <data name="Notification.Daily.Title" xml:space="preserve">
+    <value>继续前进</value>
+  </data>
+  <data name="Notification.Daily.Body" xml:space="preserve">
+    <value>你能行。一个时刻接一个时刻。</value>
+  </data>
+  <data name="Notification.Milestone.Title" xml:space="preserve">
+    <value>你达成了一里程碑</value>
+  </data>
+  <data name="Notification.Milestone.Body" xml:space="preserve">
+    <value>做得好。你的进步在累积。</value>
+  </data>
+  <data name="Notification.Craving.Title" xml:space="preserve">
+    <value>你可以度过这一刻</value>
+  </data>
+  <data name="Notification.Craving.Body" xml:space="preserve">
+    <value>慢慢呼吸。你掌控着。</value>
+  </data>
+  <data name="Notification.Savings.Title" xml:space="preserve">
+    <value>你的进步在累积</value>
+  </data>
+  <data name="Notification.Savings.Body" xml:space="preserve">
+    <value>你做的每个选择都很重要。</value>
+  </data>
+  <data name="TriggerAnalysis.Title" xml:space="preserve">
+    <value>模式（触发因素分析）</value>
+  </data>
+  <data name="TriggerAnalysis.Enable" xml:space="preserve">
+    <value>在此设备上分析模式</value>
+  </data>
+  <data name="TriggerAnalysis.Disabled" xml:space="preserve"><value>模式分析已关闭；不会读取你的事件。</value></data>
+  <data name="TriggerAnalysis.Disable" xml:space="preserve">
+    <value>停止在此设备上分析模式</value>
+  </data>
+  <data name="TriggerAnalysis.MinimumData" xml:space="preserve">
+    <value>仅使用本地汇总事件；至少需要 5 个事件才能显示模式。</value>
+  </data>
+  <data name="TriggerAnalysis.InsufficientData" xml:space="preserve">
+    <value>目前数据不足，无法查看模式。请继续记录，稍后再回来查看。</value>
+  </data>
+  <data name="TriggerAnalysis.Empty" xml:space="preserve">
+    <value>目前还没有可显示的模式。</value>
+  </data>
+  <data name="TriggerAnalysis.Error" xml:space="preserve">
+    <value>暂时无法加载模式。本地记录是安全的。</value>
+  </data>
+  <data name="TriggerAnalysis.PrivacyNote" xml:space="preserve">
+    <value>分析仅在此设备上进行。不会发送或在此显示任何私人详细信息。</value>
+  </data>
+  <data name="TriggerAnalysis.Disclaimer" xml:space="preserve">
+    <value>这些模式仅供参考，并非医疗诊断。</value>
+  </data>
+  <data name="TriggerAnalysis.Approximate" xml:space="preserve">
+    <value>大约</value>
+  </data>
+  <data name="TriggerAnalysis.Strength" xml:space="preserve"><value>{0}：{1}%</value></data>
+  <data name="Trigger.TimeOfDay" xml:space="preserve">
+    <value>大多数事件发生在{0}</value>
+  </data>
+  <data name="Trigger.DayOfWeek" xml:space="preserve">
+    <value>大多数事件发生在星期{0}</value>
+  </data>
+  <data name="Trigger.Context" xml:space="preserve">
+    <value>最常见的情境：{0}</value>
+  </data>
+  <data name="Trigger.Context.Aggregated" xml:space="preserve"><value>发现了重复的情境类别。</value></data>
+  <data name="Trigger.CravingFrequency" xml:space="preserve">
+    <value>每个活跃日大约有 {0} 次渴望</value>
+  </data>
+  <data name="Trigger.SmokedVsResisted" xml:space="preserve">
+    <value>在 {0} 次中抵抗了 {1} 次</value>
+  </data>
+  <data name="Trigger.TimeBucket.EarlyMorning" xml:space="preserve">
+    <value>清晨</value>
+  </data>
+  <data name="Trigger.TimeBucket.Morning" xml:space="preserve">
+    <value>上午</value>
+  </data>
+  <data name="Trigger.TimeBucket.Afternoon" xml:space="preserve">
+    <value>下午</value>
+  </data>
+  <data name="Trigger.TimeBucket.Evening" xml:space="preserve">
+    <value>傍晚</value>
+  </data>
+  <data name="Trigger.TimeBucket.Night" xml:space="preserve">
+    <value>夜间</value>
+  </data>
+  <data name="Profile.Title" xml:space="preserve"><value>个人资料与设置</value></data>
+  <data name="Profile.Entry" xml:space="preserve"><value>个人资料与设置</value></data>
+  <data name="Profile.DisplayName" xml:space="preserve"><value>显示名称（可选）</value></data>
+  <data name="Profile.Avatar" xml:space="preserve"><value>头像</value></data>
+  <data name="Profile.AvatarHint" xml:space="preserve"><value>为你的个人资料选择一个简洁的 Niko 符号。</value></data>
+  <data name="Profile.Save" xml:space="preserve"><value>保存个人资料</value></data>
+  <data name="Profile.Saved" xml:space="preserve"><value>个人资料已保存在此设备上。</value></data>
+  <data name="Profile.Language" xml:space="preserve"><value>语言</value></data>
+  <data name="Profile.LanguageFallback" xml:space="preserve"><value>此语言目前会对未完整翻译的文本使用英文后备语言。</value></data>
+  <data name="Profile.Notifications" xml:space="preserve"><value>通知设置</value></data>
+  <data name="Profile.PrivacyData" xml:space="preserve"><value>隐私与数据控制</value></data>
+  <data name="Profile.Error.DisplayName" xml:space="preserve"><value>显示名称过长。</value></data>
+  <data name="Profile.Error.Avatar" xml:space="preserve"><value>请选择有效的头像。</value></data>
+  <data name="Profile.Error.Locale" xml:space="preserve"><value>请选择已配置的语言。</value></data>
+  <data name="Language.English" xml:space="preserve"><value>English</value></data>
+  <data name="Language.Persian" xml:space="preserve"><value>فارسی</value></data>
+  <data name="Language.Arabic" xml:space="preserve"><value>العربية</value></data>
+  <data name="Language.German" xml:space="preserve"><value>Deutsch</value></data>
+  <data name="Language.Spanish" xml:space="preserve"><value>Español</value></data>
+  <data name="Language.French" xml:space="preserve"><value>Français</value></data>
+  <data name="Language.Hindi" xml:space="preserve"><value>हिन्दी</value></data>
+  <data name="Language.Indonesian" xml:space="preserve"><value>Bahasa Indonesia</value></data>
+  <data name="Language.Japanese" xml:space="preserve"><value>日本語</value></data>
+  <data name="Language.Korean" xml:space="preserve"><value>한국어</value></data>
+  <data name="Language.PortugueseBrazil" xml:space="preserve"><value>Português (Brasil)</value></data>
+  <data name="Language.Russian" xml:space="preserve"><value>Русский</value></data>
+  <data name="Language.Turkish" xml:space="preserve"><value>Türkçe</value></data>
+  <data name="Language.Ukrainian" xml:space="preserve"><value>Українська</value></data>
+  <data name="Language.ChineseSimplified" xml:space="preserve"><value>简体中文</value></data>
+  <data name="Language.ChineseTraditional" xml:space="preserve"><value>繁體中文</value></data>
+  <data name="Avatar.Default" xml:space="preserve"><value>Niko 默认</value></data>
+  <data name="Avatar.Leaf" xml:space="preserve"><value>Niko 叶子</value></data>
+  <data name="Avatar.Sun" xml:space="preserve"><value>Niko 太阳</value></data>
+  <data name="Avatar.Wave" xml:space="preserve"><value>Niko 波浪</value></data>
+  <data name="PrivacyData.Title" xml:space="preserve"><value>隐私与数据</value></data>
+  <data name="PrivacyData.Description" xml:space="preserve"><value>你的个人资料和记录会保留在此设备上，除非你明确选择未来的共享选项。</value></data>
+  <data name="PrivacyData.LocalOnly" xml:space="preserve"><value>Niko 支持离线使用；在此版本中不会将你的个人资料或消费数据发送到外部服务。</value></data>
+  <data name="PrivacyData.Controls" xml:space="preserve"><value>导出和删除控制将在具备文档化同意与恢复流程后加入。</value></data>
+  <data name="Coach.Title" xml:space="preserve"><value>AI 教练（本地基础）</value></data>
+  <data name="Coach.PrivacyNote" xml:space="preserve"><value>默认关闭。仅在本地使用经过批准的汇总信息；不会使用笔记或原始事件历史。</value></data>
+  <data name="Coach.Disabled" xml:space="preserve"><value>AI 教练已关闭。</value></data>
+  <data name="Coach.Enabled" xml:space="preserve"><value>AI 教练已开启本地建议。</value></data>
+  <data name="Coach.AllowExternal" xml:space="preserve"><value>允许未来使用外部服务</value></data>
+  <data name="Coach.AllowProgress" xml:space="preserve"><value>允许使用汇总进度信息</value></data>
+  <data name="Coach.AllowCraving" xml:space="preserve"><value>允许使用渴望强度信息</value></data>
+  <data name="Coach.Clear" xml:space="preserve"><value>清除教练偏好</value></data>
+  <data name="Coach.Cleared" xml:space="preserve"><value>教练偏好已清除。</value></data>
+  <data name="Coach.Empty" xml:space="preserve"><value>暂时没有可用建议。</value></data>
+  <data name="Coach.Loading" xml:space="preserve"><value>正在加载本地教练…</value></data>
+  <data name="Coach.Error" xml:space="preserve"><value>本地教练暂时不可用。</value></data>
+  <data name="Coach.Suggestion.CravingSupport" xml:space="preserve"><value>渴望会过去。尝试所选的短时干预，给自己一点时间。</value></data>
+  <data name="Coach.Suggestion.Progress" xml:space="preserve"><value>持续的进步很重要。继续迈出下一小步。</value></data>
+  <data name="Coach.Suggestion.Milestone" xml:space="preserve"><value>你达成了一个重要里程碑。留意是什么帮助你走到这里。</value></data>
+  <data name="Coach.External.Title" xml:space="preserve"><value>外部服务共享</value></data>
+  <data name="Coach.External.Note" xml:space="preserve"><value>此版本未连接外部服务。若将来启用，只会共享批准的汇总信息；不会包含原始事件、笔记、ID、时间戳或私人元数据。</value></data>
+  <data name="Coach.External.Consent" xml:space="preserve"><value>配置外部服务后允许使用</value></data>
+  <data name="Coach.External.Unavailable" xml:space="preserve"><value>外部服务不可用；本地备用建议仍可使用。</value></data>
+  <data name="Coach.External.Available" xml:space="preserve"><value>已验证的免费服务可用；本地教练仍可离线使用。</value></data>
+  <data name="Coach.External.Revoke" xml:space="preserve"><value>撤销外部共享同意</value></data>
+  <data name="Coach.External.Revoked" xml:space="preserve"><value>外部共享同意已撤销。</value></data>
+</root>

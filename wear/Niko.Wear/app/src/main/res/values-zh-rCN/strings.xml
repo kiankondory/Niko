@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 责任：Niko Wear OS companion 的简体中文资源。
+     依赖与层级：Android resources → Wear UI；不包含领域逻辑或并行存储。
+     变更说明与约束：文本简短且隐私安全。 -->
+<resources>
+    <string name="app_name">Niko</string>
+    <string name="smoked_today">今天吸烟：%1$d</string>
+    <string name="resisted_today">今天抵抗：%1$d</string>
+    <string name="progress_summary">连续天数：%1$d 天 · 进度：%2$.0f%%</string>
+    <string name="status_offline">可离线使用</string>
+    <string name="status_pending">等待同步：%1$d</string>
+    <string name="status_unavailable">暂时不可用</string>
+    <string name="action_smoked">吸烟</string>
+    <string name="action_resisted">抵抗</string>
+    <string name="action_craving">烟瘾</string>
+</resources>

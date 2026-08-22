@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- مسئولیت: صفحهٔ پروفایل و هاب تنظیمات؛ وابستگی: SettingsViewModel و منابع محلی‌سازی؛ قیود: بدون منطق دامنه و با ذخیرهٔ آفلاین. -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Niko.ViewModels"
+             x:Class="Niko.Pages.ProfilePage"
+             x:DataType="vm:SettingsViewModel"
+             Title="">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,16" Spacing="12">
+            <Label Text="{Binding ProfileTitle}" Style="{StaticResource Headline}" />
+            <Label Text="{Binding StatusMessage}" Style="{StaticResource SubHeadline}" />
+
+            <Label Text="{Binding AvatarLabel}" Style="{StaticResource SubHeadline}" />
+            <Picker ItemsSource="{Binding AvatarOptions}"
+                    SelectedItem="{Binding SelectedAvatar}"
+                    ItemDisplayBinding="{Binding Symbol}" />
+            <Label Text="{Binding AvatarHint}" FontSize="12" TextColor="Gray" />
+
+            <Label Text="{Binding DisplayNameLabel}" Style="{StaticResource SubHeadline}" />
+            <Entry Text="{Binding DisplayName}" />
+
+            <Label Text="{Binding CigarettesPerDayLabel}" Style="{StaticResource SubHeadline}" />
+            <Entry Text="{Binding CigarettesPerDayText}" Keyboard="Numeric" />
+
+            <Label Text="{Binding PricePerCigaretteLabel}" Style="{StaticResource SubHeadline}" />
+            <Entry Text="{Binding PricePerCigaretteText}" Keyboard="Numeric" />
+
+            <Label Text="{Binding PricePerPackLabel}" Style="{StaticResource SubHeadline}" />
+            <Entry Text="{Binding PricePerPackText}" Keyboard="Numeric" />
+
+            <Label Text="{Binding PackSizeLabel}" Style="{StaticResource SubHeadline}" />
+            <Entry Text="{Binding PackSizeText}" Keyboard="Numeric" />
+
+            <Label Text="{Binding CurrencyLabel}" Style="{StaticResource SubHeadline}" />
+            <Picker ItemsSource="{Binding CurrencyOptions}"
+                    SelectedItem="{Binding SelectedCurrency}"
+                    ItemDisplayBinding="{Binding DisplayName}" />
+
+            <Label Text="{Binding QuitDateLabel}" Style="{StaticResource SubHeadline}" />
+            <DatePicker Date="{Binding QuitDate}" />
+
+            <Label Text="{Binding LanguageLabel}" Style="{StaticResource SubHeadline}" />
+            <Picker ItemsSource="{Binding LanguageOptions}"
+                    SelectedItem="{Binding SelectedLanguage}"
+                    ItemDisplayBinding="{Binding DisplayName}" />
+            <Label Text="{Binding LanguageFallbackLabel}"
+                   IsVisible="{Binding IsLanguageFallback}"
+                   FontSize="12"
+                   TextColor="Gray" />
+
+            <Button Text="{Binding SaveLabel}" Command="{Binding SaveCommand}" />
+
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,8" />
+            <Label Text="{Binding CoachTitle}" Style="{StaticResource Headline}" />
+            <Label Text="{Binding CoachPrivacyNote}" FontSize="12" TextColor="Gray" />
+            <HorizontalStackLayout Spacing="12">
+                <Label Text="{Binding CoachDisabledText}" IsVisible="{Binding IsCoachDisabled}" VerticalOptions="Center" />
+                <Label Text="{Binding CoachEnabledText}" IsVisible="{Binding IsCoachEnabled}" VerticalOptions="Center" />
+                <Switch IsToggled="{Binding IsCoachEnabled}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="12">
+                <Label Text="{Binding CoachAllowProgressLabel}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                <Switch IsToggled="{Binding AllowAggregatedProgress}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="12">
+                <Label Text="{Binding CoachAllowCravingLabel}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                <Switch IsToggled="{Binding AllowCravingContext}" />
+            </HorizontalStackLayout>
+            <Button Text="{Binding CoachClearLabel}" Command="{Binding ClearCoachCommand}" />
+            <Label Text="{Binding CoachStatus}" FontSize="12" TextColor="Gray" />
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,8" />
+            <Label Text="{Binding CoachExternalTitle}" Style="{StaticResource Headline}" />
+            <Label Text="{Binding CoachExternalNote}" FontSize="12" TextColor="Gray" />
+            <HorizontalStackLayout Spacing="12">
+                <Label Text="{Binding CoachExternalConsentLabel}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                <Switch IsToggled="{Binding AllowExternalProvider}" IsEnabled="False">
+                    <Switch.Triggers>
+                        <DataTrigger TargetType="Switch" Binding="{Binding IsExternalProviderAvailable}" Value="True">
+                            <Setter Property="IsEnabled" Value="True" />
+                        </DataTrigger>
+                    </Switch.Triggers>
+                </Switch>
+            </HorizontalStackLayout>
+            <Label Text="{Binding CoachExternalStatus}" FontSize="12" TextColor="Gray" />
+            <Button Text="{Binding CoachExternalRevokeLabel}" Command="{Binding RevokeExternalCommand}" />
+            <Button Text="{Binding NotificationsLabel}" Command="{Binding NotificationsCommand}" />
+            <Button Text="{Binding PrivacyDataLabel}" Command="{Binding PrivacyDataCommand}" />
+            <Label Text="{Binding SavingsHint}" Style="{StaticResource SubHeadline}" FontSize="12" TextColor="Gray" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

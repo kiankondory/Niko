@@ -1,0 +1,17 @@
+<!--
+  نام فایل: Niko.CoachProxy.csproj
+  مسئولیت: تعریف سرویس حداقلی proxy امن برای AI Coach و اتصال آن به Core.
+  وابستگی‌ها و لایه: Backend adapter؛ فقط به Niko.Core و ASP.NET Core مشترک وابسته است.
+  نکات تغییر و قیود: کلید Gemini فقط از محیط اجرا خوانده می‌شود؛ هیچ SDK یا secret در خروجی موبایل نیست.
+-->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Niko.Core/Niko.Core.csproj" />
+  </ItemGroup>
+</Project>

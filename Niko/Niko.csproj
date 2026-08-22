@@ -1,0 +1,113 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net10.0-android</TargetFrameworks>
+		<TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>Niko</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Enable XAML source generation for faster build times and improved performance.
+		     This generates C# code from XAML at compile time instead of runtime inflation.
+		     To disable, remove this line.
+		     For individual files, you can override by setting Inflator metadata:
+		       <MauiXaml Update="MyPage.xaml" Inflator="Default" /> (reverts to defaults: Runtime for Debug, XamlC for Release)
+		       <MauiXaml Update="MyPage.xaml" Inflator="Runtime" /> (force runtime inflation) -->
+		<MauiXamlInflator>SourceGen</MauiXamlInflator>
+
+		<!-- در Debug اسمبلی‌ها داخل APK قرار می‌گیرند تا نصب دستی به Fast Deployment وابسته نباشد. -->
+		<EmbedAssembliesIntoApk Condition="'$(Configuration)' == 'Debug' and '$(TargetFramework)' == 'net10.0-android'">true</EmbedAssembliesIntoApk>
+		<!--
+			ساخت تکرارپذیر دستگاه: با NikoStandaloneAndroidDebug=true در Debug اندروید،
+			Fast Deployment و shared runtime کنار گذاشته می‌شوند و APK مستقل ساخته می‌شود.
+		-->
+		<EmbedAssembliesIntoApk Condition="'$(NikoStandaloneAndroidDebug)' == 'true' and '$(TargetFramework)' == 'net10.0-android'">true</EmbedAssembliesIntoApk>
+		<AndroidUseSharedRuntime Condition="'$(NikoStandaloneAndroidDebug)' == 'true' and '$(TargetFramework)' == 'net10.0-android'">false</AndroidUseSharedRuntime>
+		<!-- مسیرهای ایزوله فقط برای پروژهٔ MAUI در ساخت دستگاه؛ پروژه‌های Core و
+		     Infrastructure مسیرهای خود را حفظ می‌کنند تا assets تداخل نکنند. -->
+		<IntermediateOutputPath Condition="'$(NikoStandaloneAndroidDebug)' == 'true' and '$(MSBuildProjectName)' == 'Niko' and '$(NikoStandaloneAndroidRoot)' != ''">$(NikoStandaloneAndroidRoot)\obj\</IntermediateOutputPath>
+		<OutputPath Condition="'$(NikoStandaloneAndroidDebug)' == 'true' and '$(MSBuildProjectName)' == 'Niko' and '$(NikoStandaloneAndroidRoot)' != ''">$(NikoStandaloneAndroidRoot)\bin\</OutputPath>
+
+		<!-- Display name -->
+		<ApplicationTitle>Niko</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.niko</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+		<WindowsPackageType>None</WindowsPackageType>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+		
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<!-- Android must never package Windows-only reference assemblies. This guard
+	     catches accidental target-graph leakage before APK packaging. -->
+	<Target Name="ValidateAndroidAssemblyInputs"
+			BeforeTargets="_CopyIntermediateAssembliesToApk"
+			Condition="'$(TargetFramework)' == 'net10.0-android'">
+		<Error Condition="@(ReferenceCopyLocalPaths->AnyHaveMetadataValue('Filename', 'WindowsBase')) == 'true'"
+			   Text="WindowsBase.dll entered the Android reference graph; keep it Windows-only." />
+		<Error Condition="@(ReferenceCopyLocalPaths->AnyHaveMetadataValue('Filename', 'System.Windows')) == 'true'"
+			   Text="System.Windows.dll entered the Android reference graph; keep it Windows-only." />
+		<Error Condition="@(ReferenceCopyLocalPaths->AnyHaveMetadataValue('Filename', 'System.Security.Principal.Windows')) == 'true'"
+			   Text="System.Security.Principal.Windows.dll entered the Android reference graph; keep it Windows-only." />
+	</Target>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
+		<PackageReference Include="Plugin.LocalNotification" Version="2.0.0" />
+		<PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.2.0.3" Condition="'$(TargetFramework)' == 'net10.0-android'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\src\Niko.Core\Niko.Core.csproj" />
+		<ProjectReference Include="..\src\Niko.Infrastructure\Niko.Infrastructure.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Localization\Localization.resx" LogicalName="Niko.Resources.Localization.Localization.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.fa.resx" LogicalName="Niko.Resources.Localization.Localization.fa.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.ar.resx" LogicalName="Niko.Resources.Localization.Localization.ar.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.zh-Hans.resx" LogicalName="Niko.Resources.Localization.Localization.zh-Hans.resources" />
+	</ItemGroup>
+
+</Project>

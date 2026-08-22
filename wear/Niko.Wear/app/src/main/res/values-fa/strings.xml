@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- مسئولیت: ترجمهٔ فارسی companion Wear OS.
+     وابستگی‌ها و لایه: Android resources → Wear UI؛ بدون منطق دامنه یا storage.
+     نکات تغییر و قیود: متن‌ها privacy-safe هستند و برای صفحهٔ کوچک کوتاه نگه داشته شده‌اند. -->
+<resources>
+    <string name="app_name">نیکو</string>
+    <string name="smoked_today">مصرف امروز: %1$d</string>
+    <string name="resisted_today">مقاومت امروز: %1$d</string>
+    <string name="progress_summary">استریک: %1$d روز · پیشرفت: %2$.0f%%</string>
+    <string name="status_offline">آمادهٔ آفلاین</string>
+    <string name="status_pending">در انتظار همگام‌سازی: %1$d</string>
+    <string name="status_unavailable">موقتاً در دسترس نیست</string>
+    <string name="action_smoked">دود</string>
+    <string name="action_resisted">مقاومت</string>
+    <string name="action_craving">هوس</string>
+</resources>

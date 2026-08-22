@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Niko.ViewModels"
+             xmlns:crav="clr-namespace:Niko.Core.Domain.Craving;assembly=Niko.Core"
+             x:Class="Niko.Pages.CravingBattlePage"
+             x:DataType="vm:CravingBattleViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,16" Spacing="16">
+
+            <!-- انتخاب شدت -->
+            <VerticalStackLayout Spacing="12" IsVisible="{Binding IsIntensityPhase}">
+                <Label Text="{Binding SelectIntensityPrompt}" Style="{StaticResource SubHeadline}" />
+                <Button Text="{Binding MildLabel}" Command="{Binding SelectIntensityCommand}"
+                        CommandParameter="{x:Static crav:CravingIntensity.Mild}" />
+                <Button Text="{Binding ModerateLabel}" Command="{Binding SelectIntensityCommand}"
+                        CommandParameter="{x:Static crav:CravingIntensity.Moderate}" />
+                <Button Text="{Binding IntenseLabel}" Command="{Binding SelectIntensityCommand}"
+                        CommandParameter="{x:Static crav:CravingIntensity.Intense}" />
+            </VerticalStackLayout>
+
+            <!-- انتخاب مداخله -->
+            <VerticalStackLayout Spacing="12" IsVisible="{Binding IsActionPhase}">
+                <Border IsVisible="{Binding IsCoachSuggestionVisible}" Padding="12">
+                    <Label Text="{Binding CoachSuggestionText}" Style="{StaticResource SubHeadline}" />
+                </Border>
+                <Label Text="{Binding ChooseActionPrompt}" Style="{StaticResource SubHeadline}" />
+                <VerticalStackLayout Spacing="12"
+                                     BindableLayout.ItemsSource="{Binding Interventions}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="vm:InterventionDisplay">
+                            <Button Text="{Binding Title}"
+                                    Command="{Binding SelectActionCommand, Source={RelativeSource AncestorType={x:Type vm:CravingBattleViewModel}}}"
+                                    CommandParameter="{Binding Intervention}" />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- مداخلهٔ فعال + تایمر -->
+            <VerticalStackLayout Spacing="12" IsVisible="{Binding IsActivePhase}">
+                <Label Text="{Binding CurrentInterventionTitle}" Style="{StaticResource Headline}" />
+                <Label Text="{Binding CurrentInterventionGuide}" Style="{StaticResource SubHeadline}" />
+                <Label Text="{Binding TimerText}" Style="{StaticResource Headline}" HorizontalTextAlignment="Center" />
+                <ProgressBar Progress="{Binding TimerProgress}" HeightRequest="12" />
+                <Button Text="{Binding CompleteLabel}" Command="{Binding CompleteCommand}" />
+                <Button Text="{Binding ResistLabel}" Command="{Binding ResistCommand}" />
+                <Button Text="{Binding ExitLabel}" Command="{Binding ExitCommand}" />
+            </VerticalStackLayout>
+
+            <!-- نتیجه (تکمیل/مقاومت/خروج) -->
+            <VerticalStackLayout Spacing="12" IsVisible="{Binding IsResultPhase}">
+                <Label Text="{Binding StatusMessage}" Style="{StaticResource Headline}"
+                       HorizontalTextAlignment="Center" />
+                <Button Text="{Binding StartOverLabel}" Command="{Binding StartOverCommand}" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

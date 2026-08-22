@@ -1,0 +1,12 @@
+<!-- ========================================================================
+     مسئولیت: پیکربندی چرخهٔ عمر و اندازهٔ ابزارک Niko.
+     وابستگی‌ها و لایه: Android resource adapter → NikoWidgetProvider.
+     نکات تغییر و قیود: ابزارک دادهٔ خصوصی روی lock screen را درخواست نمی‌کند.
+     ======================================================================== -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="250dp"
+    android:minHeight="110dp"
+    android:updatePeriodMillis="1800000"
+    android:initialLayout="@layout/niko_widget"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen" />

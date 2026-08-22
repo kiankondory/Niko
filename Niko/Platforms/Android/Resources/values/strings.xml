@@ -1,0 +1,18 @@
+<!-- ========================================================================
+     مسئولیت: منابع متنی پایهٔ ابزارک Niko با قابلیت fallback اندروید.
+     وابستگی‌ها و لایه: Android resource adapter؛ متن‌های قابل ترجمه، بدون منطق دامنه.
+     نکات تغییر و قیود: متن‌ها عمومی و privacy-safe هستند و دادهٔ خام نمایش نمی‌دهند.
+     ======================================================================== -->
+<resources>
+    <string name="widget_loading">Loading…</string>
+    <string name="widget_smoked_today">Smoked today: %1$d</string>
+    <string name="widget_resisted_today">Resisted today: %1$d</string>
+    <string name="widget_summary_available">Streak: %1$d days · Progress: %2$.0f%%</string>
+    <string name="widget_status_in_sync">Saved offline</string>
+    <string name="widget_status_pending">Sync pending: %1$d</string>
+    <string name="widget_status_offline">Offline-ready</string>
+    <string name="widget_status_unavailable">Temporarily unavailable</string>
+    <string name="widget_smoked">Smoked</string>
+    <string name="widget_resisted">Resisted</string>
+    <string name="widget_craving">Craving</string>
+</resources>

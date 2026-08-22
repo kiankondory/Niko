@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- مسئولیت: متن‌های پایهٔ companion Wear OS.
+     وابستگی‌ها و لایه: Android resources → Wear UI؛ هیچ متن کاربر در کد hard-code نیست.
+     نکات تغییر و قیود: متن‌ها کوتاه، تجمیعی و privacy-safe هستند. -->
+<resources>
+    <string name="app_name">Niko</string>
+    <string name="smoked_today">Smoked today: %1$d</string>
+    <string name="resisted_today">Resisted today: %1$d</string>
+    <string name="progress_summary">Streak: %1$d days · Progress: %2$.0f%%</string>
+    <string name="status_offline">Offline-ready</string>
+    <string name="status_pending">Sync pending: %1$d</string>
+    <string name="status_unavailable">Temporarily unavailable</string>
+    <string name="action_smoked">Smoked</string>
+    <string name="action_resisted">Resisted</string>
+    <string name="action_craving">Craving</string>
+</resources>

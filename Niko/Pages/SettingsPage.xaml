@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Niko.ViewModels"
+             x:Class="Niko.Pages.SettingsPage"
+             x:DataType="vm:SettingsViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,16" Spacing="12">
+
+            <Label Text="{Binding StatusMessage}" Style="{StaticResource SubHeadline}" />
+
+            <Label Text="{Binding CigarettesPerDayLabel}" Style="{StaticResource SubHeadline}" />
+            <Entry Text="{Binding CigarettesPerDayText}" Keyboard="Numeric" />
+
+            <Label Text="{Binding PricePerCigaretteLabel}" Style="{StaticResource SubHeadline}" />
+            <Entry Text="{Binding PricePerCigaretteText}" Keyboard="Numeric" />
+
+            <Label Text="{Binding PricePerPackLabel}" Style="{StaticResource SubHeadline}" />
+            <Entry Text="{Binding PricePerPackText}" Keyboard="Numeric" />
+
+            <Label Text="{Binding PackSizeLabel}" Style="{StaticResource SubHeadline}" />
+            <Entry Text="{Binding PackSizeText}" Keyboard="Numeric" />
+
+            <Label Text="{Binding CurrencyLabel}" Style="{StaticResource SubHeadline}" />
+            <Entry Text="{Binding CurrencyCode}" />
+
+            <Label Text="{Binding QuitDateLabel}" Style="{StaticResource SubHeadline}" />
+            <DatePicker Date="{Binding QuitDate}" />
+
+            <Button Text="{Binding SaveLabel}" Command="{Binding SaveCommand}" />
+
+            <Label Text="{Binding SavingsHint}" Style="{StaticResource SubHeadline}" FontSize="12" TextColor="Gray" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

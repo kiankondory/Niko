@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Niko.ViewModels"
+             x:Class="Niko.Pages.DashboardPage"
+             x:DataType="vm:DashboardViewModel"
+             Title="{Binding Title}">
+
+    <Grid Padding="24,16">
+
+        <ActivityIndicator
+            IsRunning="{Binding IsLoading}"
+            IsVisible="{Binding IsLoading}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+
+        <ScrollView IsVisible="{Binding HasData}">
+            <VerticalStackLayout Spacing="16">
+
+                <Label
+                    Text="{Binding DashboardEmptyText}"
+                    IsVisible="{Binding IsEmpty}"
+                    Style="{StaticResource SubHeadline}"
+                    SemanticProperties.HeadingLevel="Level2" />
+
+                <VerticalStackLayout IsVisible="{Binding HasData}" Spacing="16">
+
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto">
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="4">
+                            <Label Text="{Binding SmokedText}" Style="{StaticResource Headline}" />
+                            <Label Text="{Binding SmokedLabel}" Style="{StaticResource SubHeadline}" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="4">
+                            <Label Text="{Binding ResistedText}" Style="{StaticResource Headline}" />
+                            <Label Text="{Binding ResistedLabel}" Style="{StaticResource SubHeadline}" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="4">
+                            <Label Text="{Binding CravingsText}" Style="{StaticResource Headline}" />
+                            <Label Text="{Binding CravingsLabel}" Style="{StaticResource SubHeadline}" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="#DDDDDD" />
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{Binding CurrentStreakText}" Style="{StaticResource Headline}" />
+                        <Label Text="{Binding MilestoneText}" Style="{StaticResource SubHeadline}" />
+                        <ProgressBar
+                            Progress="{Binding MilestoneProgress}"
+                            HeightRequest="12" />
+                    </VerticalStackLayout>
+
+                    <BoxView HeightRequest="1" Color="#DDDDDD" />
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{Binding MilestonesTitle}" Style="{StaticResource Headline}" />
+                        <VerticalStackLayout Spacing="8"
+                                             BindableLayout.ItemsSource="{Binding Milestones}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="vm:MilestoneDisplay">
+                                    <Grid ColumnDefinitions="*,Auto" Padding="4,8">
+                                        <Label
+                                            Grid.Column="0"
+                                            Text="{Binding DaysText}"
+                                            Style="{StaticResource SubHeadline}" />
+                                        <Border
+                                            Grid.Column="1"
+                                            StrokeThickness="1"
+                                            Stroke="{Binding StrokeColor}"
+                                            Padding="10,4"
+                                            StrokeShape="RoundRectangle 12">
+                                            <Label
+                                                Text="{Binding StatusText}"
+                                                Style="{StaticResource SubHeadline}"
+                                                TextColor="{Binding TextColor}"
+                                                FontSize="12" />
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+
+                    <BoxView HeightRequest="1" Color="#DDDDDD" />
+
+                    <!-- بهبود بدن -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{Binding RecoveryTitle}" Style="{StaticResource Headline}" />
+
+                        <VerticalStackLayout Spacing="8" IsVisible="{Binding IsRecoveryAvailable}">
+                            <Label Text="{Binding RecoveryStageTitle}" Style="{StaticResource SubHeadline}" />
+                            <Label Text="{Binding RecoveryProgressLabel}" Style="{StaticResource SubHeadline}" />
+                            <ProgressBar Progress="{Binding RecoveryProgress}" HeightRequest="12" />
+                            <Label Text="{Binding RecoveryStageDescription}" Style="{StaticResource SubHeadline}" />
+                            <Label Text="{Binding RecoveryNextStageText}" Style="{StaticResource SubHeadline}" FontSize="12" />
+                        </VerticalStackLayout>
+
+                        <Label
+                            Text="{Binding RecoveryUnavailableText}"
+                            Style="{StaticResource SubHeadline}"
+                            IsVisible="{Binding IsRecoveryUnavailable}" />
+
+                        <Label
+                            Text="{Binding RecoveryDisclaimer}"
+                            Style="{StaticResource SubHeadline}"
+                            FontSize="12"
+                            TextColor="Gray" />
+                    </VerticalStackLayout>
+
+                    <BoxView HeightRequest="1" Color="#DDDDDD" />
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{Binding SavingsText}" Style="{StaticResource SubHeadline}" />
+                        <Label
+                            Text="{Binding SavingsDisclaimer}"
+                            Style="{StaticResource SubHeadline}"
+                            FontSize="12"
+                            TextColor="Gray" />
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+                <BoxView HeightRequest="1" Color="#DDDDDD" />
+
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="{Binding TriggerAnalysisTitle}" Style="{StaticResource Headline}" />
+                    <Button Text="{Binding TriggerAnalysisToggleText}"
+                            Command="{Binding ToggleTriggerAnalysisCommand}" />
+                    <Label Text="{Binding TriggerAnalysisPrivacyNote}"
+                           Style="{StaticResource SubHeadline}"
+                           FontSize="12"
+                           TextColor="Gray" />
+                    <Label Text="{Binding TriggerAnalysisMinimumDataText}"
+                           Style="{StaticResource SubHeadline}"
+                           FontSize="12"
+                           TextColor="Gray" />
+                    <Label Text="{Binding TriggerAnalysisDisabledText}"
+                           Style="{StaticResource SubHeadline}"
+                           IsVisible="{Binding IsTriggerAnalysisDisabled}" />
+                    <Label Text="{Binding TriggerAnalysisInsufficientDataText}"
+                           Style="{StaticResource SubHeadline}"
+                           IsVisible="{Binding IsTriggerAnalysisInsufficientData}" />
+                    <Label Text="{Binding TriggerAnalysisEmptyText}"
+                           Style="{StaticResource SubHeadline}"
+                           IsVisible="{Binding IsTriggerAnalysisEmpty}" />
+                    <Label Text="{Binding TriggerAnalysisErrorText}"
+                           Style="{StaticResource SubHeadline}"
+                           IsVisible="{Binding IsTriggerAnalysisError}" />
+                    <VerticalStackLayout Spacing="8"
+                                         IsVisible="{Binding HasTriggerInsights}"
+                                         BindableLayout.ItemsSource="{Binding TriggerInsights}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="vm:TriggerInsightDisplay">
+                                <VerticalStackLayout Spacing="2">
+                                    <Label Text="{Binding Text}" Style="{StaticResource SubHeadline}" />
+                                    <Label Text="{Binding ApproximateText}" FontSize="12" TextColor="Gray" />
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                    <Label Text="{Binding TriggerAnalysisDisclaimer}"
+                           Style="{StaticResource SubHeadline}"
+                           FontSize="12"
+                           TextColor="Gray" />
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Button
+            Text="{Binding RefreshText}"
+            Command="{Binding RefreshCommand}"
+            VerticalOptions="End"
+            HorizontalOptions="End" />
+
+    </Grid>
+
+</ContentPage>

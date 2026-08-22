@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- مسئولیت: entry point حریم خصوصی و داده؛ وابستگی: ILocalizationService؛ قیود: بدون حذف/ارسال داده در این گام. -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Niko.Pages.PrivacyDataPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="24,16" Spacing="12">
+            <Label x:Name="TitleLabel" Style="{StaticResource Headline}" />
+            <Label x:Name="DescriptionLabel" Style="{StaticResource SubHeadline}" />
+            <Label x:Name="LocalOnlyLabel" Style="{StaticResource SubHeadline}" />
+            <Label x:Name="ControlsLabel" Style="{StaticResource SubHeadline}" TextColor="Gray" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

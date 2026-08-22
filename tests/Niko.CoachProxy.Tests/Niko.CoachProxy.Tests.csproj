@@ -1,0 +1,25 @@
+<!--
+  نام فایل: Niko.CoachProxy.Tests.csproj
+  مسئولیت: تعریف آزمون‌های backend proxy و adapter Gemini بدون کلید واقعی.
+  وابستگی‌ها و لایه: Backend.Tests؛ به پروژهٔ proxy و Core قراردادها متصل است.
+  نکات تغییر و قیود: همهٔ درخواست‌ها با fake handler هستند و هیچ شبکه یا secret لازم نیست.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../backend/Niko.CoachProxy/Niko.CoachProxy.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+</Project>

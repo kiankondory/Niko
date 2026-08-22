@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>نیکو</value>
+  </data>
+  <data name="QuickLog.Smoked" xml:space="preserve">
+    <value>دخنت</value>
+  </data>
+  <data name="QuickLog.Resisted" xml:space="preserve">
+    <value>قاومت</value>
+  </data>
+  <data name="QuickLog.Craving" xml:space="preserve">
+    <value>عندي رغبة</value>
+  </data>
+  <data name="QuickLog.Success" xml:space="preserve">
+    <value>تم التسجيل</value>
+  </data>
+  <data name="QuickLog.Error" xml:space="preserve">
+    <value>حدث خطأ</value>
+  </data>
+  <data name="Sync.Pending" xml:space="preserve">
+    <value>بانتظار المزامنة</value>
+  </data>
+  <data name="Sync.InSync" xml:space="preserve">
+    <value>تمت المزامنة</value>
+  </data>
+  <data name="Sync.Failed" xml:space="preserve">
+    <value>فشلت المزامنة</value>
+  </data>
+  <data name="Dashboard.Title" xml:space="preserve">
+    <value>التقدم</value>
+  </data>
+  <data name="Dashboard.Smoked" xml:space="preserve">
+    <value>تدخين</value>
+  </data>
+  <data name="Dashboard.Resisted" xml:space="preserve">
+    <value>مقاومة</value>
+  </data>
+  <data name="Dashboard.Cravings" xml:space="preserve">
+    <value>رغبات</value>
+  </data>
+  <data name="Dashboard.CurrentStreak" xml:space="preserve">
+    <value>السلسلة الحالية</value>
+  </data>
+  <data name="Dashboard.Days" xml:space="preserve">
+    <value>{0} يوم</value>
+  </data>
+  <data name="Dashboard.Milestone" xml:space="preserve">
+    <value>إنجاز</value>
+  </data>
+  <data name="Dashboard.MilestoneNext" xml:space="preserve">
+    <value>التالي: {0} يوم</value>
+  </data>
+  <data name="Dashboard.Savings" xml:space="preserve">
+    <value>التوفير التقريبي</value>
+  </data>
+  <data name="Dashboard.SavingsUnavailable" xml:space="preserve">
+    <value>أضف السعر والاستخدام اليومي لعرض التوفير</value>
+  </data>
+  <data name="Dashboard.Empty" xml:space="preserve">
+    <value>لم يتم تسجيل أي أحداث بعد</value>
+  </data>
+  <data name="Dashboard.SavingsDisclaimer" xml:space="preserve">
+    <value>تقدير تقريبي؛ ليس نصيحة طبية</value>
+  </data>
+  <data name="Common.Refresh" xml:space="preserve">
+    <value>تحديث</value>
+  </data>
+  <data name="Tab.QuickLog" xml:space="preserve">
+    <value>تسجيل سريع</value>
+  </data>
+  <data name="Dashboard.Milestones" xml:space="preserve">
+    <value>الإنجازات</value>
+  </data>
+  <data name="Milestone.Completed" xml:space="preserve">
+    <value>مكتمل</value>
+  </data>
+  <data name="Milestone.Current" xml:space="preserve">
+    <value>حالي</value>
+  </data>
+  <data name="Milestone.Upcoming" xml:space="preserve">
+    <value>قادم</value>
+  </data>
+  <data name="Milestone.Days" xml:space="preserve">
+    <value>{0} يوم</value>
+  </data>
+  <data name="CravingBattle.Title" xml:space="preserve">
+    <value>مواجهة الرغبة</value>
+  </data>
+  <data name="CravingBattle.Entry" xml:space="preserve">
+    <value>مواجهة الرغبة</value>
+  </data>
+  <data name="CravingBattle.SelectIntensity" xml:space="preserve">
+    <value>ما مدى قوة الرغبة؟</value>
+  </data>
+  <data name="CravingBattle.Intensity.Mild" xml:space="preserve">
+    <value>خفيفة</value>
+  </data>
+  <data name="CravingBattle.Intensity.Moderate" xml:space="preserve">
+    <value>متوسطة</value>
+  </data>
+  <data name="CravingBattle.Intensity.Intense" xml:space="preserve">
+    <value>شديدة</value>
+  </data>
+  <data name="CravingBattle.ChooseAction" xml:space="preserve">
+    <value>اختر شيئًا واحدًا لتحاوله</value>
+  </data>
+  <data name="CravingBattle.Action.DeepBreathing" xml:space="preserve">
+    <value>تنفس ببطء</value>
+  </data>
+  <data name="CravingBattle.Action.Delay" xml:space="preserve">
+    <value>انتظر بضع دقائق</value>
+  </data>
+  <data name="CravingBattle.Action.DrinkWater" xml:space="preserve">
+    <value>اشرب كوبًا من الماء</value>
+  </data>
+  <data name="CravingBattle.Action.Movement" xml:space="preserve">
+    <value>حرك جسمك قليلًا</value>
+  </data>
+  <data name="CravingBattle.Action.SupportContact" xml:space="preserve">
+    <value>تواصل مع شخص تثق به</value>
+  </data>
+  <data name="CravingBattle.Timer" xml:space="preserve">
+    <value>{0} ثانية</value>
+  </data>
+  <data name="CravingBattle.Complete" xml:space="preserve">
+    <value>أنجزتها</value>
+  </data>
+  <data name="CravingBattle.ResistButton" xml:space="preserve">
+    <value>قاومت</value>
+  </data>
+  <data name="CravingBattle.Completed" xml:space="preserve">
+    <value>أحسنت. تجاوزت هذه اللحظة.</value>
+  </data>
+  <data name="CravingBattle.Resisted" xml:space="preserve">
+    <value>قاومت. هذا يتطلب قوة.</value>
+  </data>
+  <data name="CravingBattle.Exited" xml:space="preserve">
+    <value>لا بأس. يمكنك البدء من جديد في أي وقت.</value>
+  </data>
+  <data name="CravingBattle.Exit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="CravingBattle.StartOver" xml:space="preserve">
+    <value>ابدأ من جديد</value>
+  </data>
+  <data name="CravingBattle.InterventionGuide" xml:space="preserve">
+    <value>تابع حتى ينتهي المؤقت ثم ضع علامة اكتمال.</value>
+  </data>
+  <data name="Recovery.Title" xml:space="preserve">
+    <value>تعافي الجسم</value>
+  </data>
+  <data name="Recovery.Progress" xml:space="preserve">
+    <value>التقدم التقريبي</value>
+  </data>
+  <data name="Recovery.NextStage" xml:space="preserve">
+    <value>المرحلة التالية: {0}</value>
+  </data>
+  <data name="Recovery.Disclaimer" xml:space="preserve">
+    <value>معلومات تقريبية فقط؛ هذه ليست نصيحة طبية.</value>
+  </data>
+  <data name="Recovery.Unavailable" xml:space="preserve">
+    <value>أضف تاريخ الإقلاع لرؤية تقدم التعافي التقريبي.</value>
+  </data>
+  <data name="Recovery.Stage0.Title" xml:space="preserve">
+    <value>البداية</value>
+  </data>
+  <data name="Recovery.Stage1.Title" xml:space="preserve">
+    <value>الأيام الأولى</value>
+  </data>
+  <data name="Recovery.Stage2.Title" xml:space="preserve">
+    <value>الأسبوع الأول</value>
+  </data>
+  <data name="Recovery.Stage3.Title" xml:space="preserve">
+    <value>أسبوعان</value>
+  </data>
+  <data name="Recovery.Stage4.Title" xml:space="preserve">
+    <value>شهر واحد</value>
+  </data>
+  <data name="Recovery.Stage5.Title" xml:space="preserve">
+    <value>ثلاثة أشهر</value>
+  </data>
+  <data name="Recovery.Stage6.Title" xml:space="preserve">
+    <value>نصف عام</value>
+  </data>
+  <data name="Recovery.Stage7.Title" xml:space="preserve">
+    <value>عام وأكثر</value>
+  </data>
+  <data name="Recovery.Stage0.Description" xml:space="preserve">
+    <value>قد يبدأ جسمك في التكيف عندما يستغني عن النيكوتين. التقدم تقريبي.</value>
+  </data>
+  <data name="Recovery.Stage1.Description" xml:space="preserve">
+    <value>في الأيام الأولى، قد يستمر جسمك في التكيف. تقدمك أهم من أي لحظة واحدة.</value>
+  </data>
+  <data name="Recovery.Stage2.Description" xml:space="preserve">
+    <value>خلال الأسبوع الأول، قد يلاحظ البعض تغييرات في شعورهم. هذا مجرد تقدير.</value>
+  </data>
+  <data name="Recovery.Stage3.Description" xml:space="preserve">
+    <value>حول الأسبوعين، قد يستمر جسمك في التكيف. ثباتك هو التقدم الحقيقي.</value>
+  </data>
+  <data name="Recovery.Stage4.Description" xml:space="preserve">
+    <value>عند شهر تقريبًا، قد يجد البعض أن الروتين مختلف قليلًا. هذا ليس ضمانًا.</value>
+  </data>
+  <data name="Recovery.Stage5.Description" xml:space="preserve">
+    <value>عند ثلاثة أشهر، قد تلاحظ تغييرات طويلة المدى. التعافي يختلف من شخص لآخر.</value>
+  </data>
+  <data name="Recovery.Stage6.Description" xml:space="preserve">
+    <value>عند نصف عام، يبلغ الكثيرون عن تحسن مستمر. هذا تقدير وليس وعدًا.</value>
+  </data>
+  <data name="Recovery.Stage7.Description" xml:space="preserve">
+    <value>بعد من عام، حصل جسمك على وقت للتكيف. تعافي الجميع مختلف.</value>
+  </data>
+  <data name="Settings.Title" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="Settings.Entry" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="Settings.CigarettesPerDay" xml:space="preserve">
+    <value>سجائر في اليوم</value>
+  </data>
+  <data name="Settings.PricePerCigarette" xml:space="preserve">
+    <value>سعر السيجارة</value>
+  </data>
+  <data name="Settings.PricePerPack" xml:space="preserve">
+    <value>سعر العلبة</value>
+  </data>
+  <data name="Settings.PackSize" xml:space="preserve">
+    <value>سجائر في العلبة</value>
+  </data>
+  <data name="Settings.Currency" xml:space="preserve">
+    <value>العملة</value>
+  </data>
+  <data name="Settings.QuitDate" xml:space="preserve">
+    <value>تاريخ الإقلاع</value>
+  </data>
+  <data name="Settings.Save" xml:space="preserve">
+    <value>حفظ الإعدادات</value>
+  </data>
+  <data name="Settings.Saved" xml:space="preserve">
+    <value>تم حفظ الإعدادات</value>
+  </data>
+  <data name="Settings.SavingsHint" xml:space="preserve">
+    <value>التوفير المعروض في التقدم تقريبي ومبني على هذه الإعدادات.</value>
+  </data>
+  <data name="Settings.Error.InvalidCigarettesPerDay" xml:space="preserve">
+    <value>أدخل عددًا موجبًا من السجائر يوميًا.</value>
+  </data>
+  <data name="Settings.Error.InvalidPrice" xml:space="preserve">
+    <value>أدخل سعرًا موجبًا.</value>
+  </data>
+  <data name="Settings.Error.InvalidPackSize" xml:space="preserve">
+    <value>أدخل حجم علبة موجبًا.</value>
+  </data>
+  <data name="Settings.Error.MissingPrice" xml:space="preserve">
+    <value>أدخل سعر السيجارة أو العلبة.</value>
+  </data>
+  <data name="Settings.Error.InvalidQuitDate" xml:space="preserve">
+    <value>اختر تاريخ إقلاع ليس في المستقبل.</value>
+  </data>
+  <data name="Settings.Error.InvalidCurrency" xml:space="preserve">
+    <value>أدخل رمز العملة (مثل USD).</value>
+  </data>
+  <data name="Notifications.Title" xml:space="preserve">
+    <value>الإشعارات</value>
+  </data>
+  <data name="Notifications.Entry" xml:space="preserve">
+    <value>الإشعارات</value>
+  </data>
+  <data name="Notifications.Enable" xml:space="preserve">
+    <value>السماح بالتذكيرات الداعمة</value>
+  </data>
+  <data name="Notifications.DailyEncouragement" xml:space="preserve">
+    <value>تشجيع يومي</value>
+  </data>
+  <data name="Notifications.MilestoneReached" xml:space="preserve">
+    <value>تحقيق إنجاز</value>
+  </data>
+  <data name="Notifications.CravingSupport" xml:space="preserve">
+    <value>دعم الرغبة</value>
+  </data>
+  <data name="Notifications.SavingsProgress" xml:space="preserve">
+    <value>تذكير التقدم</value>
+  </data>
+  <data name="Notifications.TimeOfDay" xml:space="preserve">
+    <value>الوقت من اليوم</value>
+  </data>
+  <data name="Notifications.Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Notifications.Saved" xml:space="preserve">
+    <value>تم حفظ إعدادات الإشعارات</value>
+  </data>
+  <data name="Notifications.PermissionDenied" xml:space="preserve">
+    <value>الإشعارات معطلة على هذا الجهاز. يمكنك تغيير ذلك في إعدادات الجهاز.</value>
+  </data>
+  <data name="Notifications.SensitiveHint" xml:space="preserve">
+    <value>التذكيرات قصيرة وداعمة ولا تعرض تفاصيل خاصة على شاشة القفل.</value>
+  </data>
+  <data name="Notification.Daily.Title" xml:space="preserve">
+    <value>واصل</value>
+  </data>
+  <data name="Notification.Daily.Body" xml:space="preserve">
+    <value>أنت قادر. لحظة بلحظة.</value>
+  </data>
+  <data name="Notification.Milestone.Title" xml:space="preserve">
+    <value>حصلت على إنجاز</value>
+  </data>
+  <data name="Notification.Milestone.Body" xml:space="preserve">
+    <value>عمل رائع. تقدمك يتراكم.</value>
+  </data>
+  <data name="Notification.Craving.Title" xml:space="preserve">
+    <value>يمكنك تجاوز هذا</value>
+  </data>
+  <data name="Notification.Craving.Body" xml:space="preserve">
+    <value>خذ نفسًا بطيئًا. أنت تتحكم.</value>
+  </data>
+  <data name="Notification.Savings.Title" xml:space="preserve">
+    <value>تقدمك يتراكم</value>
+  </data>
+  <data name="Notification.Savings.Body" xml:space="preserve">
+    <value>كل خيار تقوم به مهم.</value>
+  </data>
+  <data name="TriggerAnalysis.Title" xml:space="preserve">
+    <value>الأنماط (تحليل المحفزات)</value>
+  </data>
+  <data name="TriggerAnalysis.Enable" xml:space="preserve">
+    <value>تحليل الأنماط على هذا الجهاز</value>
+  </data>
+  <data name="TriggerAnalysis.Disabled" xml:space="preserve"><value>تحليل الأنماط متوقف؛ لا تتم قراءة أحداثك.</value></data>
+  <data name="TriggerAnalysis.Disable" xml:space="preserve">
+    <value>إيقاف تحليل الأنماط على هذا الجهاز</value>
+  </data>
+  <data name="TriggerAnalysis.MinimumData" xml:space="preserve">
+    <value>تُستخدم الأحداث المحلية المجمعة فقط؛ نحتاج إلى 5 أحداث على الأقل لعرض الأنماط.</value>
+  </data>
+  <data name="TriggerAnalysis.InsufficientData" xml:space="preserve">
+    <value>لا توجد بيانات كافية لرؤية الأنماط بعد. واصل التسجيل وتحقق مرة أخرى لاحقًا.</value>
+  </data>
+  <data name="TriggerAnalysis.Empty" xml:space="preserve">
+    <value>لا توجد أنماط لعرضها بعد.</value>
+  </data>
+  <data name="TriggerAnalysis.Error" xml:space="preserve">
+    <value>تعذر تحميل الأنماط الآن. سجلاتك المحلية آمنة.</value>
+  </data>
+  <data name="TriggerAnalysis.PrivacyNote" xml:space="preserve">
+    <value>يُجرى التحليل على هذا الجهاز فقط. لا تُرسل أي تفاصيل خاصة ولا تُعرض هنا.</value>
+  </data>
+  <data name="TriggerAnalysis.Disclaimer" xml:space="preserve">
+    <value>الأنماط تقريبية وليست تشخيصًا طبيًا.</value>
+  </data>
+  <data name="TriggerAnalysis.Approximate" xml:space="preserve">
+    <value>حوالي</value>
+  </data>
+  <data name="TriggerAnalysis.Strength" xml:space="preserve"><value>{0}: {1}٪</value></data>
+  <data name="Trigger.TimeOfDay" xml:space="preserve">
+    <value>حدثت معظم الأحداث في {0}</value>
+  </data>
+  <data name="Trigger.DayOfWeek" xml:space="preserve">
+    <value>حدثت معظم الأحداث يوم {0}</value>
+  </data>
+  <data name="Trigger.Context" xml:space="preserve">
+    <value>السياق الأكثر شيوعًا: {0}</value>
+  </data>
+  <data name="Trigger.Context.Aggregated" xml:space="preserve"><value>لوحظت فئة سياق متكررة.</value></data>
+  <data name="Trigger.CravingFrequency" xml:space="preserve">
+    <value>حوالي {0} من الرغبات في كل يوم نشط</value>
+  </data>
+  <data name="Trigger.SmokedVsResisted" xml:space="preserve">
+    <value>قاومت في {0} من أصل {1} مرة</value>
+  </data>
+  <data name="Trigger.TimeBucket.EarlyMorning" xml:space="preserve">
+    <value>الصباح الباكر</value>
+  </data>
+  <data name="Trigger.TimeBucket.Morning" xml:space="preserve">
+    <value>الصباح</value>
+  </data>
+  <data name="Trigger.TimeBucket.Afternoon" xml:space="preserve">
+    <value>بعد الظهر</value>
+  </data>
+  <data name="Trigger.TimeBucket.Evening" xml:space="preserve">
+    <value>المساء</value>
+  </data>
+  <data name="Trigger.TimeBucket.Night" xml:space="preserve">
+    <value>الليل</value>
+  </data>
+  <data name="Profile.Title" xml:space="preserve"><value>الملف الشخصي والإعدادات</value></data>
+  <data name="Profile.Entry" xml:space="preserve"><value>الملف الشخصي والإعدادات</value></data>
+  <data name="Profile.DisplayName" xml:space="preserve"><value>اسم العرض (اختياري)</value></data>
+  <data name="Profile.Avatar" xml:space="preserve"><value>الصورة الرمزية</value></data>
+  <data name="Profile.AvatarHint" xml:space="preserve"><value>اختر رمزًا بسيطًا من Niko لملفك الشخصي.</value></data>
+  <data name="Profile.Save" xml:space="preserve"><value>حفظ الملف الشخصي</value></data>
+  <data name="Profile.Saved" xml:space="preserve"><value>تم حفظ الملف الشخصي على هذا الجهاز.</value></data>
+  <data name="Profile.Language" xml:space="preserve"><value>اللغة</value></data>
+  <data name="Profile.LanguageFallback" xml:space="preserve"><value>تستخدم هذه اللغة حاليًا الإنجليزية للنصوص غير المترجمة بالكامل.</value></data>
+  <data name="Profile.Notifications" xml:space="preserve"><value>إعدادات الإشعارات</value></data>
+  <data name="Profile.PrivacyData" xml:space="preserve"><value>عناصر الخصوصية والتحكم في البيانات</value></data>
+  <data name="Profile.Error.DisplayName" xml:space="preserve"><value>اسم العرض طويل جدًا.</value></data>
+  <data name="Profile.Error.Avatar" xml:space="preserve"><value>اختر صورة رمزية صالحة.</value></data>
+  <data name="Profile.Error.Locale" xml:space="preserve"><value>اختر لغة مهيأة.</value></data>
+  <data name="Language.English" xml:space="preserve"><value>English</value></data>
+  <data name="Language.Persian" xml:space="preserve"><value>فارسی</value></data>
+  <data name="Language.Arabic" xml:space="preserve"><value>العربية</value></data>
+  <data name="Language.German" xml:space="preserve"><value>Deutsch</value></data>
+  <data name="Language.Spanish" xml:space="preserve"><value>Español</value></data>
+  <data name="Language.French" xml:space="preserve"><value>Français</value></data>
+  <data name="Language.Hindi" xml:space="preserve"><value>हिन्दी</value></data>
+  <data name="Language.Indonesian" xml:space="preserve"><value>Bahasa Indonesia</value></data>
+  <data name="Language.Japanese" xml:space="preserve"><value>日本語</value></data>
+  <data name="Language.Korean" xml:space="preserve"><value>한국어</value></data>
+  <data name="Language.PortugueseBrazil" xml:space="preserve"><value>Português (Brasil)</value></data>
+  <data name="Language.Russian" xml:space="preserve"><value>Русский</value></data>
+  <data name="Language.Turkish" xml:space="preserve"><value>Türkçe</value></data>
+  <data name="Language.Ukrainian" xml:space="preserve"><value>Українська</value></data>
+  <data name="Language.ChineseSimplified" xml:space="preserve"><value>简体中文</value></data>
+  <data name="Language.ChineseTraditional" xml:space="preserve"><value>繁體中文</value></data>
+  <data name="Avatar.Default" xml:space="preserve"><value>Niko الافتراضي</value></data>
+  <data name="Avatar.Leaf" xml:space="preserve"><value>ورقة Niko</value></data>
+  <data name="Avatar.Sun" xml:space="preserve"><value>شمس Niko</value></data>
+  <data name="Avatar.Wave" xml:space="preserve"><value>موجة Niko</value></data>
+  <data name="PrivacyData.Title" xml:space="preserve"><value>الخصوصية والبيانات</value></data>
+  <data name="PrivacyData.Description" xml:space="preserve"><value>يبقى ملفك الشخصي وسجلاتك على هذا الجهاز ما لم تختر صراحةً خيار مشاركة مستقبليًا.</value></data>
+  <data name="PrivacyData.LocalOnly" xml:space="preserve"><value>يعمل Niko دون اتصال ولا يرسل ملفك الشخصي أو بيانات استهلاكك إلى خدمات خارجية في هذا الإصدار.</value></data>
+  <data name="PrivacyData.Controls" xml:space="preserve"><value>ستُضاف عناصر التصدير والحذف مع موافقتها ومسار الاسترداد الموثق.</value></data>
+  <data name="Coach.Title" xml:space="preserve"><value>المدرب الذكي (أساس محلي)</value></data>
+  <data name="Coach.PrivacyNote" xml:space="preserve"><value>معطّل افتراضياً. يُستخدم فقط سياق تجميعي معتمد محلياً؛ لا تُستخدم الملاحظات أو السجل الخام.</value></data>
+  <data name="Coach.Disabled" xml:space="preserve"><value>المدرب الذكي معطّل.</value></data>
+  <data name="Coach.Enabled" xml:space="preserve"><value>المدرب الذكي مفعّل للاقتراحات المحلية.</value></data>
+  <data name="Coach.AllowExternal" xml:space="preserve"><value>السماح بمزوّد خارجي مستقبلاً</value></data>
+  <data name="Coach.AllowProgress" xml:space="preserve"><value>السماح بسياق التقدم التجميعي</value></data>
+  <data name="Coach.AllowCraving" xml:space="preserve"><value>السماح بسياق شدة الرغبة</value></data>
+  <data name="Coach.Clear" xml:space="preserve"><value>مسح تفضيلات المدرب</value></data>
+  <data name="Coach.Cleared" xml:space="preserve"><value>تم مسح تفضيلات المدرب.</value></data>
+  <data name="Coach.Empty" xml:space="preserve"><value>لا يوجد اقتراح متاح بعد.</value></data>
+  <data name="Coach.Loading" xml:space="preserve"><value>جارٍ تحميل المدرب المحلي…</value></data>
+  <data name="Coach.Error" xml:space="preserve"><value>المدرب المحلي غير متاح مؤقتاً.</value></data>
+  <data name="Coach.Suggestion.CravingSupport" xml:space="preserve"><value>يمكن أن تمر الرغبة. جرّب التدخل القصير المحدد وامنح نفسك لحظة.</value></data>
+  <data name="Coach.Suggestion.Progress" xml:space="preserve"><value>تقدمك المستمر مهم. واصل الخطوة الصغيرة التالية.</value></data>
+  <data name="Coach.Suggestion.Milestone" xml:space="preserve"><value>وصلت إلى إنجاز مهم. لاحظ ما ساعدك على الوصول إليه.</value></data>
+  <data name="Coach.External.Title" xml:space="preserve"><value>مشاركة مزود خارجي</value></data>
+  <data name="Coach.External.Note" xml:space="preserve"><value>لا يوجد مزود متصل في هذا الإصدار. إذا فُعّل لاحقاً، يمكن مشاركة السياق التجميعي المعتمد فقط؛ وتُستبعد الأحداث الخام والملاحظات والمعرّفات والطوابع الزمنية والبيانات الخاصة.</value></data>
+  <data name="Coach.External.Consent" xml:space="preserve"><value>السماح باستخدام مزود خارجي عند تهيئته</value></data>
+  <data name="Coach.External.Unavailable" xml:space="preserve"><value>المزود الخارجي غير متاح؛ يظل البديل المحلي متاحاً.</value></data>
+  <data name="Coach.External.Available" xml:space="preserve"><value>المزوّد المجاني الموثّق متاح؛ يظل المدرب المحلي متاحاً بلا اتصال.</value></data>
+  <data name="Coach.External.Revoke" xml:space="preserve"><value>إلغاء موافقة المشاركة الخارجية</value></data>
+  <data name="Coach.External.Revoked" xml:space="preserve"><value>تم إلغاء موافقة المشاركة الخارجية.</value></data>
+</root>

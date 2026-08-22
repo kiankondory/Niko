@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Niko</value>
+  </data>
+  <data name="QuickLog.Smoked" xml:space="preserve">
+    <value>I smoked</value>
+  </data>
+  <data name="QuickLog.Resisted" xml:space="preserve">
+    <value>I resisted</value>
+  </data>
+  <data name="QuickLog.Craving" xml:space="preserve">
+    <value>I have a craving</value>
+  </data>
+  <data name="QuickLog.Success" xml:space="preserve">
+    <value>Logged</value>
+  </data>
+  <data name="QuickLog.Error" xml:space="preserve">
+    <value>Something went wrong</value>
+  </data>
+  <data name="Sync.Pending" xml:space="preserve">
+    <value>Waiting to sync</value>
+  </data>
+  <data name="Sync.InSync" xml:space="preserve">
+    <value>Synced</value>
+  </data>
+  <data name="Sync.Failed" xml:space="preserve">
+    <value>Sync failed</value>
+  </data>
+  <data name="Dashboard.Title" xml:space="preserve">
+    <value>Progress</value>
+  </data>
+  <data name="Dashboard.Smoked" xml:space="preserve">
+    <value>Smoked</value>
+  </data>
+  <data name="Dashboard.Resisted" xml:space="preserve">
+    <value>Resisted</value>
+  </data>
+  <data name="Dashboard.Cravings" xml:space="preserve">
+    <value>Cravings</value>
+  </data>
+  <data name="Dashboard.CurrentStreak" xml:space="preserve">
+    <value>Current streak</value>
+  </data>
+  <data name="Dashboard.Days" xml:space="preserve">
+    <value>{0} day(s)</value>
+  </data>
+  <data name="Dashboard.Milestone" xml:space="preserve">
+    <value>Milestone</value>
+  </data>
+  <data name="Dashboard.MilestoneNext" xml:space="preserve">
+    <value>Next: {0} days</value>
+  </data>
+  <data name="Dashboard.Savings" xml:space="preserve">
+    <value>Approximate savings</value>
+  </data>
+  <data name="Dashboard.SavingsUnavailable" xml:space="preserve">
+    <value>Add price and usage settings to see savings</value>
+  </data>
+  <data name="Dashboard.Empty" xml:space="preserve">
+    <value>No events logged yet</value>
+  </data>
+  <data name="Dashboard.SavingsDisclaimer" xml:space="preserve">
+    <value>Approximate estimate; not medical advice</value>
+  </data>
+  <data name="Common.Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Tab.QuickLog" xml:space="preserve">
+    <value>QuickLog</value>
+  </data>
+  <data name="Dashboard.Milestones" xml:space="preserve">
+    <value>Milestones</value>
+  </data>
+  <data name="Milestone.Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Milestone.Current" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="Milestone.Upcoming" xml:space="preserve">
+    <value>Upcoming</value>
+  </data>
+  <data name="Milestone.Days" xml:space="preserve">
+    <value>{0} day(s)</value>
+  </data>
+  <data name="CravingBattle.Title" xml:space="preserve">
+    <value>Craving Battle</value>
+  </data>
+  <data name="CravingBattle.Entry" xml:space="preserve">
+    <value>Craving Battle</value>
+  </data>
+  <data name="CravingBattle.SelectIntensity" xml:space="preserve">
+    <value>How strong is the craving?</value>
+  </data>
+  <data name="CravingBattle.Intensity.Mild" xml:space="preserve">
+    <value>Mild</value>
+  </data>
+  <data name="CravingBattle.Intensity.Moderate" xml:space="preserve">
+    <value>Moderate</value>
+  </data>
+  <data name="CravingBattle.Intensity.Intense" xml:space="preserve">
+    <value>Intense</value>
+  </data>
+  <data name="CravingBattle.ChooseAction" xml:space="preserve">
+    <value>Choose one thing to try</value>
+  </data>
+  <data name="CravingBattle.Action.DeepBreathing" xml:space="preserve">
+    <value>Breathe slowly</value>
+  </data>
+  <data name="CravingBattle.Action.Delay" xml:space="preserve">
+    <value>Delay for a few minutes</value>
+  </data>
+  <data name="CravingBattle.Action.DrinkWater" xml:space="preserve">
+    <value>Drink a glass of water</value>
+  </data>
+  <data name="CravingBattle.Action.Movement" xml:space="preserve">
+    <value>Move your body a little</value>
+  </data>
+  <data name="CravingBattle.Action.SupportContact" xml:space="preserve">
+    <value>Reach out for support</value>
+  </data>
+  <data name="CravingBattle.Timer" xml:space="preserve">
+    <value>{0} seconds</value>
+  </data>
+  <data name="CravingBattle.Complete" xml:space="preserve">
+    <value>I did it</value>
+  </data>
+  <data name="CravingBattle.ResistButton" xml:space="preserve">
+    <value>I resisted</value>
+  </data>
+  <data name="CravingBattle.Completed" xml:space="preserve">
+    <value>Well done. You got through this moment.</value>
+  </data>
+  <data name="CravingBattle.Resisted" xml:space="preserve">
+    <value>You resisted. That took strength.</value>
+  </data>
+  <data name="CravingBattle.Exited" xml:space="preserve">
+    <value>That's okay. You can start again at any time.</value>
+  </data>
+  <data name="CravingBattle.Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="CravingBattle.StartOver" xml:space="preserve">
+    <value>Start over</value>
+  </data>
+  <data name="CravingBattle.InterventionGuide" xml:space="preserve">
+    <value>Follow along until the timer finishes, then mark it complete.</value>
+  </data>
+  <data name="Recovery.Title" xml:space="preserve">
+    <value>Body Recovery</value>
+  </data>
+  <data name="Recovery.Progress" xml:space="preserve">
+    <value>Estimated progress</value>
+  </data>
+  <data name="Recovery.NextStage" xml:space="preserve">
+    <value>Next: {0}</value>
+  </data>
+  <data name="Recovery.Disclaimer" xml:space="preserve">
+    <value>Approximate information only; this is not medical advice.</value>
+  </data>
+  <data name="Recovery.Unavailable" xml:space="preserve">
+    <value>Add your quit date to see estimated recovery progress.</value>
+  </data>
+  <data name="Recovery.Stage0.Title" xml:space="preserve">
+    <value>Getting started</value>
+  </data>
+  <data name="Recovery.Stage1.Title" xml:space="preserve">
+    <value>Early days</value>
+  </data>
+  <data name="Recovery.Stage2.Title" xml:space="preserve">
+    <value>First week</value>
+  </data>
+  <data name="Recovery.Stage3.Title" xml:space="preserve">
+    <value>Two weeks in</value>
+  </data>
+  <data name="Recovery.Stage4.Title" xml:space="preserve">
+    <value>One month</value>
+  </data>
+  <data name="Recovery.Stage5.Title" xml:space="preserve">
+    <value>Three months</value>
+  </data>
+  <data name="Recovery.Stage6.Title" xml:space="preserve">
+    <value>Half a year</value>
+  </data>
+  <data name="Recovery.Stage7.Title" xml:space="preserve">
+    <value>One year and beyond</value>
+  </data>
+  <data name="Recovery.Stage0.Description" xml:space="preserve">
+    <value>Your body may begin adjusting as it goes without nicotine. Progress is approximate.</value>
+  </data>
+  <data name="Recovery.Stage1.Description" xml:space="preserve">
+    <value>In the early days, your body may continue adjusting. Your progress matters more than any single moment.</value>
+  </data>
+  <data name="Recovery.Stage2.Description" xml:space="preserve">
+    <value>Within the first week, some people may notice changes in how they feel. This is just an estimate.</value>
+  </data>
+  <data name="Recovery.Stage3.Description" xml:space="preserve">
+    <value>Around two weeks, your body may keep adapting. Your consistency is the real progress.</value>
+  </data>
+  <data name="Recovery.Stage4.Description" xml:space="preserve">
+    <value>At about one month, some people may find routines feel a little different. This is not a guarantee.</value>
+  </data>
+  <data name="Recovery.Stage5.Description" xml:space="preserve">
+    <value>At three months, you may notice longer-term changes. Recovery varies for everyone.</value>
+  </data>
+  <data name="Recovery.Stage6.Description" xml:space="preserve">
+    <value>At half a year, many people report ongoing improvement. This is an estimate, not a promise.</value>
+  </data>
+  <data name="Recovery.Stage7.Description" xml:space="preserve">
+    <value>Beyond a year, your body has had time to adjust. Everyone's recovery is different.</value>
+  </data>
+  <data name="Settings.Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings.Entry" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings.CigarettesPerDay" xml:space="preserve">
+    <value>Cigarettes per day</value>
+  </data>
+  <data name="Settings.PricePerCigarette" xml:space="preserve">
+    <value>Price per cigarette</value>
+  </data>
+  <data name="Settings.PricePerPack" xml:space="preserve">
+    <value>Price per pack</value>
+  </data>
+  <data name="Settings.PackSize" xml:space="preserve">
+    <value>Cigarettes per pack</value>
+  </data>
+  <data name="Settings.Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="Settings.QuitDate" xml:space="preserve">
+    <value>Quit date</value>
+  </data>
+  <data name="Settings.Save" xml:space="preserve">
+    <value>Save settings</value>
+  </data>
+  <data name="Settings.Saved" xml:space="preserve">
+    <value>Settings saved</value>
+  </data>
+  <data name="Settings.SavingsHint" xml:space="preserve">
+    <value>Savings shown on Progress are approximate and based on these settings.</value>
+  </data>
+  <data name="Settings.Error.InvalidCigarettesPerDay" xml:space="preserve">
+    <value>Enter a positive number of cigarettes per day.</value>
+  </data>
+  <data name="Settings.Error.InvalidPrice" xml:space="preserve">
+    <value>Enter a positive price.</value>
+  </data>
+  <data name="Settings.Error.InvalidPackSize" xml:space="preserve">
+    <value>Enter a positive pack size.</value>
+  </data>
+  <data name="Settings.Error.MissingPrice" xml:space="preserve">
+    <value>Enter a price per cigarette or per pack.</value>
+  </data>
+  <data name="Settings.Error.InvalidQuitDate" xml:space="preserve">
+    <value>Choose a quit date that is not in the future.</value>
+  </data>
+  <data name="Settings.Error.InvalidCurrency" xml:space="preserve">
+    <value>Enter a currency code (for example USD).</value>
+  </data>
+  <data name="Notifications.Title" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Notifications.Entry" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Notifications.Enable" xml:space="preserve">
+    <value>Allow supportive reminders</value>
+  </data>
+  <data name="Notifications.DailyEncouragement" xml:space="preserve">
+    <value>Daily encouragement</value>
+  </data>
+  <data name="Notifications.MilestoneReached" xml:space="preserve">
+    <value>Milestone reached</value>
+  </data>
+  <data name="Notifications.CravingSupport" xml:space="preserve">
+    <value>Craving support</value>
+  </data>
+  <data name="Notifications.SavingsProgress" xml:space="preserve">
+    <value>Progress reminder</value>
+  </data>
+  <data name="Notifications.TimeOfDay" xml:space="preserve">
+    <value>Time of day</value>
+  </data>
+  <data name="Notifications.Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Notifications.Saved" xml:space="preserve">
+    <value>Notification settings saved</value>
+  </data>
+  <data name="Notifications.PermissionDenied" xml:space="preserve">
+    <value>Notifications are turned off on this device. You can change this in your device settings.</value>
+  </data>
+  <data name="Notifications.SensitiveHint" xml:space="preserve">
+    <value>Reminders are short and supportive. They do not show private details on your lock screen.</value>
+  </data>
+  <data name="Notification.Daily.Title" xml:space="preserve">
+    <value>Keep going</value>
+  </data>
+  <data name="Notification.Daily.Body" xml:space="preserve">
+    <value>You've got this. One moment at a time.</value>
+  </data>
+  <data name="Notification.Milestone.Title" xml:space="preserve">
+    <value>You reached a milestone</value>
+  </data>
+  <data name="Notification.Milestone.Body" xml:space="preserve">
+    <value>Nice work. Your progress adds up.</value>
+  </data>
+  <data name="Notification.Craving.Title" xml:space="preserve">
+    <value>You can get through this</value>
+  </data>
+  <data name="Notification.Craving.Body" xml:space="preserve">
+    <value>Take a slow breath. You're in control.</value>
+  </data>
+  <data name="Notification.Savings.Title" xml:space="preserve">
+    <value>Your progress adds up</value>
+  </data>
+  <data name="Notification.Savings.Body" xml:space="preserve">
+    <value>Every choice you make counts.</value>
+  </data>
+  <data name="TriggerAnalysis.Title" xml:space="preserve">
+    <value>Patterns (Trigger Analysis)</value>
+  </data>
+  <data name="TriggerAnalysis.Enable" xml:space="preserve">
+    <value>Analyze patterns on this device</value>
+  </data>
+  <data name="TriggerAnalysis.Disabled" xml:space="preserve"><value>Pattern analysis is disabled. Your events are not read.</value></data>
+  <data name="TriggerAnalysis.Disable" xml:space="preserve">
+    <value>Stop analyzing patterns on this device</value>
+  </data>
+  <data name="TriggerAnalysis.MinimumData" xml:space="preserve">
+    <value>Only aggregated local events are used; at least 5 events are needed to show patterns.</value>
+  </data>
+  <data name="TriggerAnalysis.InsufficientData" xml:space="preserve">
+    <value>Not enough data yet to see patterns. Keep logging and check back.</value>
+  </data>
+  <data name="TriggerAnalysis.Empty" xml:space="preserve">
+    <value>No patterns to show yet.</value>
+  </data>
+  <data name="TriggerAnalysis.Error" xml:space="preserve">
+    <value>We couldn’t load patterns right now. Your local logs are safe.</value>
+  </data>
+  <data name="TriggerAnalysis.PrivacyNote" xml:space="preserve">
+    <value>Analysis runs only on this device. No private details are sent anywhere or shown here.</value>
+  </data>
+  <data name="TriggerAnalysis.Disclaimer" xml:space="preserve">
+    <value>Patterns are approximate and not a diagnosis.</value>
+  </data>
+  <data name="TriggerAnalysis.Approximate" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="TriggerAnalysis.Strength" xml:space="preserve"><value>{0}: {1}%</value></data>
+  <data name="Trigger.TimeOfDay" xml:space="preserve">
+    <value>Most events happened in the {0}</value>
+  </data>
+  <data name="Trigger.DayOfWeek" xml:space="preserve">
+    <value>Most events were on {0}</value>
+  </data>
+  <data name="Trigger.Context" xml:space="preserve">
+    <value>Most common context: {0}</value>
+  </data>
+  <data name="Trigger.Context.Aggregated" xml:space="preserve"><value>A repeated context category was observed.</value></data>
+  <data name="Trigger.CravingFrequency" xml:space="preserve">
+    <value>About {0} craving(s) per active day</value>
+  </data>
+  <data name="Trigger.SmokedVsResisted" xml:space="preserve">
+    <value>Resisted {0} of {1} times</value>
+  </data>
+  <data name="Trigger.TimeBucket.EarlyMorning" xml:space="preserve">
+    <value>early morning</value>
+  </data>
+  <data name="Trigger.TimeBucket.Morning" xml:space="preserve">
+    <value>morning</value>
+  </data>
+  <data name="Trigger.TimeBucket.Afternoon" xml:space="preserve">
+    <value>afternoon</value>
+  </data>
+  <data name="Trigger.TimeBucket.Evening" xml:space="preserve">
+    <value>evening</value>
+  </data>
+  <data name="Trigger.TimeBucket.Night" xml:space="preserve">
+    <value>night</value>
+  </data>
+  <data name="Profile.Title" xml:space="preserve"><value>Profile &amp; Settings</value></data>
+  <data name="Profile.Entry" xml:space="preserve"><value>Profile &amp; Settings</value></data>
+  <data name="Profile.DisplayName" xml:space="preserve"><value>Display name (optional)</value></data>
+  <data name="Profile.Avatar" xml:space="preserve"><value>Avatar</value></data>
+  <data name="Profile.AvatarHint" xml:space="preserve"><value>Choose a simple Niko symbol for your profile.</value></data>
+  <data name="Profile.Save" xml:space="preserve"><value>Save profile</value></data>
+  <data name="Profile.Saved" xml:space="preserve"><value>Profile saved on this device.</value></data>
+  <data name="Profile.Language" xml:space="preserve"><value>Language</value></data>
+  <data name="Profile.LanguageFallback" xml:space="preserve"><value>This language currently uses the English fallback for untranslated text.</value></data>
+  <data name="Profile.Notifications" xml:space="preserve"><value>Notification settings</value></data>
+  <data name="Profile.PrivacyData" xml:space="preserve"><value>Privacy and data controls</value></data>
+  <data name="Profile.Error.DisplayName" xml:space="preserve"><value>The display name is too long.</value></data>
+  <data name="Profile.Error.Avatar" xml:space="preserve"><value>Please choose a valid avatar.</value></data>
+  <data name="Profile.Error.Locale" xml:space="preserve"><value>Please choose a configured language.</value></data>
+  <data name="Language.English" xml:space="preserve"><value>English</value></data>
+  <data name="Language.Persian" xml:space="preserve"><value>فارسی</value></data>
+  <data name="Language.Arabic" xml:space="preserve"><value>العربية</value></data>
+  <data name="Language.German" xml:space="preserve"><value>Deutsch</value></data>
+  <data name="Language.Spanish" xml:space="preserve"><value>Español</value></data>
+  <data name="Language.French" xml:space="preserve"><value>Français</value></data>
+  <data name="Language.Hindi" xml:space="preserve"><value>हिन्दी</value></data>
+  <data name="Language.Indonesian" xml:space="preserve"><value>Bahasa Indonesia</value></data>
+  <data name="Language.Japanese" xml:space="preserve"><value>日本語</value></data>
+  <data name="Language.Korean" xml:space="preserve"><value>한국어</value></data>
+  <data name="Language.PortugueseBrazil" xml:space="preserve"><value>Português (Brasil)</value></data>
+  <data name="Language.Russian" xml:space="preserve"><value>Русский</value></data>
+  <data name="Language.Turkish" xml:space="preserve"><value>Türkçe</value></data>
+  <data name="Language.Ukrainian" xml:space="preserve"><value>Українська</value></data>
+  <data name="Language.ChineseSimplified" xml:space="preserve"><value>简体中文</value></data>
+  <data name="Language.ChineseTraditional" xml:space="preserve"><value>繁體中文</value></data>
+  <data name="Avatar.Default" xml:space="preserve"><value>Niko default</value></data>
+  <data name="Avatar.Leaf" xml:space="preserve"><value>Niko leaf</value></data>
+  <data name="Avatar.Sun" xml:space="preserve"><value>Niko sun</value></data>
+  <data name="Avatar.Wave" xml:space="preserve"><value>Niko wave</value></data>
+  <data name="PrivacyData.Title" xml:space="preserve"><value>Privacy and data</value></data>
+  <data name="PrivacyData.Description" xml:space="preserve"><value>Your profile and logs stay on this device unless you explicitly choose a future sharing option.</value></data>
+  <data name="PrivacyData.LocalOnly" xml:space="preserve"><value>Niko works offline and does not send your profile or consumption data to external services in this build.</value></data>
+  <data name="PrivacyData.Controls" xml:space="preserve"><value>Export and deletion controls will be added with their documented consent and recovery flow.</value></data>
+  <data name="Coach.Title" xml:space="preserve"><value>AI Coach (local foundation)</value></data>
+  <data name="Coach.PrivacyNote" xml:space="preserve"><value>Off by default. Only approved aggregated context is used locally; no notes or raw event history.</value></data>
+  <data name="Coach.Disabled" xml:space="preserve"><value>AI Coach is disabled.</value></data>
+  <data name="Coach.Enabled" xml:space="preserve"><value>AI Coach is enabled for local suggestions.</value></data>
+  <data name="Coach.AllowExternal" xml:space="preserve"><value>Allow a future external provider</value></data>
+  <data name="Coach.AllowProgress" xml:space="preserve"><value>Allow aggregated progress context</value></data>
+  <data name="Coach.AllowCraving" xml:space="preserve"><value>Allow craving intensity context</value></data>
+  <data name="Coach.Clear" xml:space="preserve"><value>Clear coach preferences</value></data>
+  <data name="Coach.Cleared" xml:space="preserve"><value>Coach preferences cleared.</value></data>
+  <data name="Coach.Empty" xml:space="preserve"><value>No suggestion is available yet.</value></data>
+  <data name="Coach.Loading" xml:space="preserve"><value>Loading local coach…</value></data>
+  <data name="Coach.Error" xml:space="preserve"><value>The local coach is temporarily unavailable.</value></data>
+  <data name="Coach.Suggestion.CravingSupport" xml:space="preserve"><value>A craving can pass. Try the selected short intervention and give yourself a moment.</value></data>
+  <data name="Coach.Suggestion.Progress" xml:space="preserve"><value>Your steady progress matters. Continue with the next small step.</value></data>
+  <data name="Coach.Suggestion.Milestone" xml:space="preserve"><value>You reached a meaningful milestone. Notice what helped you get here.</value></data>
+  <data name="Coach.External.Title" xml:space="preserve"><value>External provider sharing</value></data>
+  <data name="Coach.External.Note" xml:space="preserve"><value>No provider is connected in this build. If enabled later, only approved aggregate context may be shared; raw events, notes, IDs, timestamps, and private metadata are excluded.</value></data>
+  <data name="Coach.External.Consent" xml:space="preserve"><value>Allow external provider use when one is configured</value></data>
+  <data name="Coach.External.Unavailable" xml:space="preserve"><value>External provider unavailable; local fallback remains available.</value></data>
+  <data name="Coach.External.Available" xml:space="preserve"><value>Verified free provider available; Local Coach remains available offline.</value></data>
+  <data name="Coach.External.Revoke" xml:space="preserve"><value>Revoke external sharing consent</value></data>
+  <data name="Coach.External.Revoked" xml:space="preserve"><value>External sharing consent revoked.</value></data>
+</root>

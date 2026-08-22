@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="Niko/Niko.csproj" />
+  <Project Path="src/Niko.Core/Niko.Core.csproj" />
+  <Project Path="src/Niko.Infrastructure/Niko.Infrastructure.csproj" />
+  <Project Path="backend/Niko.CoachProxy/Niko.CoachProxy.csproj" />
+  <Project Path="tests/Niko.Core.Tests/Niko.Core.Tests.csproj" />
+  <Project Path="tests/Niko.Infrastructure.Tests/Niko.Infrastructure.Tests.csproj" />
+  <Project Path="tests/Niko.CoachProxy.Tests/Niko.CoachProxy.Tests.csproj" />
+</Solution>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- مسئولیت: theme حداقلی companion Wear OS.
+     وابستگی‌ها و لایه: Android resources → Wear activity؛ بدون منطق محصول.
+     نکات تغییر و قیود: ظاهر ساده و قابل‌خواندن برای صفحهٔ کوچک ساعت است. -->
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#512BD4</item>
+    </style>
+</resources>

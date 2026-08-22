@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Niko.ViewModels"
+             x:Class="Niko.Pages.NotificationsPage"
+             x:DataType="vm:NotificationsViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,16" Spacing="14">
+
+            <Label Text="{Binding StatusMessage}" Style="{StaticResource SubHeadline}" />
+
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Grid.Column="0" Text="{Binding EnableLabel}" Style="{StaticResource SubHeadline}" />
+                <Switch Grid.Column="1" IsToggled="{Binding IsEnabled}" />
+            </Grid>
+
+            <Label Text="{Binding DailyLabel}" Style="{StaticResource SubHeadline}" />
+            <Switch IsToggled="{Binding DailyEnabled}" />
+
+            <Label Text="{Binding MilestoneLabel}" Style="{StaticResource SubHeadline}" />
+            <Switch IsToggled="{Binding MilestoneEnabled}" />
+
+            <Label Text="{Binding CravingLabel}" Style="{StaticResource SubHeadline}" />
+            <Switch IsToggled="{Binding CravingEnabled}" />
+
+            <Label Text="{Binding SavingsLabel}" Style="{StaticResource SubHeadline}" />
+            <Switch IsToggled="{Binding SavingsEnabled}" />
+
+            <Label Text="{Binding TimeOfDayLabel}" Style="{StaticResource SubHeadline}" />
+            <TimePicker Time="{Binding TimeOfDay}" />
+
+            <Button Text="{Binding SaveLabel}" Command="{Binding SaveCommand}" />
+
+            <Label Text="{Binding SensitiveHint}" Style="{StaticResource SubHeadline}" FontSize="12" TextColor="Gray" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

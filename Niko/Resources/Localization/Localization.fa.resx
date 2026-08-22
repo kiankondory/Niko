@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>نیکو</value>
+  </data>
+  <data name="QuickLog.Smoked" xml:space="preserve">
+    <value>سیگار کشیدم</value>
+  </data>
+  <data name="QuickLog.Resisted" xml:space="preserve">
+    <value>مقاومت کردم</value>
+  </data>
+  <data name="QuickLog.Craving" xml:space="preserve">
+    <value>هوس دارم</value>
+  </data>
+  <data name="QuickLog.Success" xml:space="preserve">
+    <value>ثبت شد</value>
+  </data>
+  <data name="QuickLog.Error" xml:space="preserve">
+    <value>خطایی رخ داد</value>
+  </data>
+  <data name="Sync.Pending" xml:space="preserve">
+    <value>در انتظار همگام‌سازی</value>
+  </data>
+  <data name="Sync.InSync" xml:space="preserve">
+    <value>همگام شد</value>
+  </data>
+  <data name="Sync.Failed" xml:space="preserve">
+    <value>همگام‌سازی ناموفق</value>
+  </data>
+  <data name="Dashboard.Title" xml:space="preserve">
+    <value>پیشرفت</value>
+  </data>
+  <data name="Dashboard.Smoked" xml:space="preserve">
+    <value>مصرف</value>
+  </data>
+  <data name="Dashboard.Resisted" xml:space="preserve">
+    <value>مقاومت</value>
+  </data>
+  <data name="Dashboard.Cravings" xml:space="preserve">
+    <value>هوس‌ها</value>
+  </data>
+  <data name="Dashboard.CurrentStreak" xml:space="preserve">
+    <value>استریک فعلی</value>
+  </data>
+  <data name="Dashboard.Days" xml:space="preserve">
+    <value>{0} روز</value>
+  </data>
+  <data name="Dashboard.Milestone" xml:space="preserve">
+    <value>میل‌استون</value>
+  </data>
+  <data name="Dashboard.MilestoneNext" xml:space="preserve">
+    <value>بعدی: {0} روز</value>
+  </data>
+  <data name="Dashboard.Savings" xml:space="preserve">
+    <value>صرفه‌جویی تقریبی</value>
+  </data>
+  <data name="Dashboard.SavingsUnavailable" xml:space="preserve">
+    <value>برای دیدن صرفه‌جویی، قیمت و مصرف روزانه را تنظیم کنید</value>
+  </data>
+  <data name="Dashboard.Empty" xml:space="preserve">
+    <value>هنوز رویدادی ثبت نشده است</value>
+  </data>
+  <data name="Dashboard.SavingsDisclaimer" xml:space="preserve">
+    <value>تخمین تقریبی؛ توصیهٔ پزشکی نیست</value>
+  </data>
+  <data name="Common.Refresh" xml:space="preserve">
+    <value>بازخوانی</value>
+  </data>
+  <data name="Tab.QuickLog" xml:space="preserve">
+    <value>ثبت سریع</value>
+  </data>
+  <data name="Dashboard.Milestones" xml:space="preserve">
+    <value>میل‌استون‌ها</value>
+  </data>
+  <data name="Milestone.Completed" xml:space="preserve">
+    <value>تکمیل‌شده</value>
+  </data>
+  <data name="Milestone.Current" xml:space="preserve">
+    <value>فعلی</value>
+  </data>
+  <data name="Milestone.Upcoming" xml:space="preserve">
+    <value>آینده</value>
+  </data>
+  <data name="Milestone.Days" xml:space="preserve">
+    <value>{0} روز</value>
+  </data>
+  <data name="CravingBattle.Title" xml:space="preserve">
+    <value>نبرد با هوس</value>
+  </data>
+  <data name="CravingBattle.Entry" xml:space="preserve">
+    <value>نبرد با هوس</value>
+  </data>
+  <data name="CravingBattle.SelectIntensity" xml:space="preserve">
+    <value>هوس چقدر شدید است؟</value>
+  </data>
+  <data name="CravingBattle.Intensity.Mild" xml:space="preserve">
+    <value>ملایم</value>
+  </data>
+  <data name="CravingBattle.Intensity.Moderate" xml:space="preserve">
+    <value>متوسط</value>
+  </data>
+  <data name="CravingBattle.Intensity.Intense" xml:space="preserve">
+    <value>شدید</value>
+  </data>
+  <data name="CravingBattle.ChooseAction" xml:space="preserve">
+    <value>یکی از این‌ها را امتحان کنید</value>
+  </data>
+  <data name="CravingBattle.Action.DeepBreathing" xml:space="preserve">
+    <value>آرام نفس بکشید</value>
+  </data>
+  <data name="CravingBattle.Action.Delay" xml:space="preserve">
+    <value>چند دقیقه صبر کنید</value>
+  </data>
+  <data name="CravingBattle.Action.DrinkWater" xml:space="preserve">
+    <value>یک لیوان آب بنوشید</value>
+  </data>
+  <data name="CravingBattle.Action.Movement" xml:space="preserve">
+    <value>کمی حرکت کنید</value>
+  </data>
+  <data name="CravingBattle.Action.SupportContact" xml:space="preserve">
+    <value>با یک فرد قابل‌اعتماد تماس بگیرید</value>
+  </data>
+  <data name="CravingBattle.Timer" xml:space="preserve">
+    <value>{0} ثانیه</value>
+  </data>
+  <data name="CravingBattle.Complete" xml:space="preserve">
+    <value>انجامش دادم</value>
+  </data>
+  <data name="CravingBattle.ResistButton" xml:space="preserve">
+    <value>مقاومت کردم</value>
+  </data>
+  <data name="CravingBattle.Completed" xml:space="preserve">
+    <value>آفرین. این لحظه را پشت سر گذاشتید.</value>
+  </data>
+  <data name="CravingBattle.Resisted" xml:space="preserve">
+    <value>مقاومت کردید. این قدرت می‌خواهد.</value>
+  </data>
+  <data name="CravingBattle.Exited" xml:space="preserve">
+    <value>اشکالی ندارد. هر زمان می‌توانید دوباره شروع کنید.</value>
+  </data>
+  <data name="CravingBattle.Exit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="CravingBattle.StartOver" xml:space="preserve">
+    <value>شروع دوباره</value>
+  </data>
+  <data name="CravingBattle.InterventionGuide" xml:space="preserve">
+    <value>تا پایان تایمر همراهی کنید، سپس تکمیل را بزنید.</value>
+  </data>
+  <data name="Recovery.Title" xml:space="preserve">
+    <value>بهبود بدن</value>
+  </data>
+  <data name="Recovery.Progress" xml:space="preserve">
+    <value>پیشرفت تخمینی</value>
+  </data>
+  <data name="Recovery.NextStage" xml:space="preserve">
+    <value>مرحلهٔ بعدی: {0}</value>
+  </data>
+  <data name="Recovery.Disclaimer" xml:space="preserve">
+    <value>اطلاعات تقریبی است؛ این توصیهٔ پزشکی نیست.</value>
+  </data>
+  <data name="Recovery.Unavailable" xml:space="preserve">
+    <value>برای دیدن پیشرفت تخمینی بهبود، تاریخ ترک خود را تنظیم کنید.</value>
+  </data>
+  <data name="Recovery.Stage0.Title" xml:space="preserve">
+    <value>شروع</value>
+  </data>
+  <data name="Recovery.Stage1.Title" xml:space="preserve">
+    <value>روزهای نخست</value>
+  </data>
+  <data name="Recovery.Stage2.Title" xml:space="preserve">
+    <value>هفتهٔ نخست</value>
+  </data>
+  <data name="Recovery.Stage3.Title" xml:space="preserve">
+    <value>دو هفته</value>
+  </data>
+  <data name="Recovery.Stage4.Title" xml:space="preserve">
+    <value>یک ماه</value>
+  </data>
+  <data name="Recovery.Stage5.Title" xml:space="preserve">
+    <value>سه ماه</value>
+  </data>
+  <data name="Recovery.Stage6.Title" xml:space="preserve">
+    <value>نیم سال</value>
+  </data>
+  <data name="Recovery.Stage7.Title" xml:space="preserve">
+    <value>یک سال و بیشتر</value>
+  </data>
+  <data name="Recovery.Stage0.Description" xml:space="preserve">
+    <value>بدن شما ممکن است هنگام گذر از نیکوتین شروع به سازگاری کند. پیشرفت تقریبی است.</value>
+  </data>
+  <data name="Recovery.Stage1.Description" xml:space="preserve">
+    <value>در روزهای نخست، بدن شما ممکن است همچنان در حال سازگاری باشد. پیشرفت شما از هر لحظهٔ تنها مهم‌تر است.</value>
+  </data>
+  <data name="Recovery.Stage2.Description" xml:space="preserve">
+    <value>در هفتهٔ نخست، برخی افراد ممکن است تغییراتی در احساس خود ببینند. این فقط یک تخمین است.</value>
+  </data>
+  <data name="Recovery.Stage3.Description" xml:space="preserve">
+    <value>حدود دو هفته، بدن شما ممکن است به سازگاری ادامه دهد. پایداری شما پیشرفت واقعی است.</value>
+  </data>
+  <data name="Recovery.Stage4.Description" xml:space="preserve">
+    <value>حدود یک ماه، برخی افراد ممکن است کمی تفاوت در روال‌ها ببینند. این یک تضمین نیست.</value>
+  </data>
+  <data name="Recovery.Stage5.Description" xml:space="preserve">
+    <value>در سه ماه، ممکن است تغییرات بلندمدت‌تری ببینید. بهبود برای هرکس متفاوت است.</value>
+  </data>
+  <data name="Recovery.Stage6.Description" xml:space="preserve">
+    <value>در نیم سال، بسیاری از افراد بهبود مداوم گزارش می‌دهند. این یک تخمین است، نه یک قول.</value>
+  </data>
+  <data name="Recovery.Stage7.Description" xml:space="preserve">
+    <value>پس از یک سال، بدن شما فرصت سازگاری داشته است. بهبود هرکس متفاوت است.</value>
+  </data>
+  <data name="Settings.Title" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="Settings.Entry" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="Settings.CigarettesPerDay" xml:space="preserve">
+    <value>سیگار در روز</value>
+  </data>
+  <data name="Settings.PricePerCigarette" xml:space="preserve">
+    <value>قیمت هر نخ</value>
+  </data>
+  <data name="Settings.PricePerPack" xml:space="preserve">
+    <value>قیمت هر بسته</value>
+  </data>
+  <data name="Settings.PackSize" xml:space="preserve">
+    <value>تعداد نخ در بسته</value>
+  </data>
+  <data name="Settings.Currency" xml:space="preserve">
+    <value>ارز</value>
+  </data>
+  <data name="Settings.QuitDate" xml:space="preserve">
+    <value>تاریخ ترک</value>
+  </data>
+  <data name="Settings.Save" xml:space="preserve">
+    <value>ذخیرهٔ تنظیمات</value>
+  </data>
+  <data name="Settings.Saved" xml:space="preserve">
+    <value>تنظیمات ذخیره شد</value>
+  </data>
+  <data name="Settings.SavingsHint" xml:space="preserve">
+    <value>صرفه‌جویی نمایش‌داده‌شده در پیشرفت تقریبی و بر پایهٔ این تنظیمات است.</value>
+  </data>
+  <data name="Settings.Error.InvalidCigarettesPerDay" xml:space="preserve">
+    <value>تعداد مثبتی برای سیگار در روز وارد کنید.</value>
+  </data>
+  <data name="Settings.Error.InvalidPrice" xml:space="preserve">
+    <value>قیمت مثبتی وارد کنید.</value>
+  </data>
+  <data name="Settings.Error.InvalidPackSize" xml:space="preserve">
+    <value>اندازهٔ بستهٔ مثبتی وارد کنید.</value>
+  </data>
+  <data name="Settings.Error.MissingPrice" xml:space="preserve">
+    <value>قیمت هر نخ یا هر بسته را وارد کنید.</value>
+  </data>
+  <data name="Settings.Error.InvalidQuitDate" xml:space="preserve">
+    <value>تاریخ ترکی انتخاب کنید که در آینده نباشد.</value>
+  </data>
+  <data name="Settings.Error.InvalidCurrency" xml:space="preserve">
+    <value>کد ارز را وارد کنید (مثلاً USD).</value>
+  </data>
+  <data name="Notifications.Title" xml:space="preserve">
+    <value>اعلان‌ها</value>
+  </data>
+  <data name="Notifications.Entry" xml:space="preserve">
+    <value>اعلان‌ها</value>
+  </data>
+  <data name="Notifications.Enable" xml:space="preserve">
+    <value>اجازهٔ یادآوری‌های حمایتی</value>
+  </data>
+  <data name="Notifications.DailyEncouragement" xml:space="preserve">
+    <value>تشویق روزانه</value>
+  </data>
+  <data name="Notifications.MilestoneReached" xml:space="preserve">
+    <value>رسیدن به میل‌استون</value>
+  </data>
+  <data name="Notifications.CravingSupport" xml:space="preserve">
+    <value>پشتیبانی هوس</value>
+  </data>
+  <data name="Notifications.SavingsProgress" xml:space="preserve">
+    <value>یادآوری پیشرفت</value>
+  </data>
+  <data name="Notifications.TimeOfDay" xml:space="preserve">
+    <value>زمان روز</value>
+  </data>
+  <data name="Notifications.Save" xml:space="preserve">
+    <value>ذخیره</value>
+  </data>
+  <data name="Notifications.Saved" xml:space="preserve">
+    <value>تنظیمات اعلان ذخیره شد</value>
+  </data>
+  <data name="Notifications.PermissionDenied" xml:space="preserve">
+    <value>اعلان‌ها روی این دستگاه خاموش است. می‌توانید از تنظیمات دستگاه تغییر دهید.</value>
+  </data>
+  <data name="Notifications.SensitiveHint" xml:space="preserve">
+    <value>یادآوری‌ها کوتاه و حمایتی‌اند و جزئیات خصوصی را روی صفحهٔ قفل نشان نمی‌دهند.</value>
+  </data>
+  <data name="Notification.Daily.Title" xml:space="preserve">
+    <value>به راهت ادامه بده</value>
+  </data>
+  <data name="Notification.Daily.Body" xml:space="preserve">
+    <value>می‌توانی. لحظه به لحظه.</value>
+  </data>
+  <data name="Notification.Milestone.Title" xml:space="preserve">
+    <value>به یک میل‌استون رسیدی</value>
+  </data>
+  <data name="Notification.Milestone.Body" xml:space="preserve">
+    <value>آفرین. پیشرفت تو جمع می‌شود.</value>
+  </data>
+  <data name="Notification.Craving.Title" xml:space="preserve">
+    <value>می‌توانی از پسش بربیایی</value>
+  </data>
+  <data name="Notification.Craving.Body" xml:space="preserve">
+    <value>آرام نفس بکش. تو کنترل را داری.</value>
+  </data>
+  <data name="Notification.Savings.Title" xml:space="preserve">
+    <value>پیشرفت تو جمع می‌شود</value>
+  </data>
+  <data name="Notification.Savings.Body" xml:space="preserve">
+    <value>هر انتخابی که می‌کنی اهمیت دارد.</value>
+  </data>
+  <data name="TriggerAnalysis.Title" xml:space="preserve">
+    <value>الگوها (تحلیل محرک‌ها)</value>
+  </data>
+  <data name="TriggerAnalysis.Enable" xml:space="preserve">
+    <value>تحلیل الگوها روی این دستگاه</value>
+  </data>
+  <data name="TriggerAnalysis.Disabled" xml:space="preserve"><value>تحلیل الگوها غیرفعال است؛ رویدادهای تو خوانده نمی‌شوند.</value></data>
+  <data name="TriggerAnalysis.Disable" xml:space="preserve">
+    <value>توقف تحلیل الگوها روی این دستگاه</value>
+  </data>
+  <data name="TriggerAnalysis.MinimumData" xml:space="preserve">
+    <value>فقط از رویدادهای تجمیعی محلی استفاده می‌شود؛ برای نمایش الگوها حداقل ۵ رویداد لازم است.</value>
+  </data>
+  <data name="TriggerAnalysis.InsufficientData" xml:space="preserve">
+    <value>هنوز دادهٔ کافی برای دیدن الگوها وجود ندارد. به ثبت رویدادها ادامه بده و بعداً دوباره بررسی کن.</value>
+  </data>
+  <data name="TriggerAnalysis.Empty" xml:space="preserve">
+    <value>هنوز الگویی برای نمایش وجود ندارد.</value>
+  </data>
+  <data name="TriggerAnalysis.Error" xml:space="preserve">
+    <value>فعلاً بارگذاری الگوها ممکن نیست. گزارش‌های محلی تو امن هستند.</value>
+  </data>
+  <data name="TriggerAnalysis.PrivacyNote" xml:space="preserve">
+    <value>تحلیل فقط روی این دستگاه انجام می‌شود. هیچ جزئیات خصوصی ارسال یا در اینجا نمایش داده نمی‌شود.</value>
+  </data>
+  <data name="TriggerAnalysis.Disclaimer" xml:space="preserve">
+    <value>الگوها تقریبی هستند و تشخیص پزشکی محسوب نمی‌شوند.</value>
+  </data>
+  <data name="TriggerAnalysis.Approximate" xml:space="preserve">
+    <value>حدوداً</value>
+  </data>
+  <data name="TriggerAnalysis.Strength" xml:space="preserve"><value>{0}: {1}٪</value></data>
+  <data name="Trigger.TimeOfDay" xml:space="preserve">
+    <value>بیشتر رویدادها در {0} رخ داده‌اند</value>
+  </data>
+  <data name="Trigger.DayOfWeek" xml:space="preserve">
+    <value>بیشتر رویدادها در روز {0} بوده‌اند</value>
+  </data>
+  <data name="Trigger.Context" xml:space="preserve">
+    <value>رایج‌ترین زمینه: {0}</value>
+  </data>
+  <data name="Trigger.Context.Aggregated" xml:space="preserve"><value>یک دستهٔ زمینهٔ تکرارشونده مشاهده شد.</value></data>
+  <data name="Trigger.CravingFrequency" xml:space="preserve">
+    <value>حدود {0} هوس در هر روز فعال</value>
+  </data>
+  <data name="Trigger.SmokedVsResisted" xml:space="preserve">
+    <value>در {0} مورد از {1} مورد مقاومت کردی</value>
+  </data>
+  <data name="Trigger.TimeBucket.EarlyMorning" xml:space="preserve">
+    <value>صبح زود</value>
+  </data>
+  <data name="Trigger.TimeBucket.Morning" xml:space="preserve">
+    <value>صبح</value>
+  </data>
+  <data name="Trigger.TimeBucket.Afternoon" xml:space="preserve">
+    <value>بعدازظهر</value>
+  </data>
+  <data name="Trigger.TimeBucket.Evening" xml:space="preserve">
+    <value>عصر</value>
+  </data>
+  <data name="Trigger.TimeBucket.Night" xml:space="preserve">
+    <value>شب</value>
+  </data>
+  <data name="Profile.Title" xml:space="preserve"><value>پروفایل و تنظیمات</value></data>
+  <data name="Profile.Entry" xml:space="preserve"><value>پروفایل و تنظیمات</value></data>
+  <data name="Profile.DisplayName" xml:space="preserve"><value>نام نمایشی (اختیاری)</value></data>
+  <data name="Profile.Avatar" xml:space="preserve"><value>آواتار</value></data>
+  <data name="Profile.AvatarHint" xml:space="preserve"><value>یک نماد سادهٔ نیکو برای پروفایلت انتخاب کن.</value></data>
+  <data name="Profile.Save" xml:space="preserve"><value>ذخیرهٔ پروفایل</value></data>
+  <data name="Profile.Saved" xml:space="preserve"><value>پروفایل روی این دستگاه ذخیره شد.</value></data>
+  <data name="Profile.Language" xml:space="preserve"><value>زبان</value></data>
+  <data name="Profile.LanguageFallback" xml:space="preserve"><value>این زبان برای متن‌های ترجمه‌نشده فعلاً از زبان انگلیسی استفاده می‌کند.</value></data>
+  <data name="Profile.Notifications" xml:space="preserve"><value>تنظیمات اعلان‌ها</value></data>
+  <data name="Profile.PrivacyData" xml:space="preserve"><value>کنترل‌های حریم خصوصی و داده</value></data>
+  <data name="Profile.Error.DisplayName" xml:space="preserve"><value>نام نمایشی بیش از حد طولانی است.</value></data>
+  <data name="Profile.Error.Avatar" xml:space="preserve"><value>یک آواتار معتبر انتخاب کن.</value></data>
+  <data name="Profile.Error.Locale" xml:space="preserve"><value>یک زبان پیکربندی‌شده انتخاب کن.</value></data>
+  <data name="Language.English" xml:space="preserve"><value>English</value></data>
+  <data name="Language.Persian" xml:space="preserve"><value>فارسی</value></data>
+  <data name="Language.Arabic" xml:space="preserve"><value>العربية</value></data>
+  <data name="Language.German" xml:space="preserve"><value>Deutsch</value></data>
+  <data name="Language.Spanish" xml:space="preserve"><value>Español</value></data>
+  <data name="Language.French" xml:space="preserve"><value>Français</value></data>
+  <data name="Language.Hindi" xml:space="preserve"><value>हिन्दी</value></data>
+  <data name="Language.Indonesian" xml:space="preserve"><value>Bahasa Indonesia</value></data>
+  <data name="Language.Japanese" xml:space="preserve"><value>日本語</value></data>
+  <data name="Language.Korean" xml:space="preserve"><value>한국어</value></data>
+  <data name="Language.PortugueseBrazil" xml:space="preserve"><value>Português (Brasil)</value></data>
+  <data name="Language.Russian" xml:space="preserve"><value>Русский</value></data>
+  <data name="Language.Turkish" xml:space="preserve"><value>Türkçe</value></data>
+  <data name="Language.Ukrainian" xml:space="preserve"><value>Українська</value></data>
+  <data name="Language.ChineseSimplified" xml:space="preserve"><value>简体中文</value></data>
+  <data name="Language.ChineseTraditional" xml:space="preserve"><value>繁體中文</value></data>
+  <data name="Avatar.Default" xml:space="preserve"><value>نیکو پیش‌فرض</value></data>
+  <data name="Avatar.Leaf" xml:space="preserve"><value>برگ نیکو</value></data>
+  <data name="Avatar.Sun" xml:space="preserve"><value>خورشید نیکو</value></data>
+  <data name="Avatar.Wave" xml:space="preserve"><value>موج نیکو</value></data>
+  <data name="PrivacyData.Title" xml:space="preserve"><value>حریم خصوصی و داده</value></data>
+  <data name="PrivacyData.Description" xml:space="preserve"><value>پروفایل و گزارش‌های تو روی این دستگاه می‌مانند، مگر اینکه در آینده آگاهانه گزینهٔ اشتراک‌گذاری را انتخاب کنی.</value></data>
+  <data name="PrivacyData.LocalOnly" xml:space="preserve"><value>نیکو آفلاین کار می‌کند و در این نسخه پروفایل یا دادهٔ مصرف تو را به سرویس خارجی ارسال نمی‌کند.</value></data>
+  <data name="PrivacyData.Controls" xml:space="preserve"><value>کنترل‌های خروجی گرفتن و حذف داده با رضایت و مسیر بازیابی مستند اضافه خواهند شد.</value></data>
+  <data name="Coach.Title" xml:space="preserve"><value>مربی هوشمند (پایهٔ محلی)</value></data>
+  <data name="Coach.PrivacyNote" xml:space="preserve"><value>به‌طور پیش‌فرض خاموش است. فقط زمینهٔ تجمیعی تأییدشده و به‌صورت محلی استفاده می‌شود؛ یادداشت یا تاریخچهٔ خامی ارسال نمی‌شود.</value></data>
+  <data name="Coach.Disabled" xml:space="preserve"><value>مربی هوشمند غیرفعال است.</value></data>
+  <data name="Coach.Enabled" xml:space="preserve"><value>مربی هوشمند برای پیشنهادهای محلی فعال است.</value></data>
+  <data name="Coach.AllowExternal" xml:space="preserve"><value>اجازهٔ استفاده از provider خارجی در آینده</value></data>
+  <data name="Coach.AllowProgress" xml:space="preserve"><value>اجازهٔ زمینهٔ تجمیعی پیشرفت</value></data>
+  <data name="Coach.AllowCraving" xml:space="preserve"><value>اجازهٔ زمینهٔ شدت هوس</value></data>
+  <data name="Coach.Clear" xml:space="preserve"><value>پاک کردن ترجیحات مربی</value></data>
+  <data name="Coach.Cleared" xml:space="preserve"><value>ترجیحات مربی پاک شد.</value></data>
+  <data name="Coach.Empty" xml:space="preserve"><value>هنوز پیشنهادی در دسترس نیست.</value></data>
+  <data name="Coach.Loading" xml:space="preserve"><value>بارگذاری مربی محلی…</value></data>
+  <data name="Coach.Error" xml:space="preserve"><value>مربی محلی موقتاً در دسترس نیست.</value></data>
+  <data name="Coach.Suggestion.CravingSupport" xml:space="preserve"><value>هوس می‌تواند بگذرد. مداخلهٔ کوتاه انتخاب‌شده را امتحان کن و کمی به خودت فرصت بده.</value></data>
+  <data name="Coach.Suggestion.Progress" xml:space="preserve"><value>پیشرفت پیوستهٔ تو مهم است. قدم کوچک بعدی را ادامه بده.</value></data>
+  <data name="Coach.Suggestion.Milestone" xml:space="preserve"><value>به یک نقطهٔ مهم رسیدی. ببین چه چیزی به رسیدنت کمک کرد.</value></data>
+  <data name="Coach.External.Title" xml:space="preserve"><value>اشتراک‌گذاری با provider خارجی</value></data>
+  <data name="Coach.External.Note" xml:space="preserve"><value>در این نسخه providerی متصل نیست. اگر بعداً فعال شود، فقط زمینهٔ تجمیعی تأییدشده قابل اشتراک است؛ رویداد خام، یادداشت، شناسه، زمان و فرادادهٔ خصوصی ارسال نمی‌شود.</value></data>
+  <data name="Coach.External.Consent" xml:space="preserve"><value>اجازهٔ استفاده از provider خارجی در صورت پیکربندی</value></data>
+  <data name="Coach.External.Unavailable" xml:space="preserve"><value>provider خارجی در دسترس نیست؛ fallback محلی همچنان فعال است.</value></data>
+  <data name="Coach.External.Available" xml:space="preserve"><value>provider رایگان تأییدشده در دسترس است؛ مربی محلی آفلاین همچنان فعال می‌ماند.</value></data>
+  <data name="Coach.External.Revoke" xml:space="preserve"><value>لغو رضایت اشتراک‌گذاری خارجی</value></data>
+  <data name="Coach.External.Revoked" xml:space="preserve"><value>رضایت اشتراک‌گذاری خارجی لغو شد.</value></data>
+</root>

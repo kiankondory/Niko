@@ -1,0 +1,33 @@
+# Build outputs and generated intermediates
+**/bin/
+**/obj/
+**/build/
+.artifacts/
+artifacts/
+.vs/
+.gradle/
+.gradle-*/
+
+# Local IDE and machine files
+*.user
+*.suo
+*.userosscache
+*.csproj.user
+local.properties
+
+# Local secrets and environment configuration
+.env
+.env.*
+!.env.example
+appsettings.*.json
+secrets.json
+
+# Native/platform generated files
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# OS files
+Thumbs.db
+Desktop.ini

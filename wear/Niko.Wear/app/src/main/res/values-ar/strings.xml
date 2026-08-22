@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- المسؤولية: موارد عربية لـ companion Wear OS.
+     التبعيات والطبقة: Android resources → Wear UI؛ بلا منطق نطاق أو تخزين موازي.
+     ملاحظات التغيير والقيود: النصوص قصيرة وآمنة للخصوصية. -->
+<resources>
+    <string name="app_name">نيكو</string>
+    <string name="smoked_today">المُدخَّن اليوم: %1$d</string>
+    <string name="resisted_today">المقاومة اليوم: %1$d</string>
+    <string name="progress_summary">الاستمرارية: %1$d يوم · التقدم: %2$.0f%%</string>
+    <string name="status_offline">جاهز للعمل دون اتصال</string>
+    <string name="status_pending">المزامنة معلقة: %1$d</string>
+    <string name="status_unavailable">غير متاح مؤقتًا</string>
+    <string name="action_smoked">تدخين</string>
+    <string name="action_resisted">مقاومة</string>
+    <string name="action_craving">رغبة</string>
+</resources>
