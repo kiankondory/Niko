@@ -1,4 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  نام فایل: MainPage.xaml
+  مسئولیت: رابط ثبت سریع رخدادهای محلی و نمایش مسیرهای کوتاهِ قابل دسترس.
+  وابستگی‌ها و لایه: MAUI presentation → MainViewModel → QuickLogUseCase؛ منطق دامنه یا ذخیره‌سازی مستقیم ندارد.
+  نکات تغییر و قیود: ورودی ناوبری ناسالم Battle حذف شده است؛ کارت Craving فقط رخداد محلی ثبت می‌کند و تمام متن‌ها binding محلی‌سازی هستند.
+-->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Niko.ViewModels"
@@ -6,35 +12,52 @@
              x:DataType="vm:MainViewModel">
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="20">
-
-            <Label
-                Text="{Binding StatusMessage}"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2" />
-
-            <Button
-                Text="{Binding SmokedLabel}"
-                Command="{Binding SmokedCommand}"
-                HorizontalOptions="Fill" />
-
-            <Button
-                Text="{Binding ResistedLabel}"
-                Command="{Binding ResistedCommand}"
-                HorizontalOptions="Fill" />
-
-            <Button
-                Text="{Binding CravingLabel}"
-                Command="{Binding CravingCommand}"
-                HorizontalOptions="Fill" />
-
-            <Button
-                Text="{Binding CravingBattleEntryLabel}"
-                Clicked="OnCravingBattleClicked"
-                HorizontalOptions="Fill" />
-
+        <VerticalStackLayout Padding="20,16,20,28" Spacing="16">
+            <VerticalStackLayout Spacing="4">
+                <Label Text="{Binding Title}" Style="{StaticResource PageTitle}" />
+                <Label Text="{Binding Subtitle}" Style="{StaticResource BodyMuted}" SemanticProperties.HeadingLevel="Level2" />
+            </VerticalStackLayout>
+            <Border Style="{StaticResource CardBorder}" IsVisible="{Binding IsStatusVisible}" Padding="12,10">
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding IsStatusSuccess}" Value="True">
+                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                        <Setter Property="StrokeThickness" Value="2" />
+                    </DataTrigger>
+                </Border.Triggers>
+                <Grid ColumnDefinitions="28,*" ColumnSpacing="8">
+                    <Label Text="✓" FontSize="20" TextColor="{StaticResource Success}" VerticalOptions="Center" />
+                    <Label Grid.Column="1" Text="{Binding StatusMessage}" Style="{StaticResource FormLabel}" VerticalOptions="Center" />
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource HeroCard}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="{Binding CravingBattleEntryLabel}" Style="{StaticResource HeroTitle}" />
+                    <Label Text="{Binding CravingLabel}" Style="{StaticResource HeroBody}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardBorder}">
+                <Grid ColumnDefinitions="58,*,Auto" ColumnSpacing="14">
+                    <Label Text="🚬" FontSize="30" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                    <Label Grid.Column="1" Text="{Binding SmokedLabel}" Style="{StaticResource SectionTitle}" VerticalOptions="Center" />
+                    <Label Grid.Column="2" Text="{Binding SmokedTodayText}" Style="{StaticResource BodyMuted}" VerticalOptions="Center" />
+                    <Grid.GestureRecognizers><TapGestureRecognizer Command="{Binding SmokedCommand}" /></Grid.GestureRecognizers>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CardBorder}">
+                <Grid ColumnDefinitions="58,*,Auto" ColumnSpacing="14">
+                    <Label Text="🛡️" FontSize="30" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                    <Label Grid.Column="1" Text="{Binding ResistedLabel}" Style="{StaticResource SectionTitle}" VerticalOptions="Center" />
+                    <Label Grid.Column="2" Text="{Binding ResistedTodayText}" Style="{StaticResource BodyMuted}" VerticalOptions="Center" />
+                    <Grid.GestureRecognizers><TapGestureRecognizer Command="{Binding ResistedCommand}" /></Grid.GestureRecognizers>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CardBorder}">
+                <Grid ColumnDefinitions="58,*" ColumnSpacing="14">
+                    <Label Text="⚡" FontSize="30" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                    <Label Grid.Column="1" Text="{Binding CravingLabel}" Style="{StaticResource SectionTitle}" VerticalOptions="Center" />
+                    <Grid.GestureRecognizers><TapGestureRecognizer Command="{Binding CravingCommand}" /></Grid.GestureRecognizers>
+                </Grid>
+            </Border>
         </VerticalStackLayout>
     </ScrollView>
 

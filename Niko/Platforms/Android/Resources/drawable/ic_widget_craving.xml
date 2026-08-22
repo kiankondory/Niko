@@ -1,0 +1,2 @@
+<!-- نام فایل: ic_widget_craving.xml | مسئولیت: نماد عمل Craving در Widget | لایه: Android presentation | قید: بدون منطق دامنه. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24"><path android:fillColor="#7C3AED" android:pathData="M13,2L5,13h5l-1,9 8,-12h-5z"/></vector>

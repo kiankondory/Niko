@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- ========================================================================
-     责任：Niko Android 小组件的简体中文文本资源。
-     依赖与层级：Android 资源 → 小组件提供程序；不包含领域逻辑或存储。
-     变更说明与约束：文本为聚合且隐私安全；布局方向由 Android 处理。
-     ======================================================================== -->
+<!-- نام فایل: strings.xml | مسئولیت: متن‌های چینی سادهٔ ابزارک Niko؛ لایه: Android presentation؛ قید: فقط متن محلی‌سازی‌شده و بدون دادهٔ خام. -->
 <resources>
     <string name="widget_loading">正在加载…</string>
-    <string name="widget_smoked_today">今天吸烟：%1$d</string>
-    <string name="widget_resisted_today">今天抵抗：%1$d</string>
-    <string name="widget_summary_available">连续天数：%1$d 天 · 进度：%2$.0f%%</string>
-    <string name="widget_status_in_sync">已离线保存</string>
+    <string name="widget_count">%1$d</string>
+    <string name="widget_smoked_today">今日吸烟：%1$d</string>
+    <string name="widget_resisted_today">今日抵抗：%1$d</string>
+    <string name="widget_summary_available">连续：%1$d 天 · 进度：%2$.0f%%</string>
+    <string name="widget_status_in_sync">已本地保存</string>
     <string name="widget_status_pending">等待同步：%1$d</string>
     <string name="widget_status_offline">可离线使用</string>
     <string name="widget_status_unavailable">暂时不可用</string>

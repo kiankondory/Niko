@@ -56,6 +56,25 @@ public class DashboardUseCaseTests
     }
 
     [Fact]
+    public async Task Execute_ProvidesCurrentDayAggregateWithoutReadingFutureEvents()
+    {
+        await AddAsync(EventType.Smoked, 10);
+        await AddAsync(EventType.Resisted, 10);
+        await AddAsync(EventType.Smoked, 9);
+        await _store.SaveEventAsync(new LogEvent(
+            Guid.NewGuid().ToString("N"),
+            new DateTimeOffset(2024, 1, 11, 12, 0, 0, TimeSpan.Zero),
+            EventSource.Mobile,
+            EventType.Smoked,
+            SyncStatus.Pending));
+
+        var result = await _useCase.ExecuteAsync();
+
+        Assert.Equal(1, result.DailySummary.SmokedToday);
+        Assert.Equal(1, result.DailySummary.ResistedToday);
+    }
+
+    [Fact]
     public async Task Execute_WithProfile_IncludesSavings()
     {
         _settings.Profile = new UserProfile

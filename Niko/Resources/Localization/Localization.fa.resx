@@ -24,6 +24,13 @@
   <data name="QuickLog.Craving" xml:space="preserve">
     <value>هوس دارم</value>
   </data>
+  <data name="QuickLog.Title" xml:space="preserve"><value>ثبت سریع</value></data>
+  <data name="QuickLog.Subtitle" xml:space="preserve"><value>لحظه‌ای را که می‌خواهی ثبت کنی انتخاب کن.</value></data>
+  <data name="QuickLog.SmokedToday" xml:space="preserve"><value>امروز: {0}</value></data>
+  <data name="QuickLog.ResistedToday" xml:space="preserve"><value>امروز: {0}</value></data>
+  <data name="QuickLog.Success.Smoked" xml:space="preserve"><value>مصرف سیگار ثبت شد.</value></data>
+  <data name="QuickLog.Success.Resisted" xml:space="preserve"><value>مقاومتت ثبت شد.</value></data>
+  <data name="QuickLog.Success.Craving" xml:space="preserve"><value>هوس ثبت شد.</value></data>
   <data name="QuickLog.Success" xml:space="preserve">
     <value>ثبت شد</value>
   </data>
@@ -81,6 +88,9 @@
   <data name="Tab.QuickLog" xml:space="preserve">
     <value>ثبت سریع</value>
   </data>
+  <data name="Tab.Home" xml:space="preserve"><value>خانه</value></data>
+  <data name="Tab.Battle" xml:space="preserve"><value>نبرد</value></data>
+  <data name="Tab.Island" xml:space="preserve"><value>جزیره</value></data>
   <data name="Dashboard.Milestones" xml:space="preserve">
     <value>میل‌استون‌ها</value>
   </data>
@@ -396,8 +406,14 @@
   <data name="Trigger.TimeBucket.Night" xml:space="preserve">
     <value>شب</value>
   </data>
-  <data name="Profile.Title" xml:space="preserve"><value>پروفایل و تنظیمات</value></data>
-  <data name="Profile.Entry" xml:space="preserve"><value>پروفایل و تنظیمات</value></data>
+  <data name="Profile.Title" xml:space="preserve"><value>تنظیمات</value></data>
+  <data name="Island.Title" xml:space="preserve"><value>جزیرهٔ تو</value></data>
+  <data name="Island.Subtitle" xml:space="preserve"><value>پیشرفت واقعی تو به اینجا رشد می‌دهد.</value></data>
+  <data name="Island.CurrentStreak" xml:space="preserve"><value>استریک فعلی (روز)</value></data>
+  <data name="Island.NextMilestone" xml:space="preserve"><value>میل‌استون بعدی (روز)</value></data>
+  <data name="Island.Progress" xml:space="preserve"><value>مسیر تا میل‌استون بعدی</value></data>
+  <data name="Island.Empty" xml:space="preserve"><value>یک لحظه را ثبت کن تا جزیره‌ات شروع به رشد کند.</value></data>
+  <data name="Profile.Entry" xml:space="preserve"><value>تنظیمات</value></data>
   <data name="Profile.DisplayName" xml:space="preserve"><value>نام نمایشی (اختیاری)</value></data>
   <data name="Profile.Avatar" xml:space="preserve"><value>آواتار</value></data>
   <data name="Profile.AvatarHint" xml:space="preserve"><value>یک نماد سادهٔ نیکو برای پروفایلت انتخاب کن.</value></data>
@@ -456,4 +472,13 @@
   <data name="Coach.External.Available" xml:space="preserve"><value>provider رایگان تأییدشده در دسترس است؛ مربی محلی آفلاین همچنان فعال می‌ماند.</value></data>
   <data name="Coach.External.Revoke" xml:space="preserve"><value>لغو رضایت اشتراک‌گذاری خارجی</value></data>
   <data name="Coach.External.Revoked" xml:space="preserve"><value>رضایت اشتراک‌گذاری خارجی لغو شد.</value></data>
+  <data name="Dashboard.Greeting" xml:space="preserve"><value>پیشرفت تو، با ریتم خودت</value></data>
+  <data name="Dashboard.HeroTitle" xml:space="preserve"><value>رو به جلو ادامه بده</value></data>
+  <data name="Dashboard.HeroBody" xml:space="preserve"><value>انتخاب‌های کوچک، تغییر ماندگار می‌سازند.</value></data>
+  <data name="Dashboard.Overview" xml:space="preserve"><value>پیشرفت تو</value></data>
+  <data name="Dashboard.Activity" xml:space="preserve"><value>فعالیت تو</value></data>
+  <data name="Theme.Title" xml:space="preserve"><value>نمای برنامه</value></data>
+  <data name="Theme.System" xml:space="preserve"><value>پیروی از تنظیم دستگاه</value></data>
+  <data name="Theme.Light" xml:space="preserve"><value>روشن</value></data>
+  <data name="Theme.Dark" xml:space="preserve"><value>تیره</value></data>
 </root>

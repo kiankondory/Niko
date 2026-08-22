@@ -1,18 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- ========================================================================
-     المسؤولية: موارد نصية عربية لأداة Niko Android.
-     التبعيات والطبقة: مورد Android → مزود الأداة؛ لا توجد منطق نطاق أو تخزين.
-     ملاحظات التغيير والقيود: النصوص مجمعة وآمنة للخصوصية، ويدير Android اتجاه RTL.
-     ======================================================================== -->
+<!-- نام فایل: strings.xml | مسئولیت: متن‌های عربی ابزارک Niko؛ لایه: Android presentation؛ قید: فقط متن محلی‌سازی‌شده و بدون دادهٔ خام. -->
 <resources>
     <string name="widget_loading">جارٍ التحميل…</string>
-    <string name="widget_smoked_today">المُدخَّن اليوم: %1$d</string>
+    <string name="widget_count">%1$d</string>
+    <string name="widget_smoked_today">التدخين اليوم: %1$d</string>
     <string name="widget_resisted_today">المقاومة اليوم: %1$d</string>
-    <string name="widget_summary_available">الاستمرارية: %1$d يوم · التقدم: %2$.0f%%</string>
-    <string name="widget_status_in_sync">محفوظ دون اتصال</string>
-    <string name="widget_status_pending">المزامنة معلقة: %1$d</string>
-    <string name="widget_status_offline">جاهز للعمل دون اتصال</string>
-    <string name="widget_status_unavailable">غير متاح مؤقتًا</string>
+    <string name="widget_summary_available">السلسلة: %1$d يوم · التقدم: %2$.0f%%</string>
+    <string name="widget_status_in_sync">محفوظ محلياً</string>
+    <string name="widget_status_pending">المزامنة معلّقة: %1$d</string>
+    <string name="widget_status_offline">جاهز دون اتصال</string>
+    <string name="widget_status_unavailable">غير متاح مؤقتاً</string>
     <string name="widget_smoked">تدخين</string>
     <string name="widget_resisted">مقاومة</string>
     <string name="widget_craving">رغبة</string>

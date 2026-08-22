@@ -6,10 +6,11 @@ namespace Niko
     {
         private readonly IServiceProvider _services;
 
-        public App(IServiceProvider services)
+        public App(IServiceProvider services, Niko.Services.IAppThemeService appThemeService)
         {
             InitializeComponent();
             _services = services;
+            appThemeService.ApplyStoredTheme();
 
             var profile = _services.GetRequiredService<Niko.Core.Abstractions.IUserSettingsStore>()
                 .GetAsync()

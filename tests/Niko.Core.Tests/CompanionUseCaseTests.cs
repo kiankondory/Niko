@@ -144,6 +144,7 @@ public class CompanionUseCaseTests
     {
         await _store.SaveEventAsync(new LogEvent("today-smoked", _clock.UtcNow, EventSource.Mobile, EventType.Smoked, SyncStatus.Pending));
         await _store.SaveEventAsync(new LogEvent("today-resisted", _clock.UtcNow, EventSource.Mobile, EventType.Resisted, SyncStatus.Pending));
+        await _store.SaveEventAsync(new LogEvent("today-craving", _clock.UtcNow, EventSource.Mobile, EventType.Craving, SyncStatus.Pending));
         await _store.SaveEventAsync(new LogEvent("future", _clock.UtcNow.AddMinutes(1), EventSource.Mobile, EventType.Smoked, SyncStatus.Pending));
 
         var result = await _useCase.HandleAsync(BuildRequest(CompanionMessageType.ProgressSummaryRequest));
@@ -151,6 +152,7 @@ public class CompanionUseCaseTests
         var summary = Assert.IsType<CompanionProgressSummary>(result.Data);
         Assert.Equal(1, summary.SmokedToday);
         Assert.Equal(1, summary.ResistedToday);
+        Assert.Equal(1, summary.CravingsToday);
     }
 
     [Fact]

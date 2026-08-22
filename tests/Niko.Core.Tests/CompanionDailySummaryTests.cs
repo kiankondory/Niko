@@ -28,6 +28,7 @@ public sealed class CompanionDailySummaryTests
 
         Assert.Equal(0, result.SmokedToday);
         Assert.Equal(0, result.ResistedToday);
+        Assert.Equal(0, result.CravingsToday);
     }
 
     [Fact]
@@ -37,6 +38,7 @@ public sealed class CompanionDailySummaryTests
         {
             Event("today-smoked", EventType.Smoked, new DateTimeOffset(2026, 8, 21, 0, 30, 0, TimeSpan.Zero)),
             Event("today-resisted", EventType.Resisted, new DateTimeOffset(2026, 8, 21, 20, 0, 0, TimeSpan.Zero)),
+            Event("today-craving", EventType.Craving, new DateTimeOffset(2026, 8, 21, 18, 0, 0, TimeSpan.Zero)),
             Event("yesterday", EventType.Smoked, new DateTimeOffset(2026, 8, 20, 21, 59, 0, TimeSpan.Zero)),
             Event("future", EventType.Smoked, new DateTimeOffset(2026, 8, 21, 22, 0, 0, TimeSpan.Zero)),
             Event("deleted", EventType.Deleted, new DateTimeOffset(2026, 8, 21, 19, 0, 0, TimeSpan.Zero)),
@@ -47,6 +49,7 @@ public sealed class CompanionDailySummaryTests
 
         Assert.Equal(1, result.SmokedToday);
         Assert.Equal(1, result.ResistedToday);
+        Assert.Equal(1, result.CravingsToday);
     }
 
     [Fact]

@@ -111,6 +111,45 @@ Record durable decisions and their rationale here. Every new decision must inclu
   unavailable fallback until the bidirectional response path is added and
   tested; no raw event history or private metadata is sent to Wear.
 
+## ADR-020 — P3.3 Trigger Analysis UI feature flag
+
+- Date: 2026-08-22
+- Status: Accepted
+- Context: Phase 3 requires staged release and rollback safety for optional UI capabilities.
+- Decision: Trigger Analysis UI is controlled by a platform-neutral Core flag contract and a MAUI runtime environment adapter. The default is enabled for existing users; explicit false values and unknown values disable only the UI. Core calculations and persisted preferences remain unchanged.
+- Consequences and trade-offs: A deployment can hide the Trigger Analysis section without deleting data or changing domain behavior. Re-enabling the flag restores the existing UI path.
+
+## ADR-019 — P3.3 privacy-safe application diagnostics
+
+- Date: 2026-08-22
+- Status: Accepted
+- Context: Release hardening needs useful failure visibility without leaking
+  event identifiers, exception payloads, private notes, or user metadata.
+- Decision: Application diagnostics may record stable operation names and
+  exception type names only. Raw exception objects and user-derived values are
+  excluded from dashboard failure logs; user-visible fallback behavior remains
+  unchanged.
+- Consequences and trade-offs: Logs provide less stack detail, but remain safe
+  for local/device diagnostics and cannot expose sensitive event content through
+  exception messages.
+
+## ADR-021 — P3.4 visual design system and local theme preference
+
+- Date: 2026-08-22
+- Status: Accepted
+- Context: The initial MAUI presentation was functional but did not meet the approved Niko visual direction or provide a deliberate Light/Dark choice.
+- Decision: Use an internal MAUI design system based on resource tokens, reusable card and typography styles, local SVG/PNG assets, and the platform `Preferences` store for the presentation-only `System`/`Light`/`Dark` choice. Dashboard, Profile, and Settings consume these resources without moving domain calculations out of Core.
+- Alternatives considered: A third-party skin/UI dependency (rejected for the first pass because it adds package, licensing, and upgrade risk), and storing the theme as health/profile domain data (rejected because appearance is not domain data).
+- Consequences and trade-offs: The preference survives restart locally but is intentionally separate from SQLite profile data. Local assets keep the app offline-capable. More illustrations or motion libraries require a dependency review before adoption.
+
+## ADR-022 — visual navigation and milestone Island
+
+- Date: 2026-08-22
+- Status: Accepted
+- Context: The approved product direction needs accessible Home, Log, Battle, Island, and Profile destinations without creating artificial progress data.
+- Decision: The MAUI Shell exposes five localized destinations. Island is a presentation-only visual of the existing `DashboardUseCase` snapshot; its illustration is local and it shows only real streak/milestone aggregates. Battle remains backed by the existing Craving Battle use case. No XP, rewards economy, private event details, or new persistence are introduced.
+- Consequences and trade-offs: The app gains clearer navigation and richer local visuals while preserving offline behavior. A future gamification system requires a separate Core product decision and tests.
+
 ## ADR-001 — Shared Core
 
 - Status: Accepted

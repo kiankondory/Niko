@@ -1,0 +1,8 @@
+<!-- نام فایل: progress_time.svg | مسئولیت: آیکن برداری زمان و استریک برای کارت داشبورد | وابستگی: MAUI image assets | قید: بدون متن و دادهٔ کاربر. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="#12384A"/>
+  <circle cx="32" cy="32" r="17" fill="#6CD4F5"/>
+  <circle cx="32" cy="32" r="13" fill="#E8FBFF"/>
+  <path d="M32 22v11l8 5" fill="none" stroke="#12384A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="32" cy="32" r="2.5" fill="#12384A"/>
+</svg>

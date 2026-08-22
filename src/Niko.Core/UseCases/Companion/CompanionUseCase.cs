@@ -147,6 +147,7 @@ public sealed class CompanionUseCase : ICompanionAdapter
         {
             SmokedToday = dailySummary.SmokedToday,
             ResistedToday = dailySummary.ResistedToday,
+            CravingsToday = dailySummary.CravingsToday,
         };
 
         return CompanionResult<object>.Ok(summary);

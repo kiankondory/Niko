@@ -33,6 +33,7 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
     private readonly CoachUseCase _coachUseCase;
     private readonly ExternalCoachPrivacyGateway _externalCoachGateway;
     private readonly IWidgetRefreshService _widgetRefresh;
+    private readonly IAppThemeService _appThemeService;
 
     private string _cigarettesPerDayText = string.Empty;
     private string _pricePerCigaretteText = string.Empty;
@@ -52,19 +53,23 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
     private bool _allowCravingContext;
     private string _coachStatus = string.Empty;
     private ExternalCoachAvailabilityState _externalAvailabilityState = ExternalCoachAvailabilityState.NotConfigured;
+    private ThemeOptionDisplay _selectedTheme;
+    private IReadOnlyList<ThemeOptionDisplay> _themeOptions = Array.Empty<ThemeOptionDisplay>();
 
     public SettingsViewModel(
         SaveUserSettingsUseCase useCase,
         ILocalizationService localization,
         CoachUseCase coachUseCase,
         ExternalCoachPrivacyGateway externalCoachGateway,
-        IWidgetRefreshService widgetRefresh)
+        IWidgetRefreshService widgetRefresh,
+        IAppThemeService appThemeService)
     {
         _useCase = useCase;
         _localization = localization;
         _coachUseCase = coachUseCase;
         _externalCoachGateway = externalCoachGateway;
         _widgetRefresh = widgetRefresh;
+        _appThemeService = appThemeService;
         _localization.LocaleChanged += OnLocaleChanged;
         AvatarOptions = AvatarOptionsCatalog.All;
         CurrencyOptions = BuildCurrencyOptions();
@@ -73,11 +78,13 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
                 option,
                 _localization.GetString(option.NativeNameKey)))
             .ToList();
+        ThemeOptions = BuildThemeOptions();
         _selectedAvatar = AvatarOptions[0];
         _selectedCurrency = CurrencyOptions.First(option => option.Code == _currencyCode);
         _selectedLanguage = LanguageOptions.First(option =>
             string.Equals(option.Code, _localization.CurrentLocale, StringComparison.OrdinalIgnoreCase) ||
             option.Code.Equals("en", StringComparison.OrdinalIgnoreCase));
+        _selectedTheme = ThemeOptions.First(option => option.Mode == _appThemeService.Current);
         SaveCommand = new Command(async () => await SaveAsync());
         NotificationsCommand = new Command(async () => await Shell.Current.GoToAsync("NotificationsPage"));
         PrivacyDataCommand = new Command(async () => await Shell.Current.GoToAsync("PrivacyDataPage"));
@@ -122,6 +129,8 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
     public string SaveLabel => _localization.GetString(LocalizationKeys.SettingsSave);
 
     public string SavingsHint => _localization.GetString(LocalizationKeys.SettingsSavingsHint);
+
+    public string ThemeTitle => _localization.GetString(LocalizationKeys.ThemeTitle);
 
     public string CoachTitle => _localization.GetString(LocalizationKeys.CoachTitle);
 
@@ -280,6 +289,24 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
 
     public IReadOnlyList<LanguageOptionDisplay> LanguageOptions { get; }
 
+    public IReadOnlyList<ThemeOptionDisplay> ThemeOptions
+    {
+        get => _themeOptions;
+        private set => SetField(ref _themeOptions, value);
+    }
+
+    public ThemeOptionDisplay SelectedTheme
+    {
+        get => _selectedTheme;
+        set
+        {
+            if (SetField(ref _selectedTheme, value))
+            {
+                _appThemeService.SetTheme(value.Mode);
+            }
+        }
+    }
+
     public string DisplayName
     {
         get => _displayName;
@@ -317,7 +344,11 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
     public bool IsLanguageFallback => !SelectedLanguage.IsFullyTranslated;
 
     private void OnLocaleChanged(object? sender, EventArgs e)
-        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
+    {
+        ThemeOptions = BuildThemeOptions();
+        SelectedTheme = ThemeOptions.First(option => option.Mode == _appThemeService.Current);
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
+    }
 
     /// <summary>بارگذاری تنظیمات ذخیره‌شده از Core (فقط ارائه).</summary>
     public async Task LoadAsync()
@@ -466,6 +497,16 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
     }
 
     public sealed record CurrencyOptionDisplay(string Code, string DisplayName);
+
+    public sealed record ThemeOptionDisplay(AppThemeMode Mode, string DisplayName);
+
+    private IReadOnlyList<ThemeOptionDisplay> BuildThemeOptions()
+        => new[]
+        {
+            new ThemeOptionDisplay(AppThemeMode.System, _localization.GetString(LocalizationKeys.ThemeSystem)),
+            new ThemeOptionDisplay(AppThemeMode.Light, _localization.GetString(LocalizationKeys.ThemeLight)),
+            new ThemeOptionDisplay(AppThemeMode.Dark, _localization.GetString(LocalizationKeys.ThemeDark)),
+        };
 
     private static IReadOnlyList<CurrencyOptionDisplay> BuildCurrencyOptions()
     {

@@ -63,6 +63,8 @@ namespace Niko
             });
 
             builder.Services.AddSingleton<ILocalizationService, LocalizationService>();
+            builder.Services.AddSingleton<IAppThemeService, AppThemeService>();
+            builder.Services.AddSingleton<IFeatureFlagProvider, EnvironmentFeatureFlagProvider>();
             builder.Services.AddSingleton<IWidgetRefreshService>(sp =>
 #if ANDROID
                 new Platforms.Android.Widget.AndroidWidgetRefreshService()
@@ -118,6 +120,8 @@ namespace Niko
             builder.Services.AddSingleton<Pages.DashboardPage>();
             builder.Services.AddSingleton<ViewModels.CravingBattleViewModel>();
             builder.Services.AddSingleton<Pages.CravingBattlePage>();
+            builder.Services.AddSingleton<ViewModels.IslandViewModel>();
+            builder.Services.AddSingleton<Pages.IslandPage>();
             builder.Services.AddSingleton<ViewModels.SettingsViewModel>();
             builder.Services.AddSingleton<Pages.SettingsPage>();
             builder.Services.AddSingleton<Pages.ProfilePage>();

@@ -3,20 +3,34 @@
     x:Class="Niko.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="">
+    Title=""
+    Shell.NavBarIsVisible="False">
 
     <TabBar>
         <ShellContent
-            x:Name="MainShellContent"
-            Title=""
-            Route="MainPage" />
-        <ShellContent
             x:Name="DashboardShellContent"
             Title=""
+            Icon="nav_home.svg"
             Route="DashboardPage" />
+        <ShellContent
+            x:Name="MainShellContent"
+            Title=""
+            Icon="nav_log.svg"
+            Route="MainPage" />
+        <ShellContent
+            x:Name="BattleShellContent"
+            Title=""
+            Icon="nav_battle.svg"
+            Route="BattleTab" />
+        <ShellContent
+            x:Name="IslandShellContent"
+            Title=""
+            Icon="nav_island.svg"
+            Route="IslandTab" />
         <ShellContent
             x:Name="ProfileShellContent"
             Title=""
+            Icon="nav_profile.svg"
             Route="ProfilePage" />
     </TabBar>
 

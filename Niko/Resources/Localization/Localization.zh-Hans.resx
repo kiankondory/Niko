@@ -24,6 +24,13 @@
   <data name="QuickLog.Craving" xml:space="preserve">
     <value>我想抽烟</value>
   </data>
+  <data name="QuickLog.Title" xml:space="preserve"><value>快速记录</value></data>
+  <data name="QuickLog.Subtitle" xml:space="preserve"><value>选择你想记录的时刻。</value></data>
+  <data name="QuickLog.SmokedToday" xml:space="preserve"><value>今天：{0}</value></data>
+  <data name="QuickLog.ResistedToday" xml:space="preserve"><value>今天：{0}</value></data>
+  <data name="QuickLog.Success.Smoked" xml:space="preserve"><value>已记录吸烟。</value></data>
+  <data name="QuickLog.Success.Resisted" xml:space="preserve"><value>已记录你的抵抗。</value></data>
+  <data name="QuickLog.Success.Craving" xml:space="preserve"><value>已记录烟瘾。</value></data>
   <data name="QuickLog.Success" xml:space="preserve">
     <value>已记录</value>
   </data>
@@ -81,6 +88,9 @@
   <data name="Tab.QuickLog" xml:space="preserve">
     <value>快速记录</value>
   </data>
+  <data name="Tab.Home" xml:space="preserve"><value>首页</value></data>
+  <data name="Tab.Battle" xml:space="preserve"><value>对抗</value></data>
+  <data name="Tab.Island" xml:space="preserve"><value>岛屿</value></data>
   <data name="Dashboard.Milestones" xml:space="preserve">
     <value>里程碑</value>
   </data>
@@ -396,8 +406,14 @@
   <data name="Trigger.TimeBucket.Night" xml:space="preserve">
     <value>夜间</value>
   </data>
-  <data name="Profile.Title" xml:space="preserve"><value>个人资料与设置</value></data>
-  <data name="Profile.Entry" xml:space="preserve"><value>个人资料与设置</value></data>
+  <data name="Profile.Title" xml:space="preserve"><value>设置</value></data>
+  <data name="Island.Title" xml:space="preserve"><value>你的岛屿</value></data>
+  <data name="Island.Subtitle" xml:space="preserve"><value>你的真实进度让这里逐渐成长。</value></data>
+  <data name="Island.CurrentStreak" xml:space="preserve"><value>当前连续天数</value></data>
+  <data name="Island.NextMilestone" xml:space="preserve"><value>下一里程碑（天）</value></data>
+  <data name="Island.Progress" xml:space="preserve"><value>前往下一里程碑的进度</value></data>
+  <data name="Island.Empty" xml:space="preserve"><value>记录一个时刻，开始让你的岛屿成长。</value></data>
+  <data name="Profile.Entry" xml:space="preserve"><value>设置</value></data>
   <data name="Profile.DisplayName" xml:space="preserve"><value>显示名称（可选）</value></data>
   <data name="Profile.Avatar" xml:space="preserve"><value>头像</value></data>
   <data name="Profile.AvatarHint" xml:space="preserve"><value>为你的个人资料选择一个简洁的 Niko 符号。</value></data>
@@ -456,4 +472,13 @@
   <data name="Coach.External.Available" xml:space="preserve"><value>已验证的免费服务可用；本地教练仍可离线使用。</value></data>
   <data name="Coach.External.Revoke" xml:space="preserve"><value>撤销外部共享同意</value></data>
   <data name="Coach.External.Revoked" xml:space="preserve"><value>外部共享同意已撤销。</value></data>
+  <data name="Dashboard.Greeting" xml:space="preserve"><value>按自己的节奏前进</value></data>
+  <data name="Dashboard.HeroTitle" xml:space="preserve"><value>继续向前</value></data>
+  <data name="Dashboard.HeroBody" xml:space="preserve"><value>小小的选择能带来持久的改变。</value></data>
+  <data name="Dashboard.Overview" xml:space="preserve"><value>你的进度</value></data>
+  <data name="Dashboard.Activity" xml:space="preserve"><value>你的记录</value></data>
+  <data name="Theme.Title" xml:space="preserve"><value>外观</value></data>
+  <data name="Theme.System" xml:space="preserve"><value>跟随设备设置</value></data>
+  <data name="Theme.Light" xml:space="preserve"><value>浅色</value></data>
+  <data name="Theme.Dark" xml:space="preserve"><value>深色</value></data>
 </root>

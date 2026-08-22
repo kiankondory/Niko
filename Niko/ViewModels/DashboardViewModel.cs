@@ -46,6 +46,7 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
     private readonly DashboardUseCase _useCase;
     private readonly TriggerAnalysisUseCase _triggerAnalysisUseCase;
     private readonly ILocalizationService _localization;
+    private readonly IFeatureFlagProvider _featureFlags;
     private readonly ILogger<DashboardViewModel> _logger;
 
     private string _smokedText = string.Empty;
@@ -73,11 +74,13 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
         DashboardUseCase useCase,
         TriggerAnalysisUseCase triggerAnalysisUseCase,
         ILocalizationService localization,
+        IFeatureFlagProvider featureFlags,
         ILogger<DashboardViewModel> logger)
     {
         _useCase = useCase;
         _triggerAnalysisUseCase = triggerAnalysisUseCase;
         _localization = localization;
+        _featureFlags = featureFlags;
         _logger = logger;
         _localization.LocaleChanged += OnLocaleChanged;
         RefreshCommand = new Command(async () => await LoadAsync());
@@ -156,6 +159,20 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
 
     public string DashboardEmptyText => _localization.GetString(LocalizationKeys.DashboardEmpty);
 
+    public string DashboardGreeting => _localization.GetString(LocalizationKeys.DashboardGreeting);
+
+    public string DashboardHeroTitle => _localization.GetString(LocalizationKeys.DashboardHeroTitle);
+
+    public string DashboardHeroBody => _localization.GetString(LocalizationKeys.DashboardHeroBody);
+
+    public string DashboardOverview => _localization.GetString(LocalizationKeys.DashboardOverview);
+
+    public string DashboardActivity => _localization.GetString(LocalizationKeys.DashboardActivity);
+
+    public string DashboardSavings => _localization.GetString(LocalizationKeys.DashboardSavings);
+
+    public string DashboardCurrentStreak => _localization.GetString(LocalizationKeys.DashboardCurrentStreak);
+
     public string SavingsDisclaimer => _localization.GetString(LocalizationKeys.DashboardSavingsDisclaimer);
 
     public string MilestonesTitle => _localization.GetString(LocalizationKeys.DashboardMilestones);
@@ -231,6 +248,8 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
 
     public bool IsTriggerAnalysisEnabled => _triggerAnalysisEnabled;
 
+    public bool IsTriggerAnalysisAvailable => _featureFlags.IsEnabled(FeatureFlag.TriggerAnalysisUi);
+
     public bool IsTriggerAnalysisDisabled => !_triggerAnalysisEnabled && !_triggerAnalysisError;
 
     public bool IsTriggerAnalysisInsufficientData =>
@@ -263,7 +282,17 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
         {
             var result = await _useCase.ExecuteAsync();
             Apply(result.Snapshot);
-            await LoadTriggerAnalysisAsync();
+            if (IsTriggerAnalysisAvailable)
+            {
+                await LoadTriggerAnalysisAsync();
+            }
+            else
+            {
+                _triggerAnalysisEnabled = false;
+                _triggerAnalysisHasSufficientData = false;
+                _triggerAnalysisError = false;
+                _triggerInsights.Clear();
+            }
         }
         finally
         {
@@ -292,7 +321,9 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "بارگذاری تحلیل محرک محلی ناموفق بود.");
+            _logger.LogError(
+                "بارگذاری تحلیل محرک محلی ناموفق بود. نوع خطا: {ExceptionType}",
+                ex.GetType().Name);
             _triggerAnalysisError = true;
             _triggerAnalysisEnabled = false;
             _triggerAnalysisHasSufficientData = false;
@@ -311,7 +342,9 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "تغییر ترجیح تحلیل محرک محلی ناموفق بود.");
+            _logger.LogError(
+                "تغییر ترجیح تحلیل محرک محلی ناموفق بود. نوع خطا: {ExceptionType}",
+                ex.GetType().Name);
             _triggerAnalysisError = true;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }

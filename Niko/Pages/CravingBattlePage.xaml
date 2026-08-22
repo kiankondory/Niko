@@ -8,11 +8,21 @@
              Title="{Binding Title}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="24,16" Spacing="16">
+        <VerticalStackLayout Padding="20,16,20,28" Spacing="16">
+
+            <Border Style="{StaticResource HeroCard}" Padding="0" StrokeThickness="0">
+                <Grid>
+                    <Image Source="niko_battle_scene_v1.png" Aspect="AspectFill" HeightRequest="250" />
+                    <VerticalStackLayout Padding="18" VerticalOptions="Start" Spacing="4">
+                        <Label Text="{Binding Title}" Style="{StaticResource HeroTitle}" />
+                        <Label Text="{Binding SelectIntensityPrompt}" Style="{StaticResource HeroBody}" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
 
             <!-- انتخاب شدت -->
             <VerticalStackLayout Spacing="12" IsVisible="{Binding IsIntensityPhase}">
-                <Label Text="{Binding SelectIntensityPrompt}" Style="{StaticResource SubHeadline}" />
+                <Label Text="{Binding SelectIntensityPrompt}" Style="{StaticResource SectionTitle}" />
                 <Button Text="{Binding MildLabel}" Command="{Binding SelectIntensityCommand}"
                         CommandParameter="{x:Static crav:CravingIntensity.Mild}" />
                 <Button Text="{Binding ModerateLabel}" Command="{Binding SelectIntensityCommand}"

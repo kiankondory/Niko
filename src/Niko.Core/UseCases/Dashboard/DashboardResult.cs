@@ -7,6 +7,7 @@
 // ============================================================================
 
 using Niko.Core.Domain;
+using Niko.Core.Domain.CompanionContracts;
 
 namespace Niko.Core.UseCases.Dashboard;
 
@@ -15,4 +16,5 @@ namespace Niko.Core.UseCases.Dashboard;
 /// </summary>
 public sealed record DashboardResult(
     ProgressSnapshot Snapshot,
-    int EventCount);
+    int EventCount,
+    CompanionDailySummary DailySummary);

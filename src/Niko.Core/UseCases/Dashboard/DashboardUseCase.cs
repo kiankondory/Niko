@@ -11,6 +11,7 @@
 
 using Niko.Core.Abstractions;
 using Niko.Core.Domain;
+using Niko.Core.Domain.CompanionContracts;
 using Niko.Core.Events;
 
 namespace Niko.Core.UseCases.Dashboard;
@@ -24,15 +25,18 @@ public sealed class DashboardUseCase
     private readonly ILocalStore _store;
     private readonly IUserSettingsStore _settingsStore;
     private readonly IClock _clock;
+    private readonly TimeZoneInfo _localTimeZone;
 
     public DashboardUseCase(
         ILocalStore store,
         IUserSettingsStore settingsStore,
-        IClock clock)
+        IClock clock,
+        TimeZoneInfo? localTimeZone = null)
     {
         _store = store;
         _settingsStore = settingsStore;
         _clock = clock;
+        _localTimeZone = localTimeZone ?? TimeZoneInfo.Local;
     }
 
     public async Task<DashboardResult> ExecuteAsync(CancellationToken ct = default)
@@ -43,7 +47,12 @@ public sealed class DashboardUseCase
 
         var snapshot = ProgressCalculator.Calculate(events, profile, today);
 
-        return new DashboardResult(snapshot, events.Count);
+        var dailySummary = CompanionDailySummaryCalculator.Calculate(
+            events,
+            _clock.UtcNow,
+            _localTimeZone);
+
+        return new DashboardResult(snapshot, events.Count, dailySummary);
     }
 
     private async Task<IReadOnlyList<LogEvent>> LoadAllEventsAsync(CancellationToken ct)

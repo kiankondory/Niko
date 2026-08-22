@@ -24,4 +24,7 @@ public sealed record CompanionProgressSummary(
 
     /// <summary>رویدادهای معتبر مقاومت در روز محلی جاری.</summary>
     public int ResistedToday { get; init; }
+
+    /// <summary>رویدادهای معتبر هوس در روز محلی جاری.</summary>
+    public int CravingsToday { get; init; }
 }

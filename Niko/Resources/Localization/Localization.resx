@@ -24,6 +24,13 @@
   <data name="QuickLog.Craving" xml:space="preserve">
     <value>I have a craving</value>
   </data>
+  <data name="QuickLog.Title" xml:space="preserve"><value>Quick Log</value></data>
+  <data name="QuickLog.Subtitle" xml:space="preserve"><value>Choose the moment you want to record.</value></data>
+  <data name="QuickLog.SmokedToday" xml:space="preserve"><value>Today: {0}</value></data>
+  <data name="QuickLog.ResistedToday" xml:space="preserve"><value>Today: {0}</value></data>
+  <data name="QuickLog.Success.Smoked" xml:space="preserve"><value>Smoking recorded.</value></data>
+  <data name="QuickLog.Success.Resisted" xml:space="preserve"><value>Your resistance was recorded.</value></data>
+  <data name="QuickLog.Success.Craving" xml:space="preserve"><value>Craving recorded.</value></data>
   <data name="QuickLog.Success" xml:space="preserve">
     <value>Logged</value>
   </data>
@@ -81,6 +88,9 @@
   <data name="Tab.QuickLog" xml:space="preserve">
     <value>QuickLog</value>
   </data>
+  <data name="Tab.Home" xml:space="preserve"><value>Home</value></data>
+  <data name="Tab.Battle" xml:space="preserve"><value>Battle</value></data>
+  <data name="Tab.Island" xml:space="preserve"><value>Island</value></data>
   <data name="Dashboard.Milestones" xml:space="preserve">
     <value>Milestones</value>
   </data>
@@ -396,8 +406,14 @@
   <data name="Trigger.TimeBucket.Night" xml:space="preserve">
     <value>night</value>
   </data>
-  <data name="Profile.Title" xml:space="preserve"><value>Profile &amp; Settings</value></data>
-  <data name="Profile.Entry" xml:space="preserve"><value>Profile &amp; Settings</value></data>
+  <data name="Profile.Title" xml:space="preserve"><value>Settings</value></data>
+  <data name="Island.Title" xml:space="preserve"><value>Your Island</value></data>
+  <data name="Island.Subtitle" xml:space="preserve"><value>Your real progress helps this place grow.</value></data>
+  <data name="Island.CurrentStreak" xml:space="preserve"><value>Current streak (days)</value></data>
+  <data name="Island.NextMilestone" xml:space="preserve"><value>Next milestone (days)</value></data>
+  <data name="Island.Progress" xml:space="preserve"><value>Path to your next milestone</value></data>
+  <data name="Island.Empty" xml:space="preserve"><value>Log a moment to begin growing your island.</value></data>
+  <data name="Profile.Entry" xml:space="preserve"><value>Settings</value></data>
   <data name="Profile.DisplayName" xml:space="preserve"><value>Display name (optional)</value></data>
   <data name="Profile.Avatar" xml:space="preserve"><value>Avatar</value></data>
   <data name="Profile.AvatarHint" xml:space="preserve"><value>Choose a simple Niko symbol for your profile.</value></data>
@@ -456,4 +472,13 @@
   <data name="Coach.External.Available" xml:space="preserve"><value>Verified free provider available; Local Coach remains available offline.</value></data>
   <data name="Coach.External.Revoke" xml:space="preserve"><value>Revoke external sharing consent</value></data>
   <data name="Coach.External.Revoked" xml:space="preserve"><value>External sharing consent revoked.</value></data>
+  <data name="Dashboard.Greeting" xml:space="preserve"><value>Your progress, your pace</value></data>
+  <data name="Dashboard.HeroTitle" xml:space="preserve"><value>Keep moving forward</value></data>
+  <data name="Dashboard.HeroBody" xml:space="preserve"><value>Small choices build a lasting change.</value></data>
+  <data name="Dashboard.Overview" xml:space="preserve"><value>Your progress</value></data>
+  <data name="Dashboard.Activity" xml:space="preserve"><value>Your activity</value></data>
+  <data name="Theme.Title" xml:space="preserve"><value>Appearance</value></data>
+  <data name="Theme.System" xml:space="preserve"><value>Use device setting</value></data>
+  <data name="Theme.Light" xml:space="preserve"><value>Light</value></data>
+  <data name="Theme.Dark" xml:space="preserve"><value>Dark</value></data>
 </root>

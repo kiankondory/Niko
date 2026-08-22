@@ -1,18 +1,15 @@
-<!-- ========================================================================
-     مسئولیت: ترجمهٔ فارسی متن‌های ابزارک Niko.
-     وابستگی‌ها و لایه: Android resource adapter؛ ترجمهٔ متن، بدون منطق دامنه.
-     نکات تغییر و قیود: عبارات عمومی و بدون دادهٔ خصوصی هستند.
-     ======================================================================== -->
+<!-- نام فایل: strings.xml | مسئولیت: متن‌های فارسی ابزارک Niko؛ لایه: Android presentation؛ قید: فقط متن محلی‌سازی‌شده و بدون دادهٔ خام. -->
 <resources>
     <string name="widget_loading">در حال بارگذاری…</string>
-    <string name="widget_smoked_today">مصرف امروز: %1$d</string>
+    <string name="widget_count">%1$d</string>
+    <string name="widget_smoked_today">سیگار امروز: %1$d</string>
     <string name="widget_resisted_today">مقاومت امروز: %1$d</string>
     <string name="widget_summary_available">استریک: %1$d روز · پیشرفت: %2$.0f%%</string>
-    <string name="widget_status_in_sync">آفلاین ذخیره شد</string>
-    <string name="widget_status_pending">در انتظار همگام‌سازی: %1$d</string>
-    <string name="widget_status_offline">آمادهٔ آفلاین</string>
+    <string name="widget_status_in_sync">ذخیرهٔ محلی</string>
+    <string name="widget_status_pending">همگام‌سازی در انتظار: %1$d</string>
+    <string name="widget_status_offline">آمادهٔ استفاده آفلاین</string>
     <string name="widget_status_unavailable">موقتاً در دسترس نیست</string>
-    <string name="widget_smoked">دود</string>
+    <string name="widget_smoked">سیگار</string>
     <string name="widget_resisted">مقاومت</string>
     <string name="widget_craving">هوس</string>
 </resources>

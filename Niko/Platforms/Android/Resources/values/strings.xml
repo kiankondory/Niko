@@ -5,6 +5,7 @@
      ======================================================================== -->
 <resources>
     <string name="widget_loading">Loading…</string>
+    <string name="widget_count">%1$d</string>
     <string name="widget_smoked_today">Smoked today: %1$d</string>
     <string name="widget_resisted_today">Resisted today: %1$d</string>
     <string name="widget_summary_available">Streak: %1$d days · Progress: %2$.0f%%</string>

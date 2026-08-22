@@ -14,13 +14,21 @@ namespace Niko
             var localization = services.GetRequiredService<ILocalizationService>();
 
             // تب‌ها با DataTemplate مبتنی بر DI ساخته می‌شوند و عنوانشان محلی‌سازی می‌شود.
+            DashboardShellContent.Title = localization.GetString(LocalizationKeys.TabHome);
+            DashboardShellContent.ContentTemplate = new DataTemplate(() =>
+                services.GetRequiredService<DashboardPage>());
+
             MainShellContent.Title = localization.GetString(LocalizationKeys.TabQuickLog);
             MainShellContent.ContentTemplate = new DataTemplate(() =>
                 services.GetRequiredService<MainPage>());
 
-            DashboardShellContent.Title = localization.GetString(LocalizationKeys.DashboardTitle);
-            DashboardShellContent.ContentTemplate = new DataTemplate(() =>
-                services.GetRequiredService<DashboardPage>());
+            BattleShellContent.Title = localization.GetString(LocalizationKeys.TabBattle);
+            BattleShellContent.ContentTemplate = new DataTemplate(() =>
+                services.GetRequiredService<CravingBattlePage>());
+
+            IslandShellContent.Title = localization.GetString(LocalizationKeys.TabIsland);
+            IslandShellContent.ContentTemplate = new DataTemplate(() =>
+                services.GetRequiredService<IslandPage>());
 
             ProfileShellContent.Title = localization.GetString(LocalizationKeys.ProfileTitle);
             ProfileShellContent.ContentTemplate = new DataTemplate(() =>
@@ -28,8 +36,10 @@ namespace Niko
 
             localization.LocaleChanged += (_, _) =>
             {
+                DashboardShellContent.Title = localization.GetString(LocalizationKeys.TabHome);
                 MainShellContent.Title = localization.GetString(LocalizationKeys.TabQuickLog);
-                DashboardShellContent.Title = localization.GetString(LocalizationKeys.DashboardTitle);
+                BattleShellContent.Title = localization.GetString(LocalizationKeys.TabBattle);
+                IslandShellContent.Title = localization.GetString(LocalizationKeys.TabIsland);
                 ProfileShellContent.Title = localization.GetString(LocalizationKeys.ProfileTitle);
                 FlowDirection = IsRtl(localization.CurrentLocale)
                     ? FlowDirection.RightToLeft

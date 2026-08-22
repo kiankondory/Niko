@@ -129,4 +129,37 @@ public class SyncQueueTests
         Assert.Equal(SyncStatus.InSync, _store.Events.Single(e => e.EventId == "ok-1").SyncStatus);
         Assert.Equal(SyncStatus.Failed, _store.Events.Single(e => e.EventId == "fail-1").SyncStatus);
     }
+
+    [Fact]
+    public async Task RunOnce_IgnoresUnknownAndDuplicateTransportIds()
+    {
+        await SeedAsync("known");
+        var transport = new FixedResultTransport(
+            accepted: new[] { "known", "known", "unknown" },
+            failed: new[] { "known", "unknown" });
+        var queue = new SyncQueue(_store, transport, _clock);
+
+        var result = await queue.RunOnceAsync();
+
+        Assert.Equal(1, result.Accepted);
+        Assert.Equal(0, result.Failed);
+        Assert.Equal(SyncStatus.InSync, _store.Events.Single().SyncStatus);
+    }
+
+    private sealed class FixedResultTransport : ISyncTransport
+    {
+        private readonly SyncResult _result;
+
+        public FixedResultTransport(
+            IReadOnlyList<string> accepted,
+            IReadOnlyList<string> failed)
+        {
+            _result = new SyncResult(accepted, failed);
+        }
+
+        public Task<SyncResult> PushAsync(
+            IReadOnlyList<LogEvent> events,
+            CancellationToken ct = default)
+            => Task.FromResult(_result);
+    }
 }

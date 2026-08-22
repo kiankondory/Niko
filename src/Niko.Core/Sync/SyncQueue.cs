@@ -61,15 +61,25 @@ public sealed class SyncQueue
 
         var pushResult = await _transport.PushAsync(ready, ct).ConfigureAwait(false);
         var now = _clock.UtcNow;
+        var readyIds = ready
+            .Select(e => e.EventId)
+            .ToHashSet(StringComparer.Ordinal);
+        var acceptedIds = pushResult.AcceptedEventIds
+            .Where(readyIds.Contains)
+            .ToHashSet(StringComparer.Ordinal);
+        var failedIds = pushResult.FailedEventIds
+            .Where(readyIds.Contains)
+            .Where(id => !acceptedIds.Contains(id))
+            .ToHashSet(StringComparer.Ordinal);
 
-        foreach (var id in pushResult.AcceptedEventIds)
+        foreach (var id in acceptedIds)
         {
             await _store.UpdateSyncStatusAsync(id, SyncStatus.InSync, ct).ConfigureAwait(false);
             _state.Remove(id);
             result.Accepted++;
         }
 
-        foreach (var id in pushResult.FailedEventIds)
+        foreach (var id in failedIds)
         {
             await _store.UpdateSyncStatusAsync(id, SyncStatus.Failed, ct).ConfigureAwait(false);
             var current = _state.GetValueOrDefault(id);

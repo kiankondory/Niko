@@ -26,6 +26,18 @@ public static class LocalizationKeys
 
     /// <summary>برچسب دکمهٔ ثبت «هوس دارم».</summary>
     public const string QuickLogCraving = "QuickLog.Craving";
+    public const string QuickLogTitle = "QuickLog.Title";
+    public const string QuickLogSubtitle = "QuickLog.Subtitle";
+
+    public const string QuickLogSmokedToday = "QuickLog.SmokedToday";
+
+    public const string QuickLogResistedToday = "QuickLog.ResistedToday";
+
+    public const string QuickLogSuccessSmoked = "QuickLog.Success.Smoked";
+
+    public const string QuickLogSuccessResisted = "QuickLog.Success.Resisted";
+
+    public const string QuickLogSuccessCraving = "QuickLog.Success.Craving";
 
     /// <summary>پیام موفقیت ثبت رویداد.</summary>
     public const string QuickLogSuccess = "QuickLog.Success";
@@ -80,11 +92,41 @@ public static class LocalizationKeys
     /// <summary>سلب مسئولیت صرفه‌جویی تقریبی.</summary>
     public const string DashboardSavingsDisclaimer = "Dashboard.SavingsDisclaimer";
 
+    /// <summary>متن کوتاه خوشامد و همراهی داشبورد.</summary>
+    public const string DashboardGreeting = "Dashboard.Greeting";
+
+    /// <summary>عنوان کارت اصلی پیشرفت.</summary>
+    public const string DashboardHeroTitle = "Dashboard.HeroTitle";
+
+    /// <summary>توضیح حمایتی کارت اصلی پیشرفت.</summary>
+    public const string DashboardHeroBody = "Dashboard.HeroBody";
+
+    /// <summary>عنوان نمای کلی شاخص‌های پیشرفت.</summary>
+    public const string DashboardOverview = "Dashboard.Overview";
+
+    /// <summary>عنوان بخش فعالیت ثبت‌شدهٔ کاربر.</summary>
+    public const string DashboardActivity = "Dashboard.Activity";
+
+    /// <summary>عنوان تنظیم انتخاب پوستهٔ برنامه.</summary>
+    public const string ThemeTitle = "Theme.Title";
+
+    /// <summary>گزینهٔ پیروی از پوستهٔ سیستم.</summary>
+    public const string ThemeSystem = "Theme.System";
+
+    /// <summary>گزینهٔ پوستهٔ روشن.</summary>
+    public const string ThemeLight = "Theme.Light";
+
+    /// <summary>گزینهٔ پوستهٔ تیره.</summary>
+    public const string ThemeDark = "Theme.Dark";
+
     /// <summary>برچسب دکمهٔ بازخوانی.</summary>
     public const string Refresh = "Common.Refresh";
 
     /// <summary>عنوان تب ثبت سریع.</summary>
     public const string TabQuickLog = "Tab.QuickLog";
+    public const string TabHome = "Tab.Home";
+    public const string TabBattle = "Tab.Battle";
+    public const string TabIsland = "Tab.Island";
 
     // --- میل‌استون‌ها ---
 
@@ -288,6 +330,12 @@ public static class LocalizationKeys
 
     /// <summary>عنوان صفحهٔ پروفایل.</summary>
     public const string ProfileTitle = "Profile.Title";
+    public const string IslandTitle = "Island.Title";
+    public const string IslandSubtitle = "Island.Subtitle";
+    public const string IslandCurrentStreak = "Island.CurrentStreak";
+    public const string IslandNextMilestone = "Island.NextMilestone";
+    public const string IslandProgress = "Island.Progress";
+    public const string IslandEmpty = "Island.Empty";
 
     /// <summary>ورود به پروفایل.</summary>
     public const string ProfileEntry = "Profile.Entry";

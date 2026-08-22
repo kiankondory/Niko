@@ -1,0 +1,8 @@
+<!-- نام فایل: progress_savings.svg | مسئولیت: آیکن برداری صرفه‌جویی برای کارت داشبورد | وابستگی: MAUI image assets | قید: بدون متن و دادهٔ کاربر. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="#183B34"/>
+  <path d="M16 24h32v22H16z" fill="#63D993" rx="3"/>
+  <path d="M20 19h28v7H20z" fill="#A1F5BB" rx="2"/>
+  <circle cx="32" cy="35" r="6" fill="#163A36"/>
+  <path d="M32 31v8m3-5c0-1-1-2-3-2s-3 1-3 2 1 2 3 2 3 1 3 2-1 2-3 2-3-1-3-2" fill="none" stroke="#D9FFE7" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

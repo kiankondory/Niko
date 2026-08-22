@@ -176,9 +176,11 @@ public sealed class NikoWidgetProvider : AppWidgetProvider
                 if (progress is not null && streak is not null)
                 {
                     views.SetTextViewText(Resource.Id.widget_smoked_today, textContext.GetString(
-                        Resource.String.widget_smoked_today, progress.SmokedToday));
+                        Resource.String.widget_count, progress.SmokedToday));
                     views.SetTextViewText(Resource.Id.widget_resisted_today, textContext.GetString(
-                        Resource.String.widget_resisted_today, progress.ResistedToday));
+                        Resource.String.widget_count, progress.ResistedToday));
+                    views.SetTextViewText(Resource.Id.widget_cravings_today, textContext.GetString(
+                        Resource.String.widget_count, progress.CravingsToday));
                     views.SetTextViewText(Resource.Id.widget_summary, textContext.GetString(
                         Resource.String.widget_summary_available,
                         streak.CurrentStreakDays,
@@ -192,6 +194,7 @@ public sealed class NikoWidgetProvider : AppWidgetProvider
                 {
                     views.SetTextViewText(Resource.Id.widget_smoked_today, textContext.GetString(Resource.String.widget_status_unavailable));
                     views.SetTextViewText(Resource.Id.widget_resisted_today, textContext.GetString(Resource.String.widget_status_unavailable));
+                    views.SetTextViewText(Resource.Id.widget_cravings_today, textContext.GetString(Resource.String.widget_status_unavailable));
                     views.SetTextViewText(Resource.Id.widget_summary, textContext.GetString(Resource.String.widget_status_unavailable));
                     views.SetTextViewText(Resource.Id.widget_status, textContext.GetString(Resource.String.widget_status_offline));
                 }
