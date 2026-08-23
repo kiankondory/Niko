@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!--
+  نام فایل: CravingBattlePage.xaml
+  مسئولیت: ارائهٔ تصویری جریان Battle، شدت، مداخله و تایمر با دادهٔ ViewModel.
+  وابستگی‌ها و لایه: MAUI presentation → CravingBattleViewModel → Core use case.
+  نکات تغییر و قیود: کارت‌ها فقط وضعیت و commandهای موجود را نمایش می‌دهند؛ هیچ
+  منطق ترک، دادهٔ خصوصی یا متن hard-code شدهٔ قابل‌نمایش ندارند.
+-->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Niko.ViewModels"
@@ -23,17 +30,22 @@
             <!-- انتخاب شدت -->
             <VerticalStackLayout Spacing="12" IsVisible="{Binding IsIntensityPhase}">
                 <Label Text="{Binding SelectIntensityPrompt}" Style="{StaticResource SectionTitle}" />
-                <Button Text="{Binding MildLabel}" Command="{Binding SelectIntensityCommand}"
-                        CommandParameter="{x:Static crav:CravingIntensity.Mild}" />
-                <Button Text="{Binding ModerateLabel}" Command="{Binding SelectIntensityCommand}"
-                        CommandParameter="{x:Static crav:CravingIntensity.Moderate}" />
-                <Button Text="{Binding IntenseLabel}" Command="{Binding SelectIntensityCommand}"
-                        CommandParameter="{x:Static crav:CravingIntensity.Intense}" />
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                    <Button Text="{Binding MildLabel}" Command="{Binding SelectIntensityCommand}"
+                            CommandParameter="{x:Static crav:CravingIntensity.Mild}" HeightRequest="112"
+                            BackgroundColor="#1C5A48" CornerRadius="20" />
+                    <Button Grid.Column="1" Text="{Binding ModerateLabel}" Command="{Binding SelectIntensityCommand}"
+                            CommandParameter="{x:Static crav:CravingIntensity.Moderate}" HeightRequest="112"
+                            BackgroundColor="#9A6418" CornerRadius="20" />
+                    <Button Grid.Column="2" Text="{Binding IntenseLabel}" Command="{Binding SelectIntensityCommand}"
+                            CommandParameter="{x:Static crav:CravingIntensity.Intense}" HeightRequest="112"
+                            BackgroundColor="#943D46" CornerRadius="20" />
+                </Grid>
             </VerticalStackLayout>
 
             <!-- انتخاب مداخله -->
             <VerticalStackLayout Spacing="12" IsVisible="{Binding IsActionPhase}">
-                <Border IsVisible="{Binding IsCoachSuggestionVisible}" Padding="12">
+                <Border Style="{StaticResource HeroCard}" IsVisible="{Binding IsCoachSuggestionVisible}" Padding="12">
                     <Label Text="{Binding CoachSuggestionText}" Style="{StaticResource SubHeadline}" />
                 </Border>
                 <Label Text="{Binding ChooseActionPrompt}" Style="{StaticResource SubHeadline}" />
@@ -41,9 +53,20 @@
                                      BindableLayout.ItemsSource="{Binding Interventions}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="vm:InterventionDisplay">
-                            <Button Text="{Binding Title}"
-                                    Command="{Binding SelectActionCommand, Source={RelativeSource AncestorType={x:Type vm:CravingBattleViewModel}}}"
-                                    CommandParameter="{Binding Intervention}" />
+                            <Border Style="{StaticResource CardBorder}" Padding="14,10">
+                                <Grid ColumnDefinitions="42,*,Auto" ColumnSpacing="12" SemanticProperties.Description="{Binding Title}">
+                                    <Image Source="{Binding IconSource}" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" />
+                                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                        <Label Text="{Binding Title}" Style="{StaticResource FormLabel}" />
+                                        <Label Text="{Binding DurationText}" Style="{StaticResource BodyMuted}" />
+                                    </VerticalStackLayout>
+                                    <Image Grid.Column="2" Source="quicklog_open.svg" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectActionCommand, Source={RelativeSource AncestorType={x:Type vm:CravingBattleViewModel}}}"
+                                                              CommandParameter="{Binding Intervention}" />
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </Border>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </VerticalStackLayout>
@@ -51,10 +74,21 @@
 
             <!-- مداخلهٔ فعال + تایمر -->
             <VerticalStackLayout Spacing="12" IsVisible="{Binding IsActivePhase}">
-                <Label Text="{Binding CurrentInterventionTitle}" Style="{StaticResource Headline}" />
-                <Label Text="{Binding CurrentInterventionGuide}" Style="{StaticResource SubHeadline}" />
-                <Label Text="{Binding TimerText}" Style="{StaticResource Headline}" HorizontalTextAlignment="Center" />
-                <ProgressBar Progress="{Binding TimerProgress}" HeightRequest="12" />
+                <Border Style="{StaticResource CardBorder}">
+                    <Grid ColumnDefinitions="56,*" ColumnSpacing="12">
+                        <Image Source="{Binding CurrentInterventionIconSource}" HeightRequest="48" WidthRequest="48" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="{Binding CurrentInterventionTitle}" Style="{StaticResource SectionTitle}" />
+                            <Label Text="{Binding CurrentInterventionGuide}" Style="{StaticResource BodyMuted}" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource HeroCard}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="{Binding TimerText}" Style="{StaticResource HeroTitle}" FontSize="36" HorizontalTextAlignment="Center" />
+                        <ProgressBar Progress="{Binding TimerProgress}" HeightRequest="12" />
+                    </VerticalStackLayout>
+                </Border>
                 <Button Text="{Binding CompleteLabel}" Command="{Binding CompleteCommand}" />
                 <Button Text="{Binding ResistLabel}" Command="{Binding ResistCommand}" />
                 <Button Text="{Binding ExitLabel}" Command="{Binding ExitCommand}" />

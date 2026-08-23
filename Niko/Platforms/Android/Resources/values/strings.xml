@@ -5,14 +5,26 @@
      ======================================================================== -->
 <resources>
     <string name="widget_loading">Loading…</string>
+    <string name="widget_unavailable_count">—</string>
+    <string name="widget_description">Niko compact QuickLog widget</string>
+    <string name="widget_avatar_description">Niko</string>
+    <string name="widget_today">Today</string>
+    <string name="widget_quick_log">QuickLog</string>
     <string name="widget_count">%1$d</string>
     <string name="widget_smoked_today">Smoked today: %1$d</string>
+    <string name="widget_smoked_today_label">Smoked today</string>
     <string name="widget_resisted_today">Resisted today: %1$d</string>
+    <string name="widget_resisted_today_label">Resisted today</string>
+    <string name="widget_saved_today">Saved today: %1$s</string>
+    <string name="widget_value_per_cigarette">Each resisted cigarette: %1$s</string>
     <string name="widget_summary_available">Streak: %1$d days · Progress: %2$.0f%%</string>
     <string name="widget_status_in_sync">Saved offline</string>
     <string name="widget_status_pending">Sync pending: %1$d</string>
     <string name="widget_status_offline">Offline-ready</string>
     <string name="widget_status_unavailable">Temporarily unavailable</string>
+    <string name="widget_action_recording">Saving your entry…</string>
+    <string name="widget_action_processing">Please wait</string>
+    <string name="widget_action_saved">%1$s recorded</string>
     <string name="widget_smoked">Smoked</string>
     <string name="widget_resisted">Resisted</string>
     <string name="widget_craving">Craving</string>

@@ -1,14 +1,26 @@
 <!-- نام فایل: strings.xml | مسئولیت: متن‌های عربی ابزارک Niko؛ لایه: Android presentation؛ قید: فقط متن محلی‌سازی‌شده و بدون دادهٔ خام. -->
 <resources>
     <string name="widget_loading">جارٍ التحميل…</string>
+    <string name="widget_unavailable_count">—</string>
+    <string name="widget_description">أداة التسجيل السريع Niko</string>
+    <string name="widget_avatar_description">Niko</string>
+    <string name="widget_today">اليوم</string>
+    <string name="widget_quick_log">تسجيل سريع</string>
     <string name="widget_count">%1$d</string>
     <string name="widget_smoked_today">التدخين اليوم: %1$d</string>
+    <string name="widget_smoked_today_label">التدخين اليوم</string>
     <string name="widget_resisted_today">المقاومة اليوم: %1$d</string>
+    <string name="widget_resisted_today_label">المقاومة اليوم</string>
+    <string name="widget_saved_today">التوفير اليوم: %1$s</string>
+    <string name="widget_value_per_cigarette">قيمة كل مقاومة: %1$s</string>
     <string name="widget_summary_available">السلسلة: %1$d يوم · التقدم: %2$.0f%%</string>
     <string name="widget_status_in_sync">محفوظ محلياً</string>
     <string name="widget_status_pending">المزامنة معلّقة: %1$d</string>
     <string name="widget_status_offline">جاهز دون اتصال</string>
     <string name="widget_status_unavailable">غير متاح مؤقتاً</string>
+    <string name="widget_action_recording">جارٍ حفظ التسجيل…</string>
+    <string name="widget_action_processing">يُرجى الانتظار</string>
+    <string name="widget_action_saved">تم تسجيل %1$s</string>
     <string name="widget_smoked">تدخين</string>
     <string name="widget_resisted">مقاومة</string>
     <string name="widget_craving">رغبة</string>

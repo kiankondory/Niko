@@ -54,7 +54,7 @@
                     <Label Text="{Binding LanguageLabel}" Style="{StaticResource SectionTitle}" />
                     <Picker ItemsSource="{Binding LanguageOptions}"
                             SelectedItem="{Binding SelectedLanguage}"
-                            ItemDisplayBinding="{Binding DisplayName}" />
+                            ItemDisplayBinding="{Binding DisplayLabel}" />
                     <Label Text="{Binding LanguageFallbackLabel}"
                            IsVisible="{Binding IsLanguageFallback}"
                            Style="{StaticResource BodyMuted}" />
@@ -68,6 +68,16 @@
                             SelectedItem="{Binding SelectedTheme}"
                             ItemDisplayBinding="{Binding DisplayName}" />
                 </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="{Binding ReduceMotionLabel}" Style="{StaticResource FormLabel}" />
+                        <Label Text="{Binding ReduceMotionDescription}" Style="{StaticResource BodyMuted}" />
+                    </VerticalStackLayout>
+                    <Switch Grid.Column="1" IsToggled="{Binding ReduceMotion}" />
+                </Grid>
             </Border>
 
             <Button Text="{Binding SaveLabel}" Command="{Binding SaveCommand}" />

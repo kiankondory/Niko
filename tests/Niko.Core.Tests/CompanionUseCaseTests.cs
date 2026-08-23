@@ -156,6 +156,25 @@ public class CompanionUseCaseTests
     }
 
     [Fact]
+    public async Task ProgressSummary_ReturnsAggregateDailySavingsFromValidTodayResistance()
+    {
+        _settings.Profile = new Niko.Core.Domain.UserProfile
+        {
+            PricePerCigarette = 1.25m,
+            CurrencyCode = "EUR",
+        };
+        await _store.SaveEventAsync(new LogEvent("today-resisted", _clock.UtcNow, EventSource.Mobile, EventType.Resisted, SyncStatus.Pending));
+        await _store.SaveEventAsync(new LogEvent("future-resisted", _clock.UtcNow.AddMinutes(1), EventSource.Mobile, EventType.Resisted, SyncStatus.Pending));
+
+        var result = await _useCase.HandleAsync(BuildRequest(CompanionMessageType.ProgressSummaryRequest));
+
+        var summary = Assert.IsType<CompanionProgressSummary>(result.Data);
+        Assert.Equal(1.25m, summary.DailySavedAmount);
+        Assert.Equal("EUR", summary.DailySavingsCurrencyCode);
+        Assert.Equal(1.25m, summary.AmountPerResistedCigarette);
+    }
+
+    [Fact]
     public async Task ProgressSummary_DuplicateQuickLogMessageDoesNotIncrementCountTwice()
     {
         var message = QuickLogMessage(EventType.Smoked, messageId: "widget-smoked-once");

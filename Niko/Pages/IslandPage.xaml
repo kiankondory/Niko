@@ -16,7 +16,16 @@
             <Label Text="{Binding Title}" Style="{StaticResource PageTitle}" />
             <Label Text="{Binding Subtitle}" Style="{StaticResource BodyMuted}" />
             <Border Style="{StaticResource HeroCard}" Padding="8">
-                <Image Source="niko_island_v1.png" Aspect="AspectFit" HeightRequest="300" />
+                <Grid>
+                    <Image Source="{Binding IslandImageSource}" Aspect="AspectFit" HeightRequest="300" />
+                    <Border BackgroundColor="#B306111B" StrokeThickness="0" Padding="12,8"
+                            HorizontalOptions="Start" VerticalOptions="Start" Margin="8">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="{Binding JourneyTitle}" Style="{StaticResource HeroBody}" />
+                            <Label Text="{Binding JourneyStageText}" Style="{StaticResource HeroTitle}" FontSize="18" />
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
             </Border>
             <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" />
             <VerticalStackLayout IsVisible="{Binding HasData}" Spacing="14">
@@ -40,6 +49,37 @@
                         <ProgressBar Progress="{Binding Progress}" HeightRequest="10" />
                     </VerticalStackLayout>
                 </Border>
+                <Border Style="{StaticResource HeroCard}" Padding="16">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="{Binding CumulativeSavingsLabel}" Style="{StaticResource SectionTitle}" />
+                        <Label Text="{Binding CumulativeSavingsText}" Style="{StaticResource MetricValue}" />
+                    </VerticalStackLayout>
+                </Border>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="{Binding DailyReportsTitle}" Style="{StaticResource SectionTitle}" />
+                    <Border Style="{StaticResource CardBorder}" Padding="0">
+                        <Grid RowDefinitions="Auto,*">
+                            <Grid ColumnDefinitions="*,*,*,*" Padding="12,10" BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                                <Label Text="{Binding ReportDateLabel}" Style="{StaticResource FormLabel}" />
+                                <Label Grid.Column="1" Text="{Binding ReportSmokedLabel}" Style="{StaticResource FormLabel}" HorizontalTextAlignment="Center" />
+                                <Label Grid.Column="2" Text="{Binding ReportResistedLabel}" Style="{StaticResource FormLabel}" HorizontalTextAlignment="Center" />
+                                <Label Grid.Column="3" Text="{Binding ReportSavedLabel}" Style="{StaticResource FormLabel}" HorizontalTextAlignment="Center" />
+                            </Grid>
+                            <VerticalStackLayout Grid.Row="1" BindableLayout.ItemsSource="{Binding DailyReports}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="vm:IslandDailyReportDisplay">
+                                        <Grid ColumnDefinitions="*,*,*,*" Padding="12,8" ColumnSpacing="6">
+                                            <Label Text="{Binding DateText}" Style="{StaticResource BodyMuted}" />
+                                            <Label Grid.Column="1" Text="{Binding SmokedText}" Style="{StaticResource BodyMuted}" HorizontalTextAlignment="Center" />
+                                            <Label Grid.Column="2" Text="{Binding ResistedText}" Style="{StaticResource BodyMuted}" HorizontalTextAlignment="Center" />
+                                            <Label Grid.Column="3" Text="{Binding SavedText}" Style="{StaticResource BodyMuted}" HorizontalTextAlignment="Center" LineBreakMode="TailTruncation" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
                 <VerticalStackLayout Spacing="10" BindableLayout.ItemsSource="{Binding Milestones}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="vm:IslandMilestoneDisplay">

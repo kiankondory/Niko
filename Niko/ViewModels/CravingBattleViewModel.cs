@@ -48,6 +48,7 @@ public sealed class CravingBattleViewModel : INotifyPropertyChanged
     private int _remainingSeconds;
     private int _totalSeconds;
     private CravingBattlePhase _phase = CravingBattlePhase.SelectIntensity;
+    private Intervention? _currentIntervention;
     private string _statusMessage = string.Empty;
 
     public CravingBattleViewModel(
@@ -151,6 +152,8 @@ public sealed class CravingBattleViewModel : INotifyPropertyChanged
 
     public string CurrentInterventionGuide { get; private set; } = string.Empty;
 
+    public string CurrentInterventionIconSource { get; private set; } = "battle_breathe.svg";
+
     public string IntensityLabel { get; private set; } = string.Empty;
 
     public string InterventionListTitle => _localization.GetString(LocalizationKeys.CravingBattleChooseAction);
@@ -174,6 +177,18 @@ public sealed class CravingBattleViewModel : INotifyPropertyChanged
         IntensityLabel = Phase == CravingBattlePhase.SelectIntensity
             ? string.Empty
             : IntensityLabel;
+        if (Interventions.Count > 0)
+        {
+            PopulateInterventions();
+        }
+
+        if (_currentIntervention is { } intervention)
+        {
+            CurrentInterventionTitle = ActionText(intervention);
+            CurrentInterventionGuide = _localization.GetString(LocalizationKeys.CravingBattleInterventionGuide);
+            UpdateTimerDisplay();
+        }
+
         OnPropertyChanged(nameof(IntensityLabel));
         OnPropertyChanged(nameof(CurrentInterventionTitle));
         OnPropertyChanged(nameof(CurrentInterventionGuide));
@@ -188,14 +203,7 @@ public sealed class CravingBattleViewModel : INotifyPropertyChanged
         IntensityLabel = IntensityText(result.Intensity);
         await LoadCoachSuggestionAsync((int)intensity);
 
-        Interventions.Clear();
-        foreach (Intervention intervention in Enum.GetValues<Intervention>())
-        {
-            Interventions.Add(new InterventionDisplay(
-                intervention,
-                ActionText(intervention),
-                InterventionCatalog.GetDurationSeconds(intervention)));
-        }
+        PopulateInterventions();
 
         Phase = CravingBattlePhase.ChooseAction;
         StatusMessage = string.Empty;
@@ -206,8 +214,13 @@ public sealed class CravingBattleViewModel : INotifyPropertyChanged
         var result = await _useCase.SelectActionAsync(intervention);
 
         var display = Interventions.First(i => i.Intervention == intervention);
+        _currentIntervention = intervention;
         CurrentInterventionTitle = display.Title;
+        CurrentInterventionIconSource = display.IconSource;
         CurrentInterventionGuide = _localization.GetString(LocalizationKeys.CravingBattleInterventionGuide);
+        OnPropertyChanged(nameof(CurrentInterventionTitle));
+        OnPropertyChanged(nameof(CurrentInterventionIconSource));
+        OnPropertyChanged(nameof(CurrentInterventionGuide));
 
         _totalSeconds = display.DurationSeconds;
         _remainingSeconds = _totalSeconds;
@@ -250,6 +263,7 @@ public sealed class CravingBattleViewModel : INotifyPropertyChanged
         TimerText = string.Empty;
         TimerProgress = 0;
         CoachSuggestionText = string.Empty;
+        _currentIntervention = null;
         OnPropertyChanged(nameof(CoachSuggestionText));
         OnPropertyChanged(nameof(IsCoachSuggestionVisible));
     }
@@ -344,6 +358,31 @@ public sealed class CravingBattleViewModel : INotifyPropertyChanged
         return _localization.GetString(key);
     }
 
+    private void PopulateInterventions()
+    {
+        Interventions.Clear();
+        var culture = System.Globalization.CultureInfo.GetCultureInfo(_localization.CurrentLocale);
+        foreach (var intervention in Enum.GetValues<Intervention>())
+        {
+            var durationSeconds = InterventionCatalog.GetDurationSeconds(intervention);
+            Interventions.Add(new InterventionDisplay(
+                intervention,
+                ActionText(intervention),
+                durationSeconds,
+                string.Format(culture, _localization.GetString(LocalizationKeys.CravingBattleTimer), durationSeconds),
+                IconFor(intervention)));
+        }
+    }
+
+    private static string IconFor(Intervention intervention) => intervention switch
+    {
+        Intervention.DeepBreathing => "battle_breathe.svg",
+        Intervention.Delay => "battle_delay.svg",
+        Intervention.DrinkWater => "battle_water.svg",
+        Intervention.Movement => "battle_move.svg",
+        _ => "battle_support.svg",
+    };
+
     private void OnPropertyChanged([CallerMemberName] string? name = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -356,4 +395,6 @@ public sealed class CravingBattleViewModel : INotifyPropertyChanged
 public sealed record InterventionDisplay(
     Intervention Intervention,
     string Title,
-    int DurationSeconds);
+    int DurationSeconds,
+    string DurationText,
+    string IconSource);

@@ -1,14 +1,26 @@
 <!-- نام فایل: strings.xml | مسئولیت: متن‌های چینی سادهٔ ابزارک Niko؛ لایه: Android presentation؛ قید: فقط متن محلی‌سازی‌شده و بدون دادهٔ خام. -->
 <resources>
     <string name="widget_loading">正在加载…</string>
+    <string name="widget_unavailable_count">—</string>
+    <string name="widget_description">Niko 紧凑快速记录小组件</string>
+    <string name="widget_avatar_description">Niko</string>
+    <string name="widget_today">今天</string>
+    <string name="widget_quick_log">快速记录</string>
     <string name="widget_count">%1$d</string>
     <string name="widget_smoked_today">今日吸烟：%1$d</string>
+    <string name="widget_smoked_today_label">今日吸烟</string>
     <string name="widget_resisted_today">今日抵抗：%1$d</string>
+    <string name="widget_resisted_today_label">今日抵抗</string>
+    <string name="widget_saved_today">今日节省：%1$s</string>
+    <string name="widget_value_per_cigarette">每次抵抗的价值：%1$s</string>
     <string name="widget_summary_available">连续：%1$d 天 · 进度：%2$.0f%%</string>
     <string name="widget_status_in_sync">已本地保存</string>
     <string name="widget_status_pending">等待同步：%1$d</string>
     <string name="widget_status_offline">可离线使用</string>
     <string name="widget_status_unavailable">暂时不可用</string>
+    <string name="widget_action_recording">正在保存记录…</string>
+    <string name="widget_action_processing">请稍候</string>
+    <string name="widget_action_saved">已记录：%1$s</string>
     <string name="widget_smoked">吸烟</string>
     <string name="widget_resisted">抵抗</string>
     <string name="widget_craving">烟瘾</string>

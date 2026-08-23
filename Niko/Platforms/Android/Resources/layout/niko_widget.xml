@@ -1,37 +1,52 @@
 <!-- ========================================================================
-     مسئولیت: چیدمان حداقلی ابزارک Niko برای سه عمل QuickLog و خلاصهٔ امن.
-     وابستگی‌ها و لایه: Android resource adapter → Widget provider؛ بدون منطق دامنه.
-     نکات تغییر و قیود: متن‌ها از منابع Android می‌آیند و دادهٔ خصوصی نمایش داده نمی‌شود.
+     مسئولیت: چیدمان فشرده و responsive ابزارک QuickLog با وضعیت و شمارش امن.
+     وابستگی‌ها و لایه: Android resource adapter → NikoWidgetProvider؛ بدون منطق دامنه.
+     نکات تغییر و قیود: همهٔ متن‌های runtime از زبان ذخیره‌شدهٔ Niko می‌آیند؛ دادهٔ خام نمایش داده نمی‌شود.
      ======================================================================== -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp"
-    android:background="@drawable/widget_panel_background">
+    android:padding="10dp"
+    android:background="@drawable/widget_panel_background"
+    android:layoutDirection="locale"
+    android:textDirection="locale">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:baselineAligned="false">
-        <LinearLayout android:layout_width="0dp" android:layout_height="76dp" android:layout_weight="1" android:layout_marginEnd="6dp" android:gravity="center" android:orientation="vertical" android:background="@drawable/widget_metric_background">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_smoked" android:textColor="#B8D1DB" android:textSize="11sp" />
-            <TextView android:id="@+id/widget_smoked_today" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_loading" android:textColor="#F5FBFF" android:textSize="24sp" android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView android:id="@+id/widget_today" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/widget_loading" android:textColor="#F5FBFF" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/widget_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/widget_loading" android:textColor="#91BDCC" android:textSize="11sp" />
         </LinearLayout>
-        <LinearLayout android:layout_width="0dp" android:layout_height="76dp" android:layout_weight="1" android:layout_marginEnd="6dp" android:gravity="center" android:orientation="vertical" android:background="@drawable/widget_metric_background">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_resisted" android:textColor="#B8D1DB" android:textSize="11sp" />
-            <TextView android:id="@+id/widget_resisted_today" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_loading" android:textColor="#F5FBFF" android:textSize="24sp" android:textStyle="bold" />
+        <TextView android:id="@+id/widget_summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="8dp" android:text="@string/widget_loading" android:textColor="#FFD66B" android:textSize="13sp" android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal" android:baselineAligned="false">
+        <LinearLayout android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:layout_marginEnd="6dp" android:padding="6dp" android:gravity="center_vertical" android:orientation="vertical" android:background="@drawable/widget_metric_background">
+            <TextView android:id="@+id/widget_smoked_count" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/widget_loading" android:textColor="#F5FBFF" android:textSize="18sp" android:textStyle="bold" android:gravity="center" />
+            <TextView android:id="@+id/widget_smoked_today" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/widget_loading" android:textColor="#A9CDD8" android:textSize="11sp" android:gravity="center" />
         </LinearLayout>
-        <LinearLayout android:layout_width="0dp" android:layout_height="76dp" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:background="@drawable/widget_metric_background">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_craving" android:textColor="#B8D1DB" android:textSize="11sp" />
-            <TextView android:id="@+id/widget_cravings_today" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_loading" android:textColor="#F5FBFF" android:textSize="24sp" android:textStyle="bold" />
+        <LinearLayout android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:padding="6dp" android:gravity="center_vertical" android:orientation="vertical" android:background="@drawable/widget_metric_background">
+            <TextView android:id="@+id/widget_resisted_count" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/widget_loading" android:textColor="#55E39A" android:textSize="18sp" android:textStyle="bold" android:gravity="center" />
+            <TextView android:id="@+id/widget_resisted_today" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/widget_loading" android:textColor="#A9CDD8" android:textSize="11sp" android:gravity="center" />
         </LinearLayout>
     </LinearLayout>
-    <TextView android:id="@+id/widget_summary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/widget_loading" android:textColor="#F5FBFF" android:textSize="14sp" />
-    <TextView android:id="@+id/widget_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/widget_status_offline" android:textColor="#B8D1DB" android:textSize="12sp" />
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <Button android:id="@+id/widget_smoked" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/widget_smoked" android:textColor="#F5FBFF" android:backgroundTint="#183644" android:drawableTop="@drawable/ic_widget_smoked" android:gravity="center" />
-        <Button android:id="@+id/widget_resisted" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/widget_resisted" android:textColor="#F5FBFF" android:backgroundTint="#183644" android:drawableTop="@drawable/ic_widget_resisted" android:gravity="center" />
-        <Button android:id="@+id/widget_craving" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/widget_craving" android:textColor="#F5FBFF" android:backgroundTint="#183644" android:drawableTop="@drawable/ic_widget_craving" android:gravity="center" />
+
+    <TextView android:id="@+id/widget_saved_today" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:padding="7dp" android:background="@drawable/widget_metric_background" android:text="@string/widget_loading" android:textColor="#FFD66B" android:textSize="13sp" android:textStyle="bold" android:gravity="center" />
+    <TextView android:id="@+id/widget_value_per_cigarette" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/widget_loading" android:textColor="#A9CDD8" android:textSize="11sp" android:gravity="center" />
+
+    <TextView android:id="@+id/widget_quick_log" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginBottom="5dp" android:text="@string/widget_loading" android:textColor="#D5ECF3" android:textSize="11sp" android:textStyle="bold" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:baselineAligned="false">
+        <Button android:id="@+id/widget_smoked" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginEnd="6dp" android:text="@string/widget_loading" android:textColor="#F5FBFF" android:background="@drawable/widget_action_navy" android:gravity="center" android:textSize="11sp" android:textAllCaps="false" />
+        <Button android:id="@+id/widget_resisted" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginEnd="6dp" android:text="@string/widget_loading" android:textColor="#062016" android:background="@drawable/widget_action_emerald" android:gravity="center" android:textSize="11sp" android:textAllCaps="false" />
+        <Button android:id="@+id/widget_craving" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:text="@string/widget_loading" android:textColor="#3B1016" android:background="@drawable/widget_action_coral" android:gravity="center" android:textSize="11sp" android:textAllCaps="false" />
     </LinearLayout>
 </LinearLayout>

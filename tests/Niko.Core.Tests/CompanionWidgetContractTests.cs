@@ -57,6 +57,9 @@ public sealed class CompanionWidgetContractTests
 
         Assert.Equal(1, progress.TotalSmoked);
         Assert.Equal(0, progress.SmokedToday);
+        Assert.Null(progress.DailySavedAmount);
+        Assert.Null(progress.DailySavingsCurrencyCode);
+        Assert.Null(progress.AmountPerResistedCigarette);
         Assert.Equal(4, streak.CurrentStreakDays);
         Assert.False(sync.InSync);
     }

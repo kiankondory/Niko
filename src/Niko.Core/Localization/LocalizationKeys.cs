@@ -15,6 +15,27 @@ namespace Niko.Core.Localization;
 /// </summary>
 public static class LocalizationKeys
 {
+    public const string OnboardingWelcomeTitle = "Onboarding.WelcomeTitle";
+    public const string OnboardingWelcomeBody = "Onboarding.WelcomeBody";
+    public const string OnboardingLanguageTitle = "Onboarding.LanguageTitle";
+    public const string OnboardingLanguageBody = "Onboarding.LanguageBody";
+    public const string OnboardingHomeTitle = "Onboarding.HomeTitle";
+    public const string OnboardingHomeBody = "Onboarding.HomeBody";
+    public const string OnboardingLogTitle = "Onboarding.LogTitle";
+    public const string OnboardingLogBody = "Onboarding.LogBody";
+    public const string OnboardingBattleTitle = "Onboarding.BattleTitle";
+    public const string OnboardingBattleBody = "Onboarding.BattleBody";
+    public const string OnboardingIslandTitle = "Onboarding.IslandTitle";
+    public const string OnboardingIslandBody = "Onboarding.IslandBody";
+    public const string OnboardingSettingsTitle = "Onboarding.SettingsTitle";
+    public const string OnboardingSettingsBody = "Onboarding.SettingsBody";
+    public const string OnboardingNext = "Onboarding.Next";
+    public const string OnboardingStart = "Onboarding.Start";
+    public const string IslandMonthlyReportTitle = "Island.MonthlyReportTitle";
+    public const string IslandReportDate = "Island.ReportDate";
+    public const string IslandReportSmoked = "Island.ReportSmoked";
+    public const string IslandReportResisted = "Island.ReportResisted";
+    public const string IslandReportSaved = "Island.ReportSaved";
     /// <summary>عنوان برنامه.</summary>
     public const string AppTitle = "AppTitle";
 
@@ -32,6 +53,8 @@ public static class LocalizationKeys
     public const string QuickLogSmokedToday = "QuickLog.SmokedToday";
 
     public const string QuickLogResistedToday = "QuickLog.ResistedToday";
+
+    public const string QuickLogCravingsToday = "QuickLog.CravingsToday";
 
     public const string QuickLogSuccessSmoked = "QuickLog.Success.Smoked";
 
@@ -118,6 +141,10 @@ public static class LocalizationKeys
 
     /// <summary>گزینهٔ پوستهٔ تیره.</summary>
     public const string ThemeDark = "Theme.Dark";
+
+    public const string ReduceMotion = "Accessibility.ReduceMotion";
+
+    public const string ReduceMotionDescription = "Accessibility.ReduceMotionDescription";
 
     /// <summary>برچسب دکمهٔ بازخوانی.</summary>
     public const string Refresh = "Common.Refresh";
@@ -336,6 +363,18 @@ public static class LocalizationKeys
     public const string IslandNextMilestone = "Island.NextMilestone";
     public const string IslandProgress = "Island.Progress";
     public const string IslandEmpty = "Island.Empty";
+    public const string IslandJourneyTitle = "Island.JourneyTitle";
+    public const string IslandJourneyUnavailable = "Island.JourneyUnavailable";
+    public const string IslandStageSeedling = "Island.Stage.Seedling";
+    public const string IslandStageGarden = "Island.Stage.Garden";
+    public const string IslandStageForest = "Island.Stage.Forest";
+    public const string IslandStageHaven = "Island.Stage.Haven";
+    public const string IslandDailyReportsTitle = "Island.DailyReportsTitle";
+    public const string IslandCumulativeSavings = "Island.CumulativeSavings";
+    public const string IslandSavingsUnavailable = "Island.SavingsUnavailable";
+    public const string IslandSmokedValue = "Island.SmokedValue";
+    public const string IslandResistedValue = "Island.ResistedValue";
+    public const string IslandDailySavedValue = "Island.DailySavedValue";
 
     /// <summary>ورود به پروفایل.</summary>
     public const string ProfileEntry = "Profile.Entry";
@@ -447,6 +486,21 @@ public static class LocalizationKeys
 
     /// <summary>وضعیت آماده بودن کنترل‌ها.</summary>
     public const string PrivacyDataControls = "PrivacyData.Controls";
+    public const string PrivacyDataExportTitle = "PrivacyData.Export.Title";
+    public const string PrivacyDataExportDescription = "PrivacyData.Export.Description";
+    public const string PrivacyDataExportAction = "PrivacyData.Export.Action";
+    public const string PrivacyDataExported = "PrivacyData.Export.Success";
+    public const string PrivacyDataExportError = "PrivacyData.Export.Error";
+    public const string PrivacyDataEraseTitle = "PrivacyData.Erase.Title";
+    public const string PrivacyDataEraseDescription = "PrivacyData.Erase.Description";
+    public const string PrivacyDataEraseAction = "PrivacyData.Erase.Action";
+    public const string PrivacyDataEraseConfirmTitle = "PrivacyData.Erase.Confirm.Title";
+    public const string PrivacyDataEraseConfirmBody = "PrivacyData.Erase.Confirm.Body";
+    public const string PrivacyDataEraseConfirmAction = "PrivacyData.Erase.Confirm.Action";
+    public const string PrivacyDataCancel = "PrivacyData.Cancel";
+    public const string PrivacyDataDeviceConfirmationRequired = "PrivacyData.DeviceConfirmationRequired";
+    public const string PrivacyDataErased = "PrivacyData.Erase.Success";
+    public const string PrivacyDataEraseError = "PrivacyData.Erase.Error";
 
     // --- اعلان‌ها ---
 

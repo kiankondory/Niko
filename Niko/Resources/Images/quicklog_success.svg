@@ -1,0 +1,5 @@
+<!-- نام فایل: quicklog_success.svg | مسئولیت: بازخورد بصری ثبت موفق بدون متن | لایه: MAUI presentation | قید: فقط وضعیت ارائه‌ای و بدون دادهٔ رخداد. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <circle cx="12" cy="12" r="10" fill="#1F9D62"/>
+  <path d="M7.4 12.1 10.5 15.2 16.8 8.8" fill="none" stroke="#F5FBFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

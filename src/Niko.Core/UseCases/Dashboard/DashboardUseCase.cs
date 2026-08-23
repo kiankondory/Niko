@@ -12,6 +12,7 @@
 using Niko.Core.Abstractions;
 using Niko.Core.Domain;
 using Niko.Core.Domain.CompanionContracts;
+using Niko.Core.Domain.Island;
 using Niko.Core.Events;
 
 namespace Niko.Core.UseCases.Dashboard;
@@ -52,7 +53,27 @@ public sealed class DashboardUseCase
             _clock.UtcNow,
             _localTimeZone);
 
-        return new DashboardResult(snapshot, events.Count, dailySummary);
+        var islandReports = IslandDailyReportCalculator.Calculate(
+            events,
+            profile,
+            _clock.UtcNow,
+            _localTimeZone);
+
+        // مبلغ روزانه فقط یک خلاصهٔ مالی تقریبی است: مقاومت معتبر امروز × قیمت هر نخ.
+        // برای نمایش آن به تاریخ ترک یا نرخ مصرف پایه نیاز نیست، اما قیمت باید معتبر باشد.
+        var price = profile?.EffectivePricePerCigarette;
+        decimal? dailySavedAmount = price is { } effectivePrice
+            ? dailySummary.ResistedToday * effectivePrice
+            : null;
+
+        return new DashboardResult(snapshot, events.Count, dailySummary)
+        {
+            DailySavedAmount = dailySavedAmount,
+            DailySavingsCurrencyCode = price is null ? null : profile!.CurrencyCode,
+            AmountPerResistedCigarette = price,
+            IslandDailyReports = islandReports,
+            IslandCumulativeSavings = IslandDailyReportCalculator.CalculateCumulativeSavings(islandReports),
+        };
     }
 
     private async Task<IReadOnlyList<LogEvent>> LoadAllEventsAsync(CancellationToken ct)

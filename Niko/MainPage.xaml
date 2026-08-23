@@ -13,10 +13,6 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20,16,20,28" Spacing="16">
-            <VerticalStackLayout Spacing="4">
-                <Label Text="{Binding Title}" Style="{StaticResource PageTitle}" />
-                <Label Text="{Binding Subtitle}" Style="{StaticResource BodyMuted}" SemanticProperties.HeadingLevel="Level2" />
-            </VerticalStackLayout>
             <Border Style="{StaticResource CardBorder}" IsVisible="{Binding IsStatusVisible}" Padding="12,10">
                 <Border.Triggers>
                     <DataTrigger TargetType="Border" Binding="{Binding IsStatusSuccess}" Value="True">
@@ -25,36 +21,66 @@
                     </DataTrigger>
                 </Border.Triggers>
                 <Grid ColumnDefinitions="28,*" ColumnSpacing="8">
-                    <Label Text="✓" FontSize="20" TextColor="{StaticResource Success}" VerticalOptions="Center" />
+                    <Image Source="quicklog_success.svg" HeightRequest="20" WidthRequest="20" VerticalOptions="Center" />
                     <Label Grid.Column="1" Text="{Binding StatusMessage}" Style="{StaticResource FormLabel}" VerticalOptions="Center" />
                 </Grid>
             </Border>
             <Border Style="{StaticResource HeroCard}">
                 <VerticalStackLayout Spacing="6">
-                    <Label Text="{Binding CravingBattleEntryLabel}" Style="{StaticResource HeroTitle}" />
-                    <Label Text="{Binding CravingLabel}" Style="{StaticResource HeroBody}" />
+                    <Label Text="{Binding Title}" Style="{StaticResource HeroTitle}" />
+                    <Label Text="{Binding Subtitle}" Style="{StaticResource HeroBody}" SemanticProperties.HeadingLevel="Level2" />
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8" Margin="0,8,0,0">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="{Binding SmokedTodayText}" Style="{StaticResource HeroTitle}" FontSize="16" />
+                            <Label Text="{Binding SmokedLabel}" Style="{StaticResource HeroBody}" FontSize="11" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="2">
+                            <Label Text="{Binding ResistedTodayText}" Style="{StaticResource HeroTitle}" FontSize="16" />
+                            <Label Text="{Binding ResistedLabel}" Style="{StaticResource HeroBody}" FontSize="11" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="2" Spacing="2">
+                            <Label Text="{Binding CravingsTodayText}" Style="{StaticResource HeroTitle}" FontSize="16" />
+                            <Label Text="{Binding CravingLabel}" Style="{StaticResource HeroBody}" FontSize="11" />
+                        </VerticalStackLayout>
+                    </Grid>
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardBorder}">
-                <Grid ColumnDefinitions="58,*,Auto" ColumnSpacing="14">
-                    <Label Text="🚬" FontSize="30" VerticalOptions="Center" HorizontalTextAlignment="Center" />
-                    <Label Grid.Column="1" Text="{Binding SmokedLabel}" Style="{StaticResource SectionTitle}" VerticalOptions="Center" />
-                    <Label Grid.Column="2" Text="{Binding SmokedTodayText}" Style="{StaticResource BodyMuted}" VerticalOptions="Center" />
+                <Grid ColumnDefinitions="54,*,Auto" ColumnSpacing="14" SemanticProperties.Description="{Binding SmokedLabel}">
+                    <Border Background="#263A4A" StrokeThickness="0" StrokeShape="RoundRectangle 16" Padding="10">
+                        <Image Source="quicklog_smoked.svg" HeightRequest="30" WidthRequest="30" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+                        <Label Text="{Binding SmokedLabel}" Style="{StaticResource SectionTitle}" />
+                        <Label Text="{Binding SmokedTodayText}" Style="{StaticResource BodyMuted}" />
+                    </VerticalStackLayout>
+                    <Image Grid.Column="2" Source="quicklog_open.svg" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
                     <Grid.GestureRecognizers><TapGestureRecognizer Command="{Binding SmokedCommand}" /></Grid.GestureRecognizers>
                 </Grid>
             </Border>
             <Border Style="{StaticResource CardBorder}">
-                <Grid ColumnDefinitions="58,*,Auto" ColumnSpacing="14">
-                    <Label Text="🛡️" FontSize="30" VerticalOptions="Center" HorizontalTextAlignment="Center" />
-                    <Label Grid.Column="1" Text="{Binding ResistedLabel}" Style="{StaticResource SectionTitle}" VerticalOptions="Center" />
-                    <Label Grid.Column="2" Text="{Binding ResistedTodayText}" Style="{StaticResource BodyMuted}" VerticalOptions="Center" />
+                <Grid ColumnDefinitions="54,*,Auto" ColumnSpacing="14" SemanticProperties.Description="{Binding ResistedLabel}">
+                    <Border Background="#163D2A" StrokeThickness="0" StrokeShape="RoundRectangle 16" Padding="10">
+                        <Image Source="quicklog_resisted.svg" HeightRequest="30" WidthRequest="30" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+                        <Label Text="{Binding ResistedLabel}" Style="{StaticResource SectionTitle}" />
+                        <Label Text="{Binding ResistedTodayText}" Style="{StaticResource BodyMuted}" />
+                    </VerticalStackLayout>
+                    <Image Grid.Column="2" Source="quicklog_open.svg" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
                     <Grid.GestureRecognizers><TapGestureRecognizer Command="{Binding ResistedCommand}" /></Grid.GestureRecognizers>
                 </Grid>
             </Border>
             <Border Style="{StaticResource CardBorder}">
-                <Grid ColumnDefinitions="58,*" ColumnSpacing="14">
-                    <Label Text="⚡" FontSize="30" VerticalOptions="Center" HorizontalTextAlignment="Center" />
-                    <Label Grid.Column="1" Text="{Binding CravingLabel}" Style="{StaticResource SectionTitle}" VerticalOptions="Center" />
+                <Grid ColumnDefinitions="54,*,Auto" ColumnSpacing="14" SemanticProperties.Description="{Binding CravingLabel}">
+                    <Border Background="#493920" StrokeThickness="0" StrokeShape="RoundRectangle 16" Padding="10">
+                        <Image Source="quicklog_craving.svg" HeightRequest="30" WidthRequest="30" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+                        <Label Text="{Binding CravingLabel}" Style="{StaticResource SectionTitle}" />
+                        <Label Text="{Binding CravingsTodayText}" Style="{StaticResource BodyMuted}" />
+                    </VerticalStackLayout>
+                    <Image Grid.Column="2" Source="quicklog_open.svg" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
                     <Grid.GestureRecognizers><TapGestureRecognizer Command="{Binding CravingCommand}" /></Grid.GestureRecognizers>
                 </Grid>
             </Border>

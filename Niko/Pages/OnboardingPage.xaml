@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- نام فایل: OnboardingPage.xaml | مسئولیت: انتخاب زبان و معرفی مرحله‌ای تب‌های Niko در اولین اجرا؛ وابستگی: OnboardingPage.xaml.cs → Core settings/localization؛ قید: بدون ایجاد event یا دادهٔ سلامت. -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Niko.Pages.OnboardingPage" Title="">
+  <Grid Padding="18,24" RowDefinitions="Auto,*,Auto">
+    <Label Grid.Row="0" x:Name="BrandLabel" Style="{StaticResource SectionTitle}" HorizontalOptions="Center" />
+    <CarouselView Grid.Row="1" x:Name="Feed" ItemsSource="{Binding Steps}" IsSwipeEnabled="True" Loop="False" PositionChanged="OnFeedPositionChanged">
+      <CarouselView.ItemTemplate>
+        <DataTemplate>
+          <Border Style="{StaticResource HeroCard}" Margin="0,18,0,18" VerticalOptions="Center">
+            <VerticalStackLayout Spacing="14" VerticalOptions="Center">
+              <Label Text="{Binding Icon}" FontSize="40" HorizontalTextAlignment="Center" />
+              <Label Text="{Binding Title}" Style="{StaticResource HeroTitle}" HorizontalTextAlignment="Center" />
+              <Label Text="{Binding Body}" Style="{StaticResource HeroBody}" HorizontalTextAlignment="Center" />
+              <Picker x:Name="LanguagePicker" IsVisible="{Binding IsLanguageStep}" ItemsSource="{Binding Source={x:Reference Feed}, Path=BindingContext.LanguageOptions}" ItemDisplayBinding="{Binding DisplayName}" SelectedIndexChanged="OnLanguageChanged" />
+            </VerticalStackLayout>
+          </Border>
+        </DataTemplate>
+      </CarouselView.ItemTemplate>
+    </CarouselView>
+    <Button Grid.Row="2" x:Name="NextButton" Clicked="OnNextClicked" />
+  </Grid>
+</ContentPage>

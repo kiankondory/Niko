@@ -54,27 +54,30 @@ public sealed class NikoWidgetProvider : AppWidgetProvider
             return;
         }
 
+        var eventType = (EventType)intent.GetIntExtra(EventTypeExtra, -1);
+        if (eventType is not (EventType.Smoked or EventType.Resisted or EventType.Craving))
+        {
+            return;
+        }
+
+        // بازخورد دیداری فوری، پیش از I/O محلی، جلوی لمس پیاپی ناخواسته را می‌گیرد.
+        RenderProcessingState(context);
+
         var pending = GoAsync();
         if (pending is null)
         {
             return;
         }
-        _ = ProcessQuickLogAsync(context, intent, pending);
+        _ = ProcessQuickLogAsync(context, eventType, pending);
     }
 
-    private static async Task ProcessQuickLogAsync(Context context, Intent intent, PendingResult pending)
+    private static async Task ProcessQuickLogAsync(Context context, EventType type, PendingResult pending)
     {
         try
         {
-            var type = (EventType)intent.GetIntExtra(EventTypeExtra, -1);
-            if (type is not (EventType.Smoked or EventType.Resisted or EventType.Craving))
-            {
-                return;
-            }
-
             var bridge = new WidgetCompanionBridge(context);
-            await bridge.HandleQuickLogAsync(type).ConfigureAwait(false);
-            await bridge.RefreshAllAsync().ConfigureAwait(false);
+            var saved = await bridge.HandleQuickLogAsync(type).ConfigureAwait(false);
+            await bridge.RefreshAllAsync(saved ? type : null).ConfigureAwait(false);
         }
         finally
         {
@@ -112,6 +115,35 @@ public sealed class NikoWidgetProvider : AppWidgetProvider
             flags)!;
     }
 
+    private static void RenderProcessingState(Context context)
+    {
+        var manager = AppWidgetManager.GetInstance(context);
+        if (manager is null)
+        {
+            return;
+        }
+
+        var component = new ComponentName(context, Java.Lang.Class.FromType(typeof(NikoWidgetProvider)));
+        var ids = manager.GetAppWidgetIds(component) ?? Array.Empty<int>();
+        if (ids.Length == 0)
+        {
+            return;
+        }
+
+        var views = new RemoteViews(context.PackageName, Resource.Layout.niko_widget);
+        views.SetTextViewText(Resource.Id.widget_status, context.GetString(Resource.String.widget_action_recording));
+        views.SetTextViewText(Resource.Id.widget_summary, context.GetString(Resource.String.widget_action_processing));
+        SetActionsEnabled(views, false);
+        manager.PartiallyUpdateAppWidget(ids, views);
+    }
+
+    private static void SetActionsEnabled(RemoteViews views, bool enabled)
+    {
+        views.SetBoolean(Resource.Id.widget_smoked, "setEnabled", enabled);
+        views.SetBoolean(Resource.Id.widget_resisted, "setEnabled", enabled);
+        views.SetBoolean(Resource.Id.widget_craving, "setEnabled", enabled);
+    }
+
     private sealed class WidgetCompanionBridge
     {
         private readonly Context _context;
@@ -133,7 +165,7 @@ public sealed class NikoWidgetProvider : AppWidgetProvider
                 TimeZoneInfo.Local);
         }
 
-        public async Task HandleQuickLogAsync(EventType type)
+        public async Task<bool> HandleQuickLogAsync(EventType type)
         {
             var message = new CompanionMessage
             {
@@ -143,10 +175,11 @@ public sealed class NikoWidgetProvider : AppWidgetProvider
                 Payload = CompanionMessageSerializer.Serialize(new CompanionQuickLogRequest { EventType = type }),
                 SentAtUtc = DateTimeOffset.UtcNow,
             };
-            await _companion.HandleAsync(CompanionMessageSerializer.Serialize(message)).ConfigureAwait(false);
+            var result = await _companion.HandleAsync(CompanionMessageSerializer.Serialize(message)).ConfigureAwait(false);
+            return result.Success;
         }
 
-        public async Task RefreshAllAsync()
+        public async Task RefreshAllAsync(EventType? feedbackType = null)
         {
             var manager = AppWidgetManager.GetInstance(_context);
             if (manager is null)
@@ -156,10 +189,10 @@ public sealed class NikoWidgetProvider : AppWidgetProvider
 
             var component = new ComponentName(_context, Java.Lang.Class.FromType(typeof(NikoWidgetProvider)));
             var ids = manager.GetAppWidgetIds(component) ?? Array.Empty<int>();
-            await RefreshAsync(manager, ids).ConfigureAwait(false);
+            await RefreshAsync(manager, ids, feedbackType).ConfigureAwait(false);
         }
 
-        public async Task RefreshAsync(AppWidgetManager manager, int[] ids)
+        public async Task RefreshAsync(AppWidgetManager manager, int[] ids, EventType? feedbackType = null)
         {
             var textContext = await CreateLocalizedContextAsync().ConfigureAwait(false);
             var progress = await RequestAsync<CompanionProgressSummary>(CompanionMessageType.ProgressSummaryRequest).ConfigureAwait(false);
@@ -169,32 +202,51 @@ public sealed class NikoWidgetProvider : AppWidgetProvider
             foreach (var id in ids)
             {
                 var views = new RemoteViews(_context.PackageName, Resource.Layout.niko_widget);
+                views.SetTextViewText(Resource.Id.widget_today, textContext.GetString(Resource.String.widget_today));
+                views.SetTextViewText(Resource.Id.widget_quick_log, textContext.GetString(Resource.String.widget_quick_log));
+                views.SetTextViewText(Resource.Id.widget_smoked, textContext.GetString(Resource.String.widget_smoked));
+                views.SetTextViewText(Resource.Id.widget_resisted, textContext.GetString(Resource.String.widget_resisted));
+                views.SetTextViewText(Resource.Id.widget_craving, textContext.GetString(Resource.String.widget_craving));
                 views.SetOnClickPendingIntent(Resource.Id.widget_smoked, CreateAction(_context, EventType.Smoked));
                 views.SetOnClickPendingIntent(Resource.Id.widget_resisted, CreateAction(_context, EventType.Resisted));
                 views.SetOnClickPendingIntent(Resource.Id.widget_craving, CreateAction(_context, EventType.Craving));
+                SetActionsEnabled(views, true);
 
                 if (progress is not null && streak is not null)
                 {
-                    views.SetTextViewText(Resource.Id.widget_smoked_today, textContext.GetString(
-                        Resource.String.widget_count, progress.SmokedToday));
-                    views.SetTextViewText(Resource.Id.widget_resisted_today, textContext.GetString(
-                        Resource.String.widget_count, progress.ResistedToday));
-                    views.SetTextViewText(Resource.Id.widget_cravings_today, textContext.GetString(
-                        Resource.String.widget_count, progress.CravingsToday));
+                    views.SetTextViewText(Resource.Id.widget_smoked_count, textContext.GetString(Resource.String.widget_count, progress.SmokedToday));
+                    views.SetTextViewText(Resource.Id.widget_smoked_today, textContext.GetString(Resource.String.widget_smoked_today_label));
+                    views.SetTextViewText(Resource.Id.widget_resisted_count, textContext.GetString(Resource.String.widget_count, progress.ResistedToday));
+                    views.SetTextViewText(Resource.Id.widget_resisted_today, textContext.GetString(Resource.String.widget_resisted_today_label));
+                    views.SetTextViewText(Resource.Id.widget_saved_today, textContext.GetString(
+                        Resource.String.widget_saved_today,
+                        new Java.Lang.String(FormatDailySavings(progress, textContext))));
+                    views.SetTextViewText(Resource.Id.widget_value_per_cigarette, textContext.GetString(
+                        Resource.String.widget_value_per_cigarette,
+                        new Java.Lang.String(FormatPerResistedCigarette(progress, textContext))));
                     views.SetTextViewText(Resource.Id.widget_summary, textContext.GetString(
                         Resource.String.widget_summary_available,
                         streak.CurrentStreakDays,
                         progress.MilestoneProgressPercent));
-                    var status = sync?.InSync == true
+                    var status = feedbackType is { } savedType
+                        ? textContext.GetString(Resource.String.widget_action_saved, new Java.Lang.String(GetActionLabel(textContext, savedType)))
+                        : sync?.InSync == true
                         ? textContext.GetString(Resource.String.widget_status_in_sync)
                         : textContext.GetString(Resource.String.widget_status_pending, sync?.PendingCount ?? 0);
                     views.SetTextViewText(Resource.Id.widget_status, status);
                 }
                 else
                 {
+                    views.SetTextViewText(Resource.Id.widget_smoked_count, textContext.GetString(Resource.String.widget_unavailable_count));
                     views.SetTextViewText(Resource.Id.widget_smoked_today, textContext.GetString(Resource.String.widget_status_unavailable));
+                    views.SetTextViewText(Resource.Id.widget_resisted_count, textContext.GetString(Resource.String.widget_unavailable_count));
                     views.SetTextViewText(Resource.Id.widget_resisted_today, textContext.GetString(Resource.String.widget_status_unavailable));
-                    views.SetTextViewText(Resource.Id.widget_cravings_today, textContext.GetString(Resource.String.widget_status_unavailable));
+                    views.SetTextViewText(Resource.Id.widget_saved_today, textContext.GetString(
+                        Resource.String.widget_saved_today,
+                        new Java.Lang.String(textContext.GetString(Resource.String.widget_unavailable_count))));
+                    views.SetTextViewText(Resource.Id.widget_value_per_cigarette, textContext.GetString(
+                        Resource.String.widget_value_per_cigarette,
+                        new Java.Lang.String(textContext.GetString(Resource.String.widget_unavailable_count))));
                     views.SetTextViewText(Resource.Id.widget_summary, textContext.GetString(Resource.String.widget_status_unavailable));
                     views.SetTextViewText(Resource.Id.widget_status, textContext.GetString(Resource.String.widget_status_offline));
                 }
@@ -221,13 +273,77 @@ public sealed class NikoWidgetProvider : AppWidgetProvider
         }
 
         private static string? NormalizeLocale(string? locale)
-            => locale?.ToLowerInvariant() switch
+        {
+            if (string.IsNullOrWhiteSpace(locale))
             {
-                "en" or "en-us" or "en-gb" => "en",
-                "fa" or "fa-ir" => "fa",
-                "ar" or "ar-sa" => "ar",
-                "zh-hans" or "zh-cn" => "zh-CN",
-                _ => null,
+                return null;
+            }
+
+            return locale.Equals("zh-Hans", StringComparison.OrdinalIgnoreCase)
+                ? "zh-CN"
+                : locale.Equals("zh-Hant", StringComparison.OrdinalIgnoreCase)
+                    ? "zh-TW"
+                    : locale;
+        }
+
+        private static string FormatDailySavings(CompanionProgressSummary progress, Context textContext)
+        {
+            if (progress.DailySavedAmount is not { } amount || string.IsNullOrWhiteSpace(progress.DailySavingsCurrencyCode))
+            {
+                return textContext.GetString(Resource.String.widget_unavailable_count);
+            }
+
+            var languageTag = GetLanguageTag(textContext);
+            var culture = TryGetCulture(languageTag);
+            return string.Concat(amount.ToString("N2", culture), " ", progress.DailySavingsCurrencyCode);
+        }
+
+        private static string FormatPerResistedCigarette(CompanionProgressSummary progress, Context textContext)
+        {
+            if (progress.AmountPerResistedCigarette is not { } amount ||
+                string.IsNullOrWhiteSpace(progress.DailySavingsCurrencyCode))
+            {
+                return textContext.GetString(Resource.String.widget_unavailable_count);
+            }
+
+            var culture = TryGetCulture(GetLanguageTag(textContext));
+            return string.Concat(amount.ToString("N2", culture), " ", progress.DailySavingsCurrencyCode);
+        }
+
+        private static System.Globalization.CultureInfo TryGetCulture(string? languageTag)
+        {
+            try
+            {
+                return string.IsNullOrWhiteSpace(languageTag)
+                    ? System.Globalization.CultureInfo.InvariantCulture
+                    : System.Globalization.CultureInfo.GetCultureInfo(languageTag);
+            }
+            catch (System.Globalization.CultureNotFoundException)
+            {
+                return System.Globalization.CultureInfo.InvariantCulture;
+            }
+        }
+
+        private static string? GetLanguageTag(Context textContext)
+        {
+            var configuration = textContext.Resources?.Configuration;
+            if (configuration is null)
+            {
+                return null;
+            }
+
+            return OperatingSystem.IsAndroidVersionAtLeast(24)
+                ? configuration.Locales?.Get(0)?.ToLanguageTag()
+                : configuration.Locale?.ToLanguageTag();
+        }
+
+        private static string GetActionLabel(Context textContext, EventType type)
+            => type switch
+            {
+                EventType.Smoked => textContext.GetString(Resource.String.widget_smoked),
+                EventType.Resisted => textContext.GetString(Resource.String.widget_resisted),
+                EventType.Craving => textContext.GetString(Resource.String.widget_craving),
+                _ => textContext.GetString(Resource.String.widget_quick_log),
             };
 
         private async Task<T?> RequestAsync<T>(CompanionMessageType type)

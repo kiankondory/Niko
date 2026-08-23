@@ -150,6 +150,44 @@ Record durable decisions and their rationale here. Every new decision must inclu
 - Decision: The MAUI Shell exposes five localized destinations. Island is a presentation-only visual of the existing `DashboardUseCase` snapshot; its illustration is local and it shows only real streak/milestone aggregates. Battle remains backed by the existing Craving Battle use case. No XP, rewards economy, private event details, or new persistence are introduced.
 - Consequences and trade-offs: The app gains clearer navigation and richer local visuals while preserving offline behavior. A future gamification system requires a separate Core product decision and tests.
 
+## ADR-023 — P3.5 Recovery Journey visual progression
+
+- Date: 2026-08-22
+- Status: Accepted
+- Context: The initial Island used one static illustration and did not make real recovery progress visible.
+- Decision: Core maps the existing, approximate `RecoverySnapshot` to four stable visual Journey stages. MAUI selects only local stage assets and localized copy from that Core result. No XP, reward economy, storage, raw events, medical diagnosis, or external service is added.
+- Consequences and trade-offs: Visual growth is available offline and updates when the existing recovery snapshot changes. Stage artwork is motivational rather than medical evidence; the existing recovery disclaimer remains required.
+
+## ADR-024 — Local export and device-confirmed data erasure
+
+- Date: 2026-08-23
+- Status: Accepted
+- Context: Users need portable local copies and a clear way to erase Niko data without weakening privacy or requiring a product-specific password.
+- Decision: SQLite data is exported only to a user-selected local share path. Erasure is transactional and clears user-owned rows while retaining the database schema; the MAUI flow first shows a clear warning, then requires Android's native secure device credential. Missing or cancelled device confirmation fails closed. Widget refresh follows erasure.
+- Consequences and trade-offs: Exported JSON can contain the user's own local data and must be shared intentionally. The app never records the device PIN/pattern/password, and a device without a secure lock cannot erase data through this screen.
+
+## ADR-025 — Aggregate daily savings feedback
+
+- Date: 2026-08-23
+- Status: Accepted
+- Context: Users need immediate, understandable financial feedback after recording a resisted cigarette, without exposing raw event history in the widget.
+- Decision: `DashboardUseCase` exposes the optional aggregate daily savings and the effective price per resisted cigarette. Dashboard shows the daily aggregate; the widget shows both the daily aggregate and the optional per-cigarette value. Both values come only from Core summaries and the persisted profile price/currency.
+- Consequences and trade-offs: A price is required; otherwise the UI safely displays its existing unavailable state. The widget receives no event IDs, timestamps, notes, location, or context, and the additive optional fields remain backward-compatible for companions.
+
+## ADR-026 — Presentation-only reduced motion
+
+- Date: 2026-08-23
+- Status: Accepted
+- Context: Progress animation must not prevent users who prefer less motion from using Niko comfortably.
+- Decision: Persist a local presentation preference for reduced motion. The Dashboard progress bar uses its final Core-provided value directly when enabled; it otherwise keeps the existing short animation.
+- Consequences and trade-offs: The preference is offline and separate from profile/health data. It does not change progress, timestamps, event handling, or widget behavior.
+
+### ADR-027 — Island daily activity and cumulative savings aggregate
+
+- Context: The Island page needed a privacy-safe daily view of smoked cigarettes and money saved, plus a cumulative total from the quit date.
+- Decision: Core calculates one aggregate report per local calendar day from valid persisted `Smoked`/`Resisted` events. Daily savings use the effective price per cigarette and resisted events; the cumulative value is the sum of those daily values. MAUI receives only the aggregate report and never reads or stores raw events independently.
+- Constraints: Future, duplicate, deleted, and out-of-range events are excluded. Day boundaries use the injected local timezone. Missing quit date or price produces an empty/unavailable savings result. No network or new persistence is introduced.
+
 ## ADR-001 — Shared Core
 
 - Status: Accepted

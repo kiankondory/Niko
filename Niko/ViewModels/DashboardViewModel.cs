@@ -64,6 +64,7 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
     private string _recoveryNextStageText = string.Empty;
     private double _recoveryProgress;
     private bool _isRecoveryAvailable;
+    private string _recoveryImageSource = "niko_recovery_stage_1.png";
     private readonly ObservableCollection<MilestoneDisplay> _milestones = new();
     private readonly ObservableCollection<TriggerInsightDisplay> _triggerInsights = new();
     private bool _triggerAnalysisEnabled;
@@ -85,6 +86,7 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
         _localization.LocaleChanged += OnLocaleChanged;
         RefreshCommand = new Command(async () => await LoadAsync());
         ToggleTriggerAnalysisCommand = new Command(async () => await ToggleTriggerAnalysisAsync());
+        StartLoggingCommand = new Command(async () => await Shell.Current.GoToAsync("//MainPage"));
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -159,6 +161,8 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
 
     public string DashboardEmptyText => _localization.GetString(LocalizationKeys.DashboardEmpty);
 
+    public string StartLoggingText => _localization.GetString(LocalizationKeys.QuickLogTitle);
+
     public string DashboardGreeting => _localization.GetString(LocalizationKeys.DashboardGreeting);
 
     public string DashboardHeroTitle => _localization.GetString(LocalizationKeys.DashboardHeroTitle);
@@ -225,6 +229,13 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
 
     public bool IsRecoveryUnavailable => !_isRecoveryAvailable;
 
+    /// <summary>تصویر محلی مرحلهٔ مسیر بهبود؛ فقط انتخاب presentation است.</summary>
+    public string RecoveryImageSource
+    {
+        get => _recoveryImageSource;
+        private set => SetField(ref _recoveryImageSource, value);
+    }
+
     public string RefreshText => _localization.GetString(LocalizationKeys.Refresh);
 
     public string TriggerAnalysisTitle => _localization.GetString(LocalizationKeys.TriggerAnalysisTitle);
@@ -268,6 +279,8 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
 
     public Command ToggleTriggerAnalysisCommand { get; }
 
+    public Command StartLoggingCommand { get; }
+
     private void OnLocaleChanged(object? sender, EventArgs e)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
@@ -281,7 +294,7 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
         try
         {
             var result = await _useCase.ExecuteAsync();
-            Apply(result.Snapshot);
+            Apply(result);
             if (IsTriggerAnalysisAvailable)
             {
                 await LoadTriggerAnalysisAsync();
@@ -383,8 +396,9 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
         return new TriggerInsightDisplay(text, approximate);
     }
 
-    private void Apply(ProgressSnapshot snapshot)
+    private void Apply(DashboardResult result)
     {
+        var snapshot = result.Snapshot;
         var culture = CultureInfo.GetCultureInfo(_localization.CurrentLocale);
 
         var anyEvents = snapshot.TotalSmoked + snapshot.TotalResisted + snapshot.TotalCravings > 0;
@@ -412,9 +426,11 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
 
         PopulateRecovery(snapshot.Recovery, culture);
 
-        SavingsText = snapshot.ApproximateSavings is { } savings
-            ? _localization.GetString(LocalizationKeys.DashboardSavings) + ": " +
-              FormatCurrency(culture, savings)
+        // کارت مالی، مبلغ روز جاری را نشان می‌دهد تا ثبت یک مقاومت معتبر فوراً
+        // بازخورد قابل فهم بدهد. جمع کل تقریبی همچنان در Snapshot Core حفظ می‌شود.
+        SavingsText = result.DailySavedAmount is { } dailySavings &&
+                      !string.IsNullOrWhiteSpace(result.DailySavingsCurrencyCode)
+            ? FormatCurrency(culture, dailySavings, result.DailySavingsCurrencyCode)
             : _localization.GetString(LocalizationKeys.DashboardSavingsUnavailable);
     }
 
@@ -434,6 +450,7 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
         RecoveryStageTitle = _localization.GetString(StageTitleKey(recovery.Stage));
         RecoveryStageDescription = _localization.GetString(StageDescriptionKey(recovery.Stage));
         RecoveryProgress = Math.Clamp(recovery.ProgressPercent / 100.0, 0.0, 1.0);
+        RecoveryImageSource = RecoveryImageFor(RecoveryJourneyCalculator.Calculate(recovery).Stage);
 
         // برای آخرین مرحله، «مرحلهٔ بعدی» وجود ندارد.
         RecoveryNextStageText = recovery.Stage >= RecoveryStage.Stage7
@@ -443,6 +460,14 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
                 _localization.GetString(LocalizationKeys.RecoveryNextStage),
                 _localization.GetString(StageTitleKey(recovery.Stage + 1)));
     }
+
+    private static string RecoveryImageFor(RecoveryJourneyStage stage) => stage switch
+    {
+        RecoveryJourneyStage.Garden => "niko_recovery_stage_2.png",
+        RecoveryJourneyStage.Forest => "niko_recovery_stage_3.png",
+        RecoveryJourneyStage.Haven => "niko_recovery_stage_4.png",
+        _ => "niko_recovery_stage_1.png",
+    };
 
     private static string StageTitleKey(RecoveryStage stage)
     {
@@ -509,9 +534,9 @@ public sealed class DashboardViewModel : INotifyPropertyChanged
         };
     }
 
-    private static string FormatCurrency(CultureInfo culture, decimal amount)
+    private static string FormatCurrency(CultureInfo culture, decimal amount, string currencyCode)
     {
-        return amount.ToString("C", culture);
+        return string.Concat(amount.ToString("N2", culture), " ", currencyCode);
     }
 
     private bool SetField<T>(ref T field, T value, [CallerMemberName] string? name = null)

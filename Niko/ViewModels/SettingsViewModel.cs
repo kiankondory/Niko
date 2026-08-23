@@ -34,6 +34,7 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
     private readonly ExternalCoachPrivacyGateway _externalCoachGateway;
     private readonly IWidgetRefreshService _widgetRefresh;
     private readonly IAppThemeService _appThemeService;
+    private readonly IAppMotionService _appMotionService;
 
     private string _cigarettesPerDayText = string.Empty;
     private string _pricePerCigaretteText = string.Empty;
@@ -55,6 +56,7 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
     private ExternalCoachAvailabilityState _externalAvailabilityState = ExternalCoachAvailabilityState.NotConfigured;
     private ThemeOptionDisplay _selectedTheme;
     private IReadOnlyList<ThemeOptionDisplay> _themeOptions = Array.Empty<ThemeOptionDisplay>();
+    private bool _reduceMotion;
 
     public SettingsViewModel(
         SaveUserSettingsUseCase useCase,
@@ -62,7 +64,8 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
         CoachUseCase coachUseCase,
         ExternalCoachPrivacyGateway externalCoachGateway,
         IWidgetRefreshService widgetRefresh,
-        IAppThemeService appThemeService)
+        IAppThemeService appThemeService,
+        IAppMotionService appMotionService)
     {
         _useCase = useCase;
         _localization = localization;
@@ -70,13 +73,15 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
         _externalCoachGateway = externalCoachGateway;
         _widgetRefresh = widgetRefresh;
         _appThemeService = appThemeService;
+        _appMotionService = appMotionService;
         _localization.LocaleChanged += OnLocaleChanged;
         AvatarOptions = AvatarOptionsCatalog.All;
         CurrencyOptions = BuildCurrencyOptions();
         LanguageOptions = SupportedLocales.All
             .Select(option => new LanguageOptionDisplay(
                 option,
-                _localization.GetString(option.NativeNameKey)))
+                _localization.GetString(option.NativeNameKey),
+                FlagFor(option.Code)))
             .ToList();
         ThemeOptions = BuildThemeOptions();
         _selectedAvatar = AvatarOptions[0];
@@ -85,6 +90,7 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
             string.Equals(option.Code, _localization.CurrentLocale, StringComparison.OrdinalIgnoreCase) ||
             option.Code.Equals("en", StringComparison.OrdinalIgnoreCase));
         _selectedTheme = ThemeOptions.First(option => option.Mode == _appThemeService.Current);
+        _reduceMotion = _appMotionService.ReduceMotion;
         SaveCommand = new Command(async () => await SaveAsync());
         NotificationsCommand = new Command(async () => await Shell.Current.GoToAsync("NotificationsPage"));
         PrivacyDataCommand = new Command(async () => await Shell.Current.GoToAsync("PrivacyDataPage"));
@@ -343,6 +349,22 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
 
     public bool IsLanguageFallback => !SelectedLanguage.IsFullyTranslated;
 
+    public string ReduceMotionLabel => _localization.GetString(LocalizationKeys.ReduceMotion);
+
+    public string ReduceMotionDescription => _localization.GetString(LocalizationKeys.ReduceMotionDescription);
+
+    public bool ReduceMotion
+    {
+        get => _reduceMotion;
+        set
+        {
+            if (SetField(ref _reduceMotion, value) && !_isLoading)
+            {
+                _appMotionService.SetReduceMotion(value);
+            }
+        }
+    }
+
     private void OnLocaleChanged(object? sender, EventArgs e)
     {
         ThemeOptions = BuildThemeOptions();
@@ -380,6 +402,7 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
         AllowAggregatedProgress = coach.AllowAggregatedProgressContext;
         AllowCravingContext = coach.AllowCravingContext;
         StatusMessage = string.Empty;
+        ReduceMotion = _appMotionService.ReduceMotion;
         _isLoading = false;
     }
 
@@ -395,6 +418,13 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
             AllowAggregatedProgressContext = AllowAggregatedProgress,
             AllowCravingContext = AllowCravingContext,
         });
+
+        if (result.IsValid)
+        {
+            // ویجت مبلغ و کد ارز را از خلاصهٔ Core می‌خواند؛ پس از ذخیرهٔ موفق
+            // تنظیمات باید فوراً بازخوانی شود تا ارز جدید روی Launcher بماند.
+            await _widgetRefresh.RequestRefreshAsync();
+        }
 
         StatusMessage = result.IsValid
             ? _localization.GetString(LocalizationKeys.ProfileSaved)
@@ -455,11 +485,52 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
         };
     }
 
-    private static int? ParseInt(string? text)
-        => int.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture, out var v) ? v : null;
+    private int? ParseInt(string? text)
+    {
+        var normalized = NormalizeLocalizedNumber(text);
+        return int.TryParse(normalized, NumberStyles.Integer, CultureInfo.InvariantCulture, out var value)
+            ? value
+            : null;
+    }
 
-    private static decimal? ParseDecimal(string? text)
-        => decimal.TryParse(text, NumberStyles.Number, CultureInfo.InvariantCulture, out var v) ? v : null;
+    private decimal? ParseDecimal(string? text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return null;
+        }
+
+        // ابتدا فرهنگ فعال را می‌پذیریم (برای جداکنندهٔ اعشاری محلی) و سپس
+        // ارقام فارسی/عربی را به ورودی invariant تبدیل می‌کنیم؛ این مقدارها
+        // پیش از رسیدن به Core فقط متن ارائه‌اند.
+        var culture = CultureInfo.GetCultureInfo(_localization.CurrentLocale);
+        if (decimal.TryParse(text, NumberStyles.Number, culture, out var localizedValue))
+        {
+            return localizedValue;
+        }
+
+        var normalized = NormalizeLocalizedNumber(text);
+        return decimal.TryParse(normalized, NumberStyles.Number, CultureInfo.InvariantCulture, out var invariantValue)
+            ? invariantValue
+            : null;
+    }
+
+    private static string NormalizeLocalizedNumber(string? text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return string.Empty;
+        }
+
+        return text
+            .Replace('۰', '0').Replace('۱', '1').Replace('۲', '2').Replace('۳', '3').Replace('۴', '4')
+            .Replace('۵', '5').Replace('۶', '6').Replace('۷', '7').Replace('۸', '8').Replace('۹', '9')
+            .Replace('٠', '0').Replace('١', '1').Replace('٢', '2').Replace('٣', '3').Replace('٤', '4')
+            .Replace('٥', '5').Replace('٦', '6').Replace('٧', '7').Replace('٨', '8').Replace('٩', '9')
+            .Replace('٫', '.')
+            .Replace("٬", string.Empty)
+            .Trim();
+    }
 
     private string ErrorKey(UserSettingsValidationResult error)
     {
@@ -487,14 +558,40 @@ public sealed class SettingsViewModel : INotifyPropertyChanged
 
     public sealed record LanguageOptionDisplay(
         SupportedLocale Locale,
-        string DisplayName)
+        string DisplayName,
+        string Flag)
     {
         public string Code => Locale.Code;
 
         public bool IsFullyTranslated => Locale.IsFullyTranslated;
 
         public bool IsRightToLeft => Locale.IsRightToLeft;
+
+        public string DisplayLabel => $"{Flag}  {DisplayName}";
     }
+
+    /// <summary>نماد پرچم فقط جزئی از ارائهٔ locale است و در Core ذخیره نمی‌شود.</summary>
+    private static string FlagFor(string localeCode)
+        => localeCode switch
+        {
+            "en" => "🇺🇸",
+            "fa" => "🇮🇷",
+            "ar" => "🇸🇦",
+            "de" => "🇩🇪",
+            "es" => "🇪🇸",
+            "fr" => "🇫🇷",
+            "hi" => "🇮🇳",
+            "id" => "🇮🇩",
+            "ja" => "🇯🇵",
+            "ko" => "🇰🇷",
+            "pt-BR" => "🇧🇷",
+            "ru" => "🇷🇺",
+            "tr" => "🇹🇷",
+            "uk" => "🇺🇦",
+            "zh-Hans" => "🇨🇳",
+            "zh-Hant" => "🇹🇼",
+            _ => "🌐",
+        };
 
     public sealed record CurrencyOptionDisplay(string Code, string DisplayName);
 

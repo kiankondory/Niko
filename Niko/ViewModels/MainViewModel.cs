@@ -30,6 +30,7 @@ public sealed class MainViewModel : INotifyPropertyChanged
     private string _statusMessage = string.Empty;
     private int _smokedToday;
     private int _resistedToday;
+    private int _cravingsToday;
     private bool _isStatusSuccess;
 
     public MainViewModel(
@@ -72,6 +73,11 @@ public sealed class MainViewModel : INotifyPropertyChanged
         System.Globalization.CultureInfo.GetCultureInfo(_localization.CurrentLocale),
         _localization.GetString(LocalizationKeys.QuickLogResistedToday),
         _resistedToday);
+
+    public string CravingsTodayText => string.Format(
+        System.Globalization.CultureInfo.GetCultureInfo(_localization.CurrentLocale),
+        _localization.GetString(LocalizationKeys.QuickLogCravingsToday),
+        _cravingsToday);
 
     public string SettingsEntryLabel => _localization.GetString(LocalizationKeys.SettingsEntry);
 
@@ -120,8 +126,10 @@ public sealed class MainViewModel : INotifyPropertyChanged
         var summary = (await _dashboard.ExecuteAsync()).DailySummary;
         _smokedToday = summary.SmokedToday;
         _resistedToday = summary.ResistedToday;
+        _cravingsToday = summary.CravingsToday;
         OnPropertyChanged(nameof(SmokedTodayText));
         OnPropertyChanged(nameof(ResistedTodayText));
+        OnPropertyChanged(nameof(CravingsTodayText));
     }
 
     private void OnLocaleChanged(object? sender, EventArgs e)

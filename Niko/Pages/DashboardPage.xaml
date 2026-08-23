@@ -89,13 +89,20 @@
                     <Border Style="{StaticResource CardBorder}">
                         <VerticalStackLayout Spacing="8">
                             <Label Text="{Binding RecoveryTitle}" Style="{StaticResource SectionTitle}" />
-                            <VerticalStackLayout Spacing="8" IsVisible="{Binding IsRecoveryAvailable}">
-                                <Label Text="{Binding RecoveryStageTitle}" Style="{StaticResource FormLabel}" />
-                                <Label Text="{Binding RecoveryProgressLabel}" Style="{StaticResource BodyMuted}" />
-                                <ProgressBar x:Name="RecoveryProgressBar" Progress="{Binding RecoveryProgress}" HeightRequest="10" />
-                                <Label Text="{Binding RecoveryStageDescription}" Style="{StaticResource BodyMuted}" />
-                                <Label Text="{Binding RecoveryNextStageText}" Style="{StaticResource BodyMuted}" />
-                            </VerticalStackLayout>
+                            <Grid ColumnDefinitions="94,*" ColumnSpacing="10" IsVisible="{Binding IsRecoveryAvailable}">
+                                <Image Source="{Binding RecoveryImageSource}"
+                                       HeightRequest="136"
+                                       WidthRequest="94"
+                                       Aspect="AspectFit"
+                                       VerticalOptions="Center" />
+                                <VerticalStackLayout Grid.Column="1" Spacing="8" VerticalOptions="Center">
+                                    <Label Text="{Binding RecoveryStageTitle}" Style="{StaticResource FormLabel}" />
+                                    <Label Text="{Binding RecoveryProgressLabel}" Style="{StaticResource BodyMuted}" />
+                                    <ProgressBar x:Name="RecoveryProgressBar" Progress="{Binding RecoveryProgress}" HeightRequest="10" />
+                                    <Label Text="{Binding RecoveryStageDescription}" Style="{StaticResource BodyMuted}" />
+                                    <Label Text="{Binding RecoveryNextStageText}" Style="{StaticResource BodyMuted}" />
+                                </VerticalStackLayout>
+                            </Grid>
                             <Label Text="{Binding RecoveryUnavailableText}" Style="{StaticResource BodyMuted}" IsVisible="{Binding IsRecoveryUnavailable}" />
                             <Label Text="{Binding RecoveryDisclaimer}" Style="{StaticResource BodyMuted}" FontSize="11" />
                         </VerticalStackLayout>
@@ -130,8 +137,12 @@
                     </VerticalStackLayout>
                 </VerticalStackLayout>
 
-                <Border Style="{StaticResource CardBorder}" IsVisible="{Binding IsEmpty}">
-                    <Label Text="{Binding DashboardEmptyText}" Style="{StaticResource BodyMuted}" />
+                <Border Style="{StaticResource HeroCard}" IsVisible="{Binding IsEmpty}" Padding="22">
+                    <VerticalStackLayout Spacing="12" HorizontalOptions="Center">
+                        <Label Text="{Binding DashboardEmptyText}" Style="{StaticResource HeroTitle}" HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding RecoveryUnavailableText}" Style="{StaticResource HeroBody}" HorizontalTextAlignment="Center" />
+                        <Button Text="{Binding StartLoggingText}" Command="{Binding StartLoggingCommand}" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
                 </Border>
             </VerticalStackLayout>
         </ScrollView>

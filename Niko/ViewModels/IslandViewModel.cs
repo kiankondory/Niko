@@ -12,12 +12,19 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using Niko.Core.Abstractions;
 using Niko.Core.Domain;
+using Niko.Core.Domain.Recovery;
+using Niko.Core.Domain.Island;
 using Niko.Core.Localization;
 using Niko.Core.UseCases.Dashboard;
 
 namespace Niko.ViewModels;
 
 public sealed record IslandMilestoneDisplay(string DaysText, string StatusText, string Icon);
+public sealed record IslandDailyReportDisplay(
+    string DateText,
+    string SmokedText,
+    string ResistedText,
+    string SavedText);
 
 public sealed class IslandViewModel : INotifyPropertyChanged
 {
@@ -27,7 +34,10 @@ public sealed class IslandViewModel : INotifyPropertyChanged
     private bool _hasData;
     private string _streakText = string.Empty;
     private string _nextMilestoneText = string.Empty;
+    private string _journeyStageText = string.Empty;
+    private string _islandImageSource = "niko_island_stage_1.png";
     private double _progress;
+    private string _cumulativeSavingsText = string.Empty;
 
     public IslandViewModel(DashboardUseCase dashboard, ILocalizationService localization)
     {
@@ -49,13 +59,26 @@ public sealed class IslandViewModel : INotifyPropertyChanged
     public string NextMilestoneLabel => _localization.GetString(LocalizationKeys.IslandNextMilestone);
     public string ProgressLabel => _localization.GetString(LocalizationKeys.IslandProgress);
     public string EmptyText => _localization.GetString(LocalizationKeys.IslandEmpty);
+    public string JourneyTitle => _localization.GetString(LocalizationKeys.IslandJourneyTitle);
+    public string JourneyUnavailableText => _localization.GetString(LocalizationKeys.IslandJourneyUnavailable);
+    public string DailyReportsTitle => _localization.GetString(LocalizationKeys.IslandDailyReportsTitle);
+    public string ReportDateLabel => _localization.GetString(LocalizationKeys.IslandReportDate);
+    public string ReportSmokedLabel => _localization.GetString(LocalizationKeys.IslandReportSmoked);
+    public string ReportResistedLabel => _localization.GetString(LocalizationKeys.IslandReportResisted);
+    public string ReportSavedLabel => _localization.GetString(LocalizationKeys.IslandReportSaved);
+    public string CumulativeSavingsLabel => _localization.GetString(LocalizationKeys.IslandCumulativeSavings);
+    public string SavingsUnavailableText => _localization.GetString(LocalizationKeys.IslandSavingsUnavailable);
     public bool IsLoading { get => _isLoading; private set => Set(ref _isLoading, value); }
     public bool HasData { get => _hasData; private set => Set(ref _hasData, value); }
     public bool IsEmpty => !HasData && !IsLoading;
     public string StreakText { get => _streakText; private set => Set(ref _streakText, value); }
     public string NextMilestoneText { get => _nextMilestoneText; private set => Set(ref _nextMilestoneText, value); }
     public double Progress { get => _progress; private set => Set(ref _progress, value); }
+    public string JourneyStageText { get => _journeyStageText; private set => Set(ref _journeyStageText, value); }
+    public string IslandImageSource { get => _islandImageSource; private set => Set(ref _islandImageSource, value); }
+    public string CumulativeSavingsText { get => _cumulativeSavingsText; private set => Set(ref _cumulativeSavingsText, value); }
     public ObservableCollection<IslandMilestoneDisplay> Milestones { get; } = new();
+    public ObservableCollection<IslandDailyReportDisplay> DailyReports { get; } = new();
     public Command RefreshCommand { get; }
 
     public async Task LoadAsync()
@@ -63,12 +86,32 @@ public sealed class IslandViewModel : INotifyPropertyChanged
         IsLoading = true;
         try
         {
-            var snapshot = (await _dashboard.ExecuteAsync()).Snapshot;
+            var dashboard = await _dashboard.ExecuteAsync();
+            var snapshot = dashboard.Snapshot;
             var culture = CultureInfo.GetCultureInfo(_localization.CurrentLocale);
             HasData = snapshot.TotalSmoked + snapshot.TotalResisted + snapshot.TotalCravings > 0;
             StreakText = snapshot.CurrentStreakDays.ToString(culture);
             NextMilestoneText = snapshot.NextMilestoneDays.ToString(culture);
             Progress = Math.Clamp(snapshot.MilestoneProgressPercent / 100d, 0d, 1d);
+            var journey = RecoveryJourneyCalculator.Calculate(snapshot.Recovery);
+            IslandImageSource = ImageSourceFor(journey.Stage);
+            JourneyStageText = journey.IsAvailable
+                ? _localization.GetString(JourneyStageKey(journey.Stage))
+                : JourneyUnavailableText;
+            CumulativeSavingsText = FormatMoney(dashboard.IslandCumulativeSavings, dashboard.DailySavingsCurrencyCode, culture);
+            DailyReports.Clear();
+            // تاریخچه در Core کامل می‌ماند؛ Island فقط پنجرهٔ فشردهٔ ۱۵ روز اخیر را نمایش می‌دهد.
+            var reports = dashboard.IslandDailyReports.AsEnumerable().Reverse().Take(15).ToArray();
+            foreach (var report in reports)
+            {
+                DailyReports.Add(new IslandDailyReportDisplay(
+                    report.Date.ToString("d", culture),
+                    string.Format(culture, _localization.GetString(LocalizationKeys.IslandSmokedValue), report.SmokedCount),
+                    string.Format(culture, _localization.GetString(LocalizationKeys.IslandResistedValue), report.ResistedCount),
+                    report.SavedAmount is { } saved
+                        ? string.Format(culture, _localization.GetString(LocalizationKeys.IslandDailySavedValue), FormatMoney(saved, dashboard.DailySavingsCurrencyCode, culture))
+                        : SavingsUnavailableText));
+            }
             Milestones.Clear();
             foreach (var milestone in snapshot.Milestones)
             {
@@ -96,6 +139,27 @@ public sealed class IslandViewModel : INotifyPropertyChanged
             OnChanged(nameof(IsEmpty));
         }
     }
+
+    private string FormatMoney(decimal? amount, string? currencyCode, CultureInfo culture) =>
+        amount is { } value && !string.IsNullOrWhiteSpace(currencyCode)
+            ? $"{value.ToString("N2", culture)} {currencyCode}"
+            : SavingsUnavailableText;
+
+    private static string ImageSourceFor(RecoveryJourneyStage stage) => stage switch
+    {
+        RecoveryJourneyStage.Garden => "niko_island_stage_2.png",
+        RecoveryJourneyStage.Forest => "niko_island_stage_3.png",
+        RecoveryJourneyStage.Haven => "niko_island_stage_4.png",
+        _ => "niko_island_stage_1.png",
+    };
+
+    private static string JourneyStageKey(RecoveryJourneyStage stage) => stage switch
+    {
+        RecoveryJourneyStage.Garden => LocalizationKeys.IslandStageGarden,
+        RecoveryJourneyStage.Forest => LocalizationKeys.IslandStageForest,
+        RecoveryJourneyStage.Haven => LocalizationKeys.IslandStageHaven,
+        _ => LocalizationKeys.IslandStageSeedling,
+    };
 
     private void Set<T>(ref T field, T value, [System.Runtime.CompilerServices.CallerMemberName] string? name = null)
     {

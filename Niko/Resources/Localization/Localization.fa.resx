@@ -28,6 +28,7 @@
   <data name="QuickLog.Subtitle" xml:space="preserve"><value>لحظه‌ای را که می‌خواهی ثبت کنی انتخاب کن.</value></data>
   <data name="QuickLog.SmokedToday" xml:space="preserve"><value>امروز: {0}</value></data>
   <data name="QuickLog.ResistedToday" xml:space="preserve"><value>امروز: {0}</value></data>
+  <data name="QuickLog.CravingsToday" xml:space="preserve"><value>امروز: {0}</value></data>
   <data name="QuickLog.Success.Smoked" xml:space="preserve"><value>مصرف سیگار ثبت شد.</value></data>
   <data name="QuickLog.Success.Resisted" xml:space="preserve"><value>مقاومتت ثبت شد.</value></data>
   <data name="QuickLog.Success.Craving" xml:space="preserve"><value>هوس ثبت شد.</value></data>
@@ -449,7 +450,22 @@
   <data name="PrivacyData.Title" xml:space="preserve"><value>حریم خصوصی و داده</value></data>
   <data name="PrivacyData.Description" xml:space="preserve"><value>پروفایل و گزارش‌های تو روی این دستگاه می‌مانند، مگر اینکه در آینده آگاهانه گزینهٔ اشتراک‌گذاری را انتخاب کنی.</value></data>
   <data name="PrivacyData.LocalOnly" xml:space="preserve"><value>نیکو آفلاین کار می‌کند و در این نسخه پروفایل یا دادهٔ مصرف تو را به سرویس خارجی ارسال نمی‌کند.</value></data>
-  <data name="PrivacyData.Controls" xml:space="preserve"><value>کنترل‌های خروجی گرفتن و حذف داده با رضایت و مسیر بازیابی مستند اضافه خواهند شد.</value></data>
+  <data name="PrivacyData.Controls" xml:space="preserve"><value>خروجی تا زمانی که خودت محل اشتراکش را انتخاب نکنی روی دستگاه می‌ماند. حذف به قفل دستگاه نیاز دارد.</value></data>
+  <data name="PrivacyData.Export.Title" xml:space="preserve"><value>خروجی از داده‌های محلی</value></data>
+  <data name="PrivacyData.Export.Description" xml:space="preserve"><value>یک نسخهٔ JSON محلی از پروفایل، تنظیمات و گزارش‌ها بساز. نیکو آن را جایی ارسال نمی‌کند.</value></data>
+  <data name="PrivacyData.Export.Action" xml:space="preserve"><value>خروجی گرفتن از داده‌ها</value></data>
+  <data name="PrivacyData.Export.Success" xml:space="preserve"><value>خروجی محلی آمادهٔ اشتراک‌گذاری است.</value></data>
+  <data name="PrivacyData.Export.Error" xml:space="preserve"><value>خروجی آماده نشد؛ داده‌ها تغییری نکرده‌اند.</value></data>
+  <data name="PrivacyData.Erase.Title" xml:space="preserve"><value>پاک‌سازی داده‌های محلی</value></data>
+  <data name="PrivacyData.Erase.Description" xml:space="preserve"><value>پروفایل، تنظیمات، ترجیحات مربی و گزارش‌های محلی نیکو از این دستگاه پاک می‌شوند. این کار بازگشت‌پذیر نیست.</value></data>
+  <data name="PrivacyData.Erase.Action" xml:space="preserve"><value>پاک‌سازی داده‌های محلی</value></data>
+  <data name="PrivacyData.Erase.Confirm.Title" xml:space="preserve"><value>داده‌های نیکو پاک شوند؟</value></data>
+  <data name="PrivacyData.Erase.Confirm.Body" xml:space="preserve"><value>پروفایل، تنظیمات و گزارش‌های محلی نیکو برای همیشه پاک می‌شوند. برای ادامه با قفل دستگاه تأیید کن.</value></data>
+  <data name="PrivacyData.Erase.Confirm.Action" xml:space="preserve"><value>ادامه</value></data>
+  <data name="PrivacyData.Cancel" xml:space="preserve"><value>انصراف</value></data>
+  <data name="PrivacyData.DeviceConfirmationRequired" xml:space="preserve"><value>برای پاک‌سازی با PIN، الگو یا رمز دستگاه تأیید کن. چیزی حذف نشده است.</value></data>
+  <data name="PrivacyData.Erase.Success" xml:space="preserve"><value>داده‌های محلی نیکو پاک شدند؛ برنامه آمادهٔ تنظیم اولیه است.</value></data>
+  <data name="PrivacyData.Erase.Error" xml:space="preserve"><value>داده‌ها پاک نشدند و داده‌های فعلی تغییری نکرده‌اند.</value></data>
   <data name="Coach.Title" xml:space="preserve"><value>مربی هوشمند (پایهٔ محلی)</value></data>
   <data name="Coach.PrivacyNote" xml:space="preserve"><value>به‌طور پیش‌فرض خاموش است. فقط زمینهٔ تجمیعی تأییدشده و به‌صورت محلی استفاده می‌شود؛ یادداشت یا تاریخچهٔ خامی ارسال نمی‌شود.</value></data>
   <data name="Coach.Disabled" xml:space="preserve"><value>مربی هوشمند غیرفعال است.</value></data>
@@ -481,4 +497,39 @@
   <data name="Theme.System" xml:space="preserve"><value>پیروی از تنظیم دستگاه</value></data>
   <data name="Theme.Light" xml:space="preserve"><value>روشن</value></data>
   <data name="Theme.Dark" xml:space="preserve"><value>تیره</value></data>
+  <data name="Accessibility.ReduceMotion" xml:space="preserve"><value>کاهش حرکت</value></data>
+  <data name="Accessibility.ReduceMotionDescription" xml:space="preserve"><value>تغییرات پیشرفت را بدون انیمیشن نمایش بده.</value></data>
+  <data name="Island.JourneyTitle" xml:space="preserve"><value>مسیر بهبود تو</value></data>
+  <data name="Island.JourneyUnavailable" xml:space="preserve"><value>تاریخ ترک را ثبت کن تا مسیر جزیره‌ات شروع شود.</value></data>
+  <data name="Island.Stage.Seedling" xml:space="preserve"><value>ساحل جوانه‌ها</value></data>
+  <data name="Island.Stage.Garden" xml:space="preserve"><value>باغ در حال رشد</value></data>
+  <data name="Island.Stage.Forest" xml:space="preserve"><value>جنگل شکوفا</value></data>
+  <data name="Island.Stage.Haven" xml:space="preserve"><value>پناهگاه سرسبز</value></data>
+  <data name="Island.DailyReportsTitle" xml:space="preserve"><value>گزارش ماهانه · ۱۵ روز اخیر</value></data>
+  <data name="Island.CumulativeSavings" xml:space="preserve"><value>مجموع پس‌انداز از روز شروع</value></data>
+  <data name="Island.SavingsUnavailable" xml:space="preserve"><value>برای دیدن پس‌انداز، قیمت را وارد کنید</value></data>
+  <data name="Island.SmokedValue" xml:space="preserve"><value>مصرف‌شده: {0}</value></data>
+  <data name="Island.ResistedValue" xml:space="preserve"><value>مقاومت‌شده: {0}</value></data>
+  <data name="Island.DailySavedValue" xml:space="preserve"><value>پس‌انداز: {0}</value></data>
+  <data name="Island.MonthlyReportTitle" xml:space="preserve"><value>گزارش ماهانه · ۱۵ روز اخیر</value></data>
+  <data name="Island.ReportDate" xml:space="preserve"><value>تاریخ</value></data>
+  <data name="Island.ReportSmoked" xml:space="preserve"><value>مصرف</value></data>
+  <data name="Island.ReportResisted" xml:space="preserve"><value>مقاومت</value></data>
+  <data name="Island.ReportSaved" xml:space="preserve"><value>پس‌انداز</value></data>
+  <data name="Onboarding.WelcomeTitle" xml:space="preserve"><value>به نیکو خوش آمدی</value></data>
+  <data name="Onboarding.WelcomeBody" xml:space="preserve"><value>فضایی خصوصی و آفلاین برای مسیر پیشرفت تو.</value></data>
+  <data name="Onboarding.LanguageTitle" xml:space="preserve"><value>زبانت را انتخاب کن</value></data>
+  <data name="Onboarding.LanguageBody" xml:space="preserve"><value>هر زمان از تنظیمات می‌توانی آن را تغییر دهی.</value></data>
+  <data name="Onboarding.HomeTitle" xml:space="preserve"><value>خانه</value></data>
+  <data name="Onboarding.HomeBody" xml:space="preserve"><value>پیشرفت و بینش‌های حمایتی خودت را ببین.</value></data>
+  <data name="Onboarding.LogTitle" xml:space="preserve"><value>ثبت سریع</value></data>
+  <data name="Onboarding.LogBody" xml:space="preserve"><value>لحظهٔ سیگار، مقاومت یا هوس را با یک لمس ثبت کن.</value></data>
+  <data name="Onboarding.BattleTitle" xml:space="preserve"><value>نبرد هوس</value></data>
+  <data name="Onboarding.BattleBody" xml:space="preserve"><value>وقتی هوس می‌آید، یک اقدام کوتاه و حمایتی انتخاب کن.</value></data>
+  <data name="Onboarding.IslandTitle" xml:space="preserve"><value>جزیرهٔ تو</value></data>
+  <data name="Onboarding.IslandBody" xml:space="preserve"><value>پیشرفت واقعی تو به رشد جزیره کمک می‌کند.</value></data>
+  <data name="Onboarding.SettingsTitle" xml:space="preserve"><value>تنظیمات</value></data>
+  <data name="Onboarding.SettingsBody" xml:space="preserve"><value>پروفایل، زبان، حریم خصوصی و یادآورها را مدیریت کن.</value></data>
+  <data name="Onboarding.Next" xml:space="preserve"><value>بعدی</value></data>
+  <data name="Onboarding.Start" xml:space="preserve"><value>شروع نیکو</value></data>
 </root>

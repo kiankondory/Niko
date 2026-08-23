@@ -47,15 +47,17 @@
 		<ApplicationId>com.companyname.niko</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
+		<ApplicationDisplayVersion>1.1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>11</ApplicationVersion>
 
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
 		<WindowsPackageType>None</WindowsPackageType>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<!-- Wear Data Layer به AndroidX Lifecycle با حداقل API 23 وابسته است؛ پایین‌تر بردن
+		     minSdk یا override کردن manifest می‌تواند crash زمان اجرا ایجاد کند. -->
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">23.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
@@ -91,6 +93,25 @@
 			   Text="System.Security.Principal.Windows.dll entered the Android reference graph; keep it Windows-only." />
 	</Target>
 
+	<!--
+		برخی bindingهای Google Play Services یک AAR دانلودی را دو بار به
+		XamarinBuildDownloadAndroidAarLibrary اضافه می‌کنند. پیش از import منابع
+		Android آن‌ها را یکتا می‌کنیم تا R.java تکراری تولید نشود. DLL bindingها و
+		قرارداد Wear بدون تغییر می‌مانند.
+	-->
+	<Target Name="DeduplicateGooglePlayServicesAndroidAars"
+			AfterTargets="_XbdRestoreItems_playserviceswearable_18_2_0;_XbdRestoreItems_playservicesbase_18_5_0;_XbdRestoreItems_playservicestasks_18_2_0;_XbdRestoreItems_playservicesbasement_18_4_0"
+			BeforeTargets="_ResolveLibraryProjectImports"
+			Condition="'$(TargetFramework)' == 'net10.0-android'">
+		<RemoveDuplicates Inputs="@(XamarinBuildDownloadAndroidAarLibrary)">
+			<Output TaskParameter="Filtered" ItemName="_NikoUniqueGooglePlayServicesAars" />
+		</RemoveDuplicates>
+		<ItemGroup>
+			<XamarinBuildDownloadAndroidAarLibrary Remove="@(XamarinBuildDownloadAndroidAarLibrary)" />
+			<XamarinBuildDownloadAndroidAarLibrary Include="@(_NikoUniqueGooglePlayServicesAars)" />
+		</ItemGroup>
+	</Target>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
@@ -108,6 +129,18 @@
 		<EmbeddedResource Update="Resources\Localization\Localization.fa.resx" LogicalName="Niko.Resources.Localization.Localization.fa.resources" />
 		<EmbeddedResource Update="Resources\Localization\Localization.ar.resx" LogicalName="Niko.Resources.Localization.Localization.ar.resources" />
 		<EmbeddedResource Update="Resources\Localization\Localization.zh-Hans.resx" LogicalName="Niko.Resources.Localization.Localization.zh-Hans.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.de.resx" LogicalName="Niko.Resources.Localization.Localization.de.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.es.resx" LogicalName="Niko.Resources.Localization.Localization.es.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.fr.resx" LogicalName="Niko.Resources.Localization.Localization.fr.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.hi.resx" LogicalName="Niko.Resources.Localization.Localization.hi.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.id.resx" LogicalName="Niko.Resources.Localization.Localization.id.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.ja.resx" LogicalName="Niko.Resources.Localization.Localization.ja.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.ko.resx" LogicalName="Niko.Resources.Localization.Localization.ko.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.pt-BR.resx" LogicalName="Niko.Resources.Localization.Localization.pt-BR.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.ru.resx" LogicalName="Niko.Resources.Localization.Localization.ru.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.tr.resx" LogicalName="Niko.Resources.Localization.Localization.tr.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.uk.resx" LogicalName="Niko.Resources.Localization.Localization.uk.resources" />
+		<EmbeddedResource Update="Resources\Localization\Localization.zh-Hant.resx" LogicalName="Niko.Resources.Localization.Localization.zh-Hant.resources" />
 	</ItemGroup>
 
 </Project>

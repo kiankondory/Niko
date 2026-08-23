@@ -28,6 +28,7 @@
   <data name="QuickLog.Subtitle" xml:space="preserve"><value>选择你想记录的时刻。</value></data>
   <data name="QuickLog.SmokedToday" xml:space="preserve"><value>今天：{0}</value></data>
   <data name="QuickLog.ResistedToday" xml:space="preserve"><value>今天：{0}</value></data>
+  <data name="QuickLog.CravingsToday" xml:space="preserve"><value>今天：{0}</value></data>
   <data name="QuickLog.Success.Smoked" xml:space="preserve"><value>已记录吸烟。</value></data>
   <data name="QuickLog.Success.Resisted" xml:space="preserve"><value>已记录你的抵抗。</value></data>
   <data name="QuickLog.Success.Craving" xml:space="preserve"><value>已记录烟瘾。</value></data>
@@ -449,7 +450,22 @@
   <data name="PrivacyData.Title" xml:space="preserve"><value>隐私与数据</value></data>
   <data name="PrivacyData.Description" xml:space="preserve"><value>你的个人资料和记录会保留在此设备上，除非你明确选择未来的共享选项。</value></data>
   <data name="PrivacyData.LocalOnly" xml:space="preserve"><value>Niko 支持离线使用；在此版本中不会将你的个人资料或消费数据发送到外部服务。</value></data>
-  <data name="PrivacyData.Controls" xml:space="preserve"><value>导出和删除控制将在具备文档化同意与恢复流程后加入。</value></data>
+  <data name="PrivacyData.Controls" xml:space="preserve"><value>导出内容会保留在本机，直到你选择分享位置。删除需要设备锁确认。</value></data>
+  <data name="PrivacyData.Export.Title" xml:space="preserve"><value>导出本地数据</value></data>
+  <data name="PrivacyData.Export.Description" xml:space="preserve"><value>创建个人资料、设置和记录的本地 JSON 副本。Niko 不会把它发送到任何地方。</value></data>
+  <data name="PrivacyData.Export.Action" xml:space="preserve"><value>导出数据</value></data>
+  <data name="PrivacyData.Export.Success" xml:space="preserve"><value>本地导出已准备好分享。</value></data>
+  <data name="PrivacyData.Export.Error" xml:space="preserve"><value>无法准备导出。你的数据未改变。</value></data>
+  <data name="PrivacyData.Erase.Title" xml:space="preserve"><value>清除本地数据</value></data>
+  <data name="PrivacyData.Erase.Description" xml:space="preserve"><value>从此设备清除 Niko 个人资料、设置、教练偏好和本地记录。此操作无法撤销。</value></data>
+  <data name="PrivacyData.Erase.Action" xml:space="preserve"><value>清除本地数据</value></data>
+  <data name="PrivacyData.Erase.Confirm.Title" xml:space="preserve"><value>清除 Niko 数据？</value></data>
+  <data name="PrivacyData.Erase.Confirm.Body" xml:space="preserve"><value>这会永久清除本地 Niko 个人资料、设置和记录。请用设备锁确认后继续。</value></data>
+  <data name="PrivacyData.Erase.Confirm.Action" xml:space="preserve"><value>继续</value></data>
+  <data name="PrivacyData.Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="PrivacyData.DeviceConfirmationRequired" xml:space="preserve"><value>请使用设备 PIN、图案或密码确认清除。没有删除任何内容。</value></data>
+  <data name="PrivacyData.Erase.Success" xml:space="preserve"><value>本地 Niko 数据已清除，应用已可重新设置。</value></data>
+  <data name="PrivacyData.Erase.Error" xml:space="preserve"><value>无法清除数据。现有数据未改变。</value></data>
   <data name="Coach.Title" xml:space="preserve"><value>AI 教练（本地基础）</value></data>
   <data name="Coach.PrivacyNote" xml:space="preserve"><value>默认关闭。仅在本地使用经过批准的汇总信息；不会使用笔记或原始事件历史。</value></data>
   <data name="Coach.Disabled" xml:space="preserve"><value>AI 教练已关闭。</value></data>
@@ -481,4 +497,39 @@
   <data name="Theme.System" xml:space="preserve"><value>跟随设备设置</value></data>
   <data name="Theme.Light" xml:space="preserve"><value>浅色</value></data>
   <data name="Theme.Dark" xml:space="preserve"><value>深色</value></data>
+  <data name="Accessibility.ReduceMotion" xml:space="preserve"><value>减少动画</value></data>
+  <data name="Accessibility.ReduceMotionDescription" xml:space="preserve"><value>不使用动画显示进度变化。</value></data>
+  <data name="Island.JourneyTitle" xml:space="preserve"><value>你的恢复旅程</value></data>
+  <data name="Island.JourneyUnavailable" xml:space="preserve"><value>添加戒烟日期，开始你的岛屿旅程。</value></data>
+  <data name="Island.Stage.Seedling" xml:space="preserve"><value>新芽海岸</value></data>
+  <data name="Island.Stage.Garden" xml:space="preserve"><value>成长花园</value></data>
+  <data name="Island.Stage.Forest" xml:space="preserve"><value>繁茂森林</value></data>
+  <data name="Island.Stage.Haven" xml:space="preserve"><value>繁荣港湾</value></data>
+  <data name="Island.DailyReportsTitle" xml:space="preserve"><value>月度报告 · 最近15天</value></data>
+  <data name="Island.CumulativeSavings" xml:space="preserve"><value>自戒烟日起累计节省</value></data>
+  <data name="Island.SavingsUnavailable" xml:space="preserve"><value>添加价格设置以查看节省金额</value></data>
+  <data name="Island.SmokedValue" xml:space="preserve"><value>吸烟：{0}</value></data>
+  <data name="Island.ResistedValue" xml:space="preserve"><value>抵抗：{0}</value></data>
+  <data name="Island.DailySavedValue" xml:space="preserve"><value>节省：{0}</value></data>
+  <data name="Island.MonthlyReportTitle" xml:space="preserve"><value>月度报告 · 最近15天</value></data>
+  <data name="Island.ReportDate" xml:space="preserve"><value>日期</value></data>
+  <data name="Island.ReportSmoked" xml:space="preserve"><value>吸烟</value></data>
+  <data name="Island.ReportResisted" xml:space="preserve"><value>抵抗</value></data>
+  <data name="Island.ReportSaved" xml:space="preserve"><value>节省</value></data>
+  <data name="Onboarding.WelcomeTitle" xml:space="preserve"><value>欢迎使用 Niko</value></data>
+  <data name="Onboarding.WelcomeBody" xml:space="preserve"><value>一个保护隐私、优先离线的进度空间。</value></data>
+  <data name="Onboarding.LanguageTitle" xml:space="preserve"><value>选择你的语言</value></data>
+  <data name="Onboarding.LanguageBody" xml:space="preserve"><value>你可以随时在设置中更改。</value></data>
+  <data name="Onboarding.HomeTitle" xml:space="preserve"><value>主页</value></data>
+  <data name="Onboarding.HomeBody" xml:space="preserve"><value>查看你的进度和支持性洞察。</value></data>
+  <data name="Onboarding.LogTitle" xml:space="preserve"><value>快速记录</value></data>
+  <data name="Onboarding.LogBody" xml:space="preserve"><value>轻点一下即可记录吸烟、抵抗或烟瘾时刻。</value></data>
+  <data name="Onboarding.BattleTitle" xml:space="preserve"><value>烟瘾挑战</value></data>
+  <data name="Onboarding.BattleBody" xml:space="preserve"><value>烟瘾来临时，使用一个简短而支持性的行动。</value></data>
+  <data name="Onboarding.IslandTitle" xml:space="preserve"><value>你的岛屿</value></data>
+  <data name="Onboarding.IslandBody" xml:space="preserve"><value>你的真实进展会帮助岛屿成长。</value></data>
+  <data name="Onboarding.SettingsTitle" xml:space="preserve"><value>设置</value></data>
+  <data name="Onboarding.SettingsBody" xml:space="preserve"><value>管理个人资料、语言、隐私和提醒。</value></data>
+  <data name="Onboarding.Next" xml:space="preserve"><value>下一步</value></data>
+  <data name="Onboarding.Start" xml:space="preserve"><value>开始使用 Niko</value></data>
 </root>

@@ -15,6 +15,22 @@
   <data name="AppTitle" xml:space="preserve">
     <value>Niko</value>
   </data>
+  <data name="Onboarding.WelcomeTitle" xml:space="preserve"><value>Welcome to Niko</value></data>
+  <data name="Onboarding.WelcomeBody" xml:space="preserve"><value>A private, offline-first space for your progress.</value></data>
+  <data name="Onboarding.LanguageTitle" xml:space="preserve"><value>Choose your language</value></data>
+  <data name="Onboarding.LanguageBody" xml:space="preserve"><value>You can change it anytime in Settings.</value></data>
+  <data name="Onboarding.HomeTitle" xml:space="preserve"><value>Home</value></data>
+  <data name="Onboarding.HomeBody" xml:space="preserve"><value>See your progress and supportive insights.</value></data>
+  <data name="Onboarding.LogTitle" xml:space="preserve"><value>Quick Log</value></data>
+  <data name="Onboarding.LogBody" xml:space="preserve"><value>Record a smoked, resisted, or craving moment in one tap.</value></data>
+  <data name="Onboarding.BattleTitle" xml:space="preserve"><value>Craving Battle</value></data>
+  <data name="Onboarding.BattleBody" xml:space="preserve"><value>Use a short, supportive action when a craving arrives.</value></data>
+  <data name="Onboarding.IslandTitle" xml:space="preserve"><value>Your Island</value></data>
+  <data name="Onboarding.IslandBody" xml:space="preserve"><value>Your real progress helps your island grow.</value></data>
+  <data name="Onboarding.SettingsTitle" xml:space="preserve"><value>Settings</value></data>
+  <data name="Onboarding.SettingsBody" xml:space="preserve"><value>Manage your profile, language, privacy, and reminders.</value></data>
+  <data name="Onboarding.Next" xml:space="preserve"><value>Next</value></data>
+  <data name="Onboarding.Start" xml:space="preserve"><value>Start Niko</value></data>
   <data name="QuickLog.Smoked" xml:space="preserve">
     <value>I smoked</value>
   </data>
@@ -28,6 +44,7 @@
   <data name="QuickLog.Subtitle" xml:space="preserve"><value>Choose the moment you want to record.</value></data>
   <data name="QuickLog.SmokedToday" xml:space="preserve"><value>Today: {0}</value></data>
   <data name="QuickLog.ResistedToday" xml:space="preserve"><value>Today: {0}</value></data>
+  <data name="QuickLog.CravingsToday" xml:space="preserve"><value>Today: {0}</value></data>
   <data name="QuickLog.Success.Smoked" xml:space="preserve"><value>Smoking recorded.</value></data>
   <data name="QuickLog.Success.Resisted" xml:space="preserve"><value>Your resistance was recorded.</value></data>
   <data name="QuickLog.Success.Craving" xml:space="preserve"><value>Craving recorded.</value></data>
@@ -449,7 +466,22 @@
   <data name="PrivacyData.Title" xml:space="preserve"><value>Privacy and data</value></data>
   <data name="PrivacyData.Description" xml:space="preserve"><value>Your profile and logs stay on this device unless you explicitly choose a future sharing option.</value></data>
   <data name="PrivacyData.LocalOnly" xml:space="preserve"><value>Niko works offline and does not send your profile or consumption data to external services in this build.</value></data>
-  <data name="PrivacyData.Controls" xml:space="preserve"><value>Export and deletion controls will be added with their documented consent and recovery flow.</value></data>
+  <data name="PrivacyData.Controls" xml:space="preserve"><value>Exports stay on this device until you choose where to share them. Deletion requires your device lock.</value></data>
+  <data name="PrivacyData.Export.Title" xml:space="preserve"><value>Export your local data</value></data>
+  <data name="PrivacyData.Export.Description" xml:space="preserve"><value>Create a local JSON copy of your profile, settings, and logs. Niko does not send it anywhere.</value></data>
+  <data name="PrivacyData.Export.Action" xml:space="preserve"><value>Export data</value></data>
+  <data name="PrivacyData.Export.Success" xml:space="preserve"><value>Your local export is ready to share.</value></data>
+  <data name="PrivacyData.Export.Error" xml:space="preserve"><value>We could not prepare the export. Your data is unchanged.</value></data>
+  <data name="PrivacyData.Erase.Title" xml:space="preserve"><value>Erase local data</value></data>
+  <data name="PrivacyData.Erase.Description" xml:space="preserve"><value>Erase your Niko profile, settings, coach preferences, and local logs from this device. This cannot be undone.</value></data>
+  <data name="PrivacyData.Erase.Action" xml:space="preserve"><value>Erase local data</value></data>
+  <data name="PrivacyData.Erase.Confirm.Title" xml:space="preserve"><value>Erase Niko data?</value></data>
+  <data name="PrivacyData.Erase.Confirm.Body" xml:space="preserve"><value>This permanently erases your local Niko profile, settings, and logs. Confirm with your device lock to continue.</value></data>
+  <data name="PrivacyData.Erase.Confirm.Action" xml:space="preserve"><value>Continue</value></data>
+  <data name="PrivacyData.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="PrivacyData.DeviceConfirmationRequired" xml:space="preserve"><value>Confirm with a device PIN, pattern, or password to erase data. Nothing was deleted.</value></data>
+  <data name="PrivacyData.Erase.Success" xml:space="preserve"><value>Your local Niko data was erased. The app is ready for a fresh setup.</value></data>
+  <data name="PrivacyData.Erase.Error" xml:space="preserve"><value>We could not erase the data. Your existing data is unchanged.</value></data>
   <data name="Coach.Title" xml:space="preserve"><value>AI Coach (local foundation)</value></data>
   <data name="Coach.PrivacyNote" xml:space="preserve"><value>Off by default. Only approved aggregated context is used locally; no notes or raw event history.</value></data>
   <data name="Coach.Disabled" xml:space="preserve"><value>AI Coach is disabled.</value></data>
@@ -481,4 +513,23 @@
   <data name="Theme.System" xml:space="preserve"><value>Use device setting</value></data>
   <data name="Theme.Light" xml:space="preserve"><value>Light</value></data>
   <data name="Theme.Dark" xml:space="preserve"><value>Dark</value></data>
+  <data name="Accessibility.ReduceMotion" xml:space="preserve"><value>Reduce motion</value></data>
+  <data name="Accessibility.ReduceMotionDescription" xml:space="preserve"><value>Show progress changes without animation.</value></data>
+  <data name="Island.JourneyTitle" xml:space="preserve"><value>Your recovery journey</value></data>
+  <data name="Island.JourneyUnavailable" xml:space="preserve"><value>Add your quit date to begin your island journey.</value></data>
+  <data name="Island.Stage.Seedling" xml:space="preserve"><value>Seedling shore</value></data>
+  <data name="Island.Stage.Garden" xml:space="preserve"><value>Growing garden</value></data>
+  <data name="Island.Stage.Forest" xml:space="preserve"><value>Thriving forest</value></data>
+  <data name="Island.Stage.Haven" xml:space="preserve"><value>Flourishing haven</value></data>
+  <data name="Island.DailyReportsTitle" xml:space="preserve"><value>Monthly report · last 15 days</value></data>
+  <data name="Island.CumulativeSavings" xml:space="preserve"><value>Total saved since your quit date</value></data>
+  <data name="Island.SavingsUnavailable" xml:space="preserve"><value>Add your price settings to see savings</value></data>
+  <data name="Island.SmokedValue" xml:space="preserve"><value>Smoked: {0}</value></data>
+  <data name="Island.ResistedValue" xml:space="preserve"><value>Resisted: {0}</value></data>
+  <data name="Island.DailySavedValue" xml:space="preserve"><value>Saved: {0}</value></data>
+  <data name="Island.MonthlyReportTitle" xml:space="preserve"><value>Monthly report · last 15 days</value></data>
+  <data name="Island.ReportDate" xml:space="preserve"><value>Date</value></data>
+  <data name="Island.ReportSmoked" xml:space="preserve"><value>Smoked</value></data>
+  <data name="Island.ReportResisted" xml:space="preserve"><value>Resisted</value></data>
+  <data name="Island.ReportSaved" xml:space="preserve"><value>Saved</value></data>
 </root>

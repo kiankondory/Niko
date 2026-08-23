@@ -148,6 +148,9 @@ public sealed class CompanionUseCase : ICompanionAdapter
             SmokedToday = dailySummary.SmokedToday,
             ResistedToday = dailySummary.ResistedToday,
             CravingsToday = dailySummary.CravingsToday,
+            DailySavedAmount = dashboard.DailySavedAmount,
+            DailySavingsCurrencyCode = dashboard.DailySavingsCurrencyCode,
+            AmountPerResistedCigarette = dashboard.AmountPerResistedCigarette,
         };
 
         return CompanionResult<object>.Ok(summary);

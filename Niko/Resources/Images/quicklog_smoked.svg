@@ -1,0 +1,6 @@
+<!-- نام فایل: quicklog_smoked.svg | مسئولیت: آیکن محلی و خنثی ثبت مصرف در Quick Log | لایه: MAUI presentation | قید: بدون متن، دادهٔ خصوصی یا تشویق به مصرف. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="10" y="28" width="40" height="12" rx="6" fill="#E8EEF2"/>
+  <path d="M50 28h5v12h-5z" fill="#E79A4B"/>
+  <path d="M17 24c-3-4 4-6 1-11M29 24c-3-4 4-6 1-11" fill="none" stroke="#8DA2AF" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -91,6 +91,41 @@ public class DashboardUseCaseTests
     }
 
     [Fact]
+    public async Task Execute_WithTodayResistanceAndPrice_ProvidesDailySavings()
+    {
+        _settings.Profile = new UserProfile
+        {
+            PricePerCigarette = 0.5m,
+            CurrencyCode = "USD",
+        };
+        await AddAsync(EventType.Resisted, 10);
+        await AddAsync(EventType.Resisted, 10);
+        await AddAsync(EventType.Resisted, 9);
+
+        var result = await _useCase.ExecuteAsync();
+
+        Assert.Equal(1m, result.DailySavedAmount);
+        Assert.Equal("USD", result.DailySavingsCurrencyCode);
+        Assert.Equal(0.5m, result.AmountPerResistedCigarette);
+    }
+
+    [Fact]
+    public async Task Execute_WithPriceButNoTodayResistance_ExposesZeroDailySavingsAndPerCigaretteValue()
+    {
+        _settings.Profile = new UserProfile
+        {
+            PricePerCigarette = 0.75m,
+            CurrencyCode = "EUR",
+        };
+
+        var result = await _useCase.ExecuteAsync();
+
+        Assert.Equal(0m, result.DailySavedAmount);
+        Assert.Equal("EUR", result.DailySavingsCurrencyCode);
+        Assert.Equal(0.75m, result.AmountPerResistedCigarette);
+    }
+
+    [Fact]
     public async Task Execute_WithoutProfile_ReturnsNullSavings()
     {
         var result = await _useCase.ExecuteAsync();

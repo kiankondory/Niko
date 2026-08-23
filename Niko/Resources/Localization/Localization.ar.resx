@@ -28,6 +28,7 @@
   <data name="QuickLog.Subtitle" xml:space="preserve"><value>اختر اللحظة التي تريد تسجيلها.</value></data>
   <data name="QuickLog.SmokedToday" xml:space="preserve"><value>اليوم: {0}</value></data>
   <data name="QuickLog.ResistedToday" xml:space="preserve"><value>اليوم: {0}</value></data>
+  <data name="QuickLog.CravingsToday" xml:space="preserve"><value>اليوم: {0}</value></data>
   <data name="QuickLog.Success.Smoked" xml:space="preserve"><value>تم تسجيل التدخين.</value></data>
   <data name="QuickLog.Success.Resisted" xml:space="preserve"><value>تم تسجيل مقاومتك.</value></data>
   <data name="QuickLog.Success.Craving" xml:space="preserve"><value>تم تسجيل الرغبة.</value></data>
@@ -449,7 +450,22 @@
   <data name="PrivacyData.Title" xml:space="preserve"><value>الخصوصية والبيانات</value></data>
   <data name="PrivacyData.Description" xml:space="preserve"><value>يبقى ملفك الشخصي وسجلاتك على هذا الجهاز ما لم تختر صراحةً خيار مشاركة مستقبليًا.</value></data>
   <data name="PrivacyData.LocalOnly" xml:space="preserve"><value>يعمل Niko دون اتصال ولا يرسل ملفك الشخصي أو بيانات استهلاكك إلى خدمات خارجية في هذا الإصدار.</value></data>
-  <data name="PrivacyData.Controls" xml:space="preserve"><value>ستُضاف عناصر التصدير والحذف مع موافقتها ومسار الاسترداد الموثق.</value></data>
+  <data name="PrivacyData.Controls" xml:space="preserve"><value>يبقى التصدير على هذا الجهاز حتى تختار مكان مشاركته. يتطلب الحذف قفل الجهاز.</value></data>
+  <data name="PrivacyData.Export.Title" xml:space="preserve"><value>تصدير بياناتك المحلية</value></data>
+  <data name="PrivacyData.Export.Description" xml:space="preserve"><value>أنشئ نسخة JSON محلية من ملفك وإعداداتك وسجلاتك. لا يرسلها Niko إلى أي مكان.</value></data>
+  <data name="PrivacyData.Export.Action" xml:space="preserve"><value>تصدير البيانات</value></data>
+  <data name="PrivacyData.Export.Success" xml:space="preserve"><value>تصديرك المحلي جاهز للمشاركة.</value></data>
+  <data name="PrivacyData.Export.Error" xml:space="preserve"><value>تعذر تجهيز التصدير. لم تتغير بياناتك.</value></data>
+  <data name="PrivacyData.Erase.Title" xml:space="preserve"><value>مسح البيانات المحلية</value></data>
+  <data name="PrivacyData.Erase.Description" xml:space="preserve"><value>امسح ملف Niko وإعداداته وتفضيلات المدرب والسجلات المحلية من هذا الجهاز. لا يمكن التراجع عن ذلك.</value></data>
+  <data name="PrivacyData.Erase.Action" xml:space="preserve"><value>مسح البيانات المحلية</value></data>
+  <data name="PrivacyData.Erase.Confirm.Title" xml:space="preserve"><value>مسح بيانات Niko؟</value></data>
+  <data name="PrivacyData.Erase.Confirm.Body" xml:space="preserve"><value>سيؤدي هذا إلى مسح ملف Niko وإعداداته وسجلاته المحلية نهائيًا. أكّد بقفل جهازك للمتابعة.</value></data>
+  <data name="PrivacyData.Erase.Confirm.Action" xml:space="preserve"><value>متابعة</value></data>
+  <data name="PrivacyData.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="PrivacyData.DeviceConfirmationRequired" xml:space="preserve"><value>أكّد برمز PIN أو النمط أو كلمة مرور الجهاز لمسح البيانات. لم يُحذف شيء.</value></data>
+  <data name="PrivacyData.Erase.Success" xml:space="preserve"><value>تم مسح بيانات Niko المحلية. التطبيق جاهز لإعداد جديد.</value></data>
+  <data name="PrivacyData.Erase.Error" xml:space="preserve"><value>تعذر مسح البيانات. بياناتك الحالية لم تتغير.</value></data>
   <data name="Coach.Title" xml:space="preserve"><value>المدرب الذكي (أساس محلي)</value></data>
   <data name="Coach.PrivacyNote" xml:space="preserve"><value>معطّل افتراضياً. يُستخدم فقط سياق تجميعي معتمد محلياً؛ لا تُستخدم الملاحظات أو السجل الخام.</value></data>
   <data name="Coach.Disabled" xml:space="preserve"><value>المدرب الذكي معطّل.</value></data>
@@ -481,4 +497,39 @@
   <data name="Theme.System" xml:space="preserve"><value>استخدام إعداد الجهاز</value></data>
   <data name="Theme.Light" xml:space="preserve"><value>فاتح</value></data>
   <data name="Theme.Dark" xml:space="preserve"><value>داكن</value></data>
+  <data name="Accessibility.ReduceMotion" xml:space="preserve"><value>تقليل الحركة</value></data>
+  <data name="Accessibility.ReduceMotionDescription" xml:space="preserve"><value>اعرض تغيرات التقدم دون حركة.</value></data>
+  <data name="Island.JourneyTitle" xml:space="preserve"><value>رحلة تعافيك</value></data>
+  <data name="Island.JourneyUnavailable" xml:space="preserve"><value>أضف تاريخ الإقلاع لبدء رحلة جزيرتك.</value></data>
+  <data name="Island.Stage.Seedling" xml:space="preserve"><value>شاطئ البدايات</value></data>
+  <data name="Island.Stage.Garden" xml:space="preserve"><value>حديقة نامية</value></data>
+  <data name="Island.Stage.Forest" xml:space="preserve"><value>غابة مزدهرة</value></data>
+  <data name="Island.Stage.Haven" xml:space="preserve"><value>ملاذ مزهر</value></data>
+  <data name="Island.DailyReportsTitle" xml:space="preserve"><value>التقرير الشهري · آخر 15 يومًا</value></data>
+  <data name="Island.CumulativeSavings" xml:space="preserve"><value>إجمالي التوفير منذ تاريخ الإقلاع</value></data>
+  <data name="Island.SavingsUnavailable" xml:space="preserve"><value>أضف إعدادات السعر لرؤية التوفير</value></data>
+  <data name="Island.SmokedValue" xml:space="preserve"><value>المُدخّن: {0}</value></data>
+  <data name="Island.ResistedValue" xml:space="preserve"><value>تمت مقاومته: {0}</value></data>
+  <data name="Island.DailySavedValue" xml:space="preserve"><value>التوفير: {0}</value></data>
+  <data name="Island.MonthlyReportTitle" xml:space="preserve"><value>التقرير الشهري · آخر 15 يومًا</value></data>
+  <data name="Island.ReportDate" xml:space="preserve"><value>التاريخ</value></data>
+  <data name="Island.ReportSmoked" xml:space="preserve"><value>التدخين</value></data>
+  <data name="Island.ReportResisted" xml:space="preserve"><value>المقاومة</value></data>
+  <data name="Island.ReportSaved" xml:space="preserve"><value>التوفير</value></data>
+  <data name="Onboarding.WelcomeTitle" xml:space="preserve"><value>مرحبًا بك في Niko</value></data>
+  <data name="Onboarding.WelcomeBody" xml:space="preserve"><value>مساحة خاصة تعمل دون اتصال من أجل تقدمك.</value></data>
+  <data name="Onboarding.LanguageTitle" xml:space="preserve"><value>اختر لغتك</value></data>
+  <data name="Onboarding.LanguageBody" xml:space="preserve"><value>يمكنك تغييرها في أي وقت من الإعدادات.</value></data>
+  <data name="Onboarding.HomeTitle" xml:space="preserve"><value>الرئيسية</value></data>
+  <data name="Onboarding.HomeBody" xml:space="preserve"><value>اطّلع على تقدمك والرؤى الداعمة.</value></data>
+  <data name="Onboarding.LogTitle" xml:space="preserve"><value>تسجيل سريع</value></data>
+  <data name="Onboarding.LogBody" xml:space="preserve"><value>سجّل لحظة تدخين أو مقاومة أو رغبة بلمسة واحدة.</value></data>
+  <data name="Onboarding.BattleTitle" xml:space="preserve"><value>مواجهة الرغبة</value></data>
+  <data name="Onboarding.BattleBody" xml:space="preserve"><value>استخدم إجراءً قصيرًا وداعمًا عند وصول الرغبة.</value></data>
+  <data name="Onboarding.IslandTitle" xml:space="preserve"><value>جزيرتك</value></data>
+  <data name="Onboarding.IslandBody" xml:space="preserve"><value>تقدمك الحقيقي يساعد جزيرتك على النمو.</value></data>
+  <data name="Onboarding.SettingsTitle" xml:space="preserve"><value>الإعدادات</value></data>
+  <data name="Onboarding.SettingsBody" xml:space="preserve"><value>أدر ملفك ولغتك وخصوصيتك والتذكيرات.</value></data>
+  <data name="Onboarding.Next" xml:space="preserve"><value>التالي</value></data>
+  <data name="Onboarding.Start" xml:space="preserve"><value>ابدأ Niko</value></data>
 </root>

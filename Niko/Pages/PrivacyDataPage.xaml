@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- مسئولیت: entry point حریم خصوصی و داده؛ وابستگی: ILocalizationService؛ قیود: بدون حذف/ارسال داده در این گام. -->
+<!-- ========================================================================
+     مسئولیت: صفحهٔ export محلی و حذف محافظت‌شدهٔ دادهٔ Niko.
+     وابستگی‌ها و لایه: MAUI UI → PrivacyDataUseCase/تأیید دستگاه؛ بدون منطق SQLite.
+     نکات تغییر و قیود: حذف فقط پس از هشدار و تأیید قفل دستگاه اجرا می‌شود.
+     ======================================================================== -->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Niko.Pages.PrivacyDataPage">
     <ScrollView>
-        <VerticalStackLayout Padding="24,16" Spacing="12">
+        <VerticalStackLayout Padding="24,16" Spacing="14">
             <Label x:Name="TitleLabel" Style="{StaticResource Headline}" />
             <Label x:Name="DescriptionLabel" Style="{StaticResource SubHeadline}" />
             <Label x:Name="LocalOnlyLabel" Style="{StaticResource SubHeadline}" />
-            <Label x:Name="ControlsLabel" Style="{StaticResource SubHeadline}" TextColor="Gray" />
+            <Label x:Name="ControlsLabel" Style="{StaticResource BodyMuted}" />
+            <ActivityIndicator x:Name="BusyIndicator" IsVisible="False" IsRunning="False" />
+            <Border Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="10">
+                    <Label x:Name="ExportTitleLabel" Style="{StaticResource HeroTitle}" FontSize="18" />
+                    <Label x:Name="ExportDescriptionLabel" Style="{StaticResource BodyMuted}" />
+                    <Button x:Name="ExportButton" Clicked="OnExportClicked" Style="{StaticResource OutlineButton}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="10">
+                    <Label x:Name="EraseTitleLabel" Style="{StaticResource HeroTitle}" FontSize="18" TextColor="#FF8D98" />
+                    <Label x:Name="EraseDescriptionLabel" Style="{StaticResource BodyMuted}" />
+                    <Button x:Name="EraseButton" Clicked="OnEraseClicked" BackgroundColor="#7D2431" TextColor="White" />
+                </VerticalStackLayout>
+            </Border>
+            <Label x:Name="StatusLabel" Style="{StaticResource BodyMuted}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

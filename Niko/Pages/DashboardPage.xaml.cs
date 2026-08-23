@@ -9,17 +9,20 @@
 // ============================================================================
 
 using Niko.ViewModels;
+using Niko.Services;
 
 namespace Niko.Pages;
 
 public partial class DashboardPage : ContentPage
 {
     private readonly DashboardViewModel _viewModel;
+    private readonly IAppMotionService _motion;
 
-    public DashboardPage(DashboardViewModel viewModel)
+    public DashboardPage(DashboardViewModel viewModel, IAppMotionService motion)
     {
         InitializeComponent();
         _viewModel = viewModel;
+        _motion = motion;
         BindingContext = viewModel;
     }
 
@@ -34,6 +37,12 @@ public partial class DashboardPage : ContentPage
     {
         if (!_viewModel.IsRecoveryAvailable)
         {
+            return;
+        }
+
+        if (_motion.ReduceMotion)
+        {
+            RecoveryProgressBar.Progress = _viewModel.RecoveryProgress;
             return;
         }
 

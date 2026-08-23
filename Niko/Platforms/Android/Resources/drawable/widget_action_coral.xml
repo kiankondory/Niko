@@ -1,0 +1,2 @@
+<!-- نام فایل: widget_action_coral.xml | مسئولیت: زمینهٔ عمل Craving در ابزارک؛ لایه: Android presentation؛ قید: فقط ظاهر محلی و بدون منطق دامنه. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle"><solid android:color="#FF8C8C"/><corners android:radius="16dp"/></shape>
